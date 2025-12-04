@@ -24,6 +24,9 @@ Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 Override new page creation to use reMarkable 2 dimensions. Designed to allow better interoperability between Move and reMarkable 2.  
 Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 
+### disableSelectionAutoScroll.qmd
+Disable the auto scrolling when moving a selection added in 3.24.
+
 ### fixPageNumberOnSlider.qmd
 3.23 and 3.24 only.  
 Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
