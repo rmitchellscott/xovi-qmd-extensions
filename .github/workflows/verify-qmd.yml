@@ -1,0 +1,132 @@
+name: QMD Compatibility Screenshot
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '3.*/**/*.qmd'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Find highest semver folder
+        id: find-version
+        run: |
+          HIGHEST_VERSION=$(ls -d */ 2>/dev/null | grep -E '^[0-9]+\.[0-9]+/$' | sed 's/\///' | sort -t. -k1,1n -k2,2n | tail -1)
+          if [ -z "$HIGHEST_VERSION" ]; then
+            echo "No version folders found"
+            exit 1
+          fi
+          echo "Found highest version: $HIGHEST_VERSION"
+          echo "version=$HIGHEST_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install chromium --with-deps
+
+      - name: Take screenshot
+        env:
+          VERSION: ${{ steps.find-version.outputs.version }}
+        run: |
+          cat > screenshot.js << 'SCRIPT'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          const path = require('path');
+
+          (async () => {
+            const version = process.env.VERSION;
+            const versionDir = path.join(process.cwd(), version);
+
+            const qmdFiles = fs.readdirSync(versionDir)
+              .filter(f => f.endsWith('.qmd'))
+              .map(f => path.join(versionDir, f));
+
+            if (qmdFiles.length === 0) {
+              console.error(`No .qmd files found in ${versionDir}`);
+              process.exit(1);
+            }
+
+            console.log(`Found ${qmdFiles.length} QMD files in ${version}/`);
+            console.log('Files:', qmdFiles.map(f => path.basename(f)).join(', '));
+
+            const browser = await chromium.launch();
+            const context = await browser.newContext({
+              viewport: { width: 1920, height: 1080 },
+              deviceScaleFactor: 2
+            });
+            const page = await context.newPage();
+
+            const url = `https://qmdverify.scottlabs.io?minVersion=${version}.0&maxVersion=${version}.999`;
+            console.log(`Navigating to: ${url}`);
+            await page.goto(url, { waitUntil: 'networkidle' });
+
+            console.log('Uploading files...');
+            await page.setInputFiles('input[type="file"]', qmdFiles);
+
+            console.log('Clicking Compare button...');
+            await page.click('button:has-text("Compare")');
+
+            console.log('Waiting for results page...');
+            await page.waitForURL('**/results**', { timeout: 120000 });
+
+            console.log('Waiting for table to render...');
+            await page.waitForSelector('table', { timeout: 30000 });
+            await page.waitForTimeout(2000);
+
+            if (!fs.existsSync('assets')) {
+              fs.mkdirSync('assets', { recursive: true });
+            }
+
+            // Move mouse away from table to avoid hover effects
+            await page.mouse.move(0, 0);
+
+            const table = await page.locator('table');
+            await table.screenshot({ path: 'assets/compatibility-matrix.png' });
+            console.log('Screenshot saved to assets/compatibility-matrix.png (light)');
+
+            console.log('Switching to dark mode...');
+            await page.evaluate(() => {
+              localStorage.setItem('theme', 'dark');
+              document.documentElement.classList.add('dark');
+            });
+            await page.waitForTimeout(1500);
+
+            await table.screenshot({ path: 'assets/compatibility-matrix-dark.png' });
+            console.log('Screenshot saved to assets/compatibility-matrix-dark.png (dark)');
+
+            await browser.close();
+          })();
+          SCRIPT
+
+          node screenshot.js
+
+      - name: Commit screenshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add assets/compatibility-matrix.png assets/compatibility-matrix-dark.png
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update compatibility matrix screenshots for ${{ steps.find-version.outputs.version }}"
+            git push
+          fi
