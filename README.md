@@ -33,6 +33,9 @@ Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 ### disableSelectionAutoScroll.qmd
 Disable the auto scrolling when moving a selection added in 3.24.
 
+### extendListTitleWidth.qmd
+Remove extra right margin for titles in list view to fill more of the available space.
+
 ### fixPageNumberOnSlider.qmd
 3.23 and 3.24 only.  
 Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
