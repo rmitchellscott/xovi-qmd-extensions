@@ -14,11 +14,8 @@ Extensions have been tested only for the latest reMarkable OS version, though th
 
 Beta releases are not tested nor supported.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/compatibility-matrix-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="assets/compatibility-matrix.png">
-  <img src="assets/compatibility-matrix.png" alt="Compatibility Matrix">
-</picture>
+<!-- compat:begin -->
+<!-- compat:end -->
 
 ## Original Extensions
 
