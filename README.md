@@ -15,6 +15,22 @@ Extensions have been tested only for the latest reMarkable OS version, though th
 Beta releases are not tested nor supported.
 
 <!-- compat:begin -->
+| File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
+| ---- | ------------ | ------------ | --------- | -------------- |
+| createPagesPaperProSize.qmd | ✅ | ✅ | ✅ | ✅ |
+| createPagesRM2Size.qmd | ✅ | ✅ | ✅ | ✅ |
+| disableSelectionAutoScroll.qmd | ✅ | ✅ | ✅ | ✅ |
+| extendListTitleWidth.qmd | ✅ | ✅ | ✅ | ✅ |
+| fixPageNumberOnSlider.qmd | ✅ | ✅ | ✅ | ✅ |
+| gestures.qmd | ✅ | ✅ | ✅ | ✅ |
+| hideDevModeIcon.qmd | ✅ | ✅ | ✅ | ✅ |
+| hidePageLabelsInFullscreen.qmd | ✅ | ✅ | ✅ | ✅ |
+| hideZoomIndicator.qmd | ✅ | ✅ | ✅ | ✅ |
+| miniLightSleep.qmd | ✅ | ✅ | ✅ | ✅ |
+| preventNotebookZoomOut.qmd | ✅ | ✅ | ✅ | ✅ |
+| quickSettingsClock.qmd | ✅ | ✅ | ✅ | ✅ |
+| quickSettingsScreenshot.qmd | ✅ | ✅ | ✅ | ✅ |
+| unlockMethodsContent.qmd | ✅ | ✅ | ✅ | ✅ |
 <!-- compat:end -->
 
 ## Original Extensions
