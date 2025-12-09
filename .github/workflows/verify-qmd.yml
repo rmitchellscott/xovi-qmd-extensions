@@ -142,7 +142,7 @@ jobs:
           start_marker = '<!-- compat:begin -->'
           end_marker = '<!-- compat:end -->'
           
-          with open('README.MD') as f:
+          with open('README.md') as f:
               readme = f.read()
           
           start = readme.index(start_marker)
@@ -150,7 +150,7 @@ jobs:
           
           readme = readme[:start + len(start_marker)] + table + readme[end:]
           
-          with open('README.MD', 'w') as f:
+          with open('README.md', 'w') as f:
               f.write(readme)
 
           SCRIPT
@@ -162,7 +162,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add README.MD
+          git add README.md
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
