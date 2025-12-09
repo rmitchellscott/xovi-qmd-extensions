@@ -104,7 +104,7 @@ jobs:
           
           table = '''
           | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
-          | ---- | ------------ | ------------ | --------- | -------------- |
+          | ---- | :----------: | :----------: | :-------: | :------------: |
           '''
           
           for file, result in results.items():
@@ -132,7 +132,7 @@ jobs:
                   elif devices[device] == Status.NONE:
                       devices[device] = Status.ERROR
           
-              table += f'| {file} |'
+              table += f'| **{file}** |'
               for status in devices.values():
                   table += f' {status.value} |'
               table += '\n'
