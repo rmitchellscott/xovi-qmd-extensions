@@ -1,4 +1,4 @@
-name: QMD Compatibility Screenshot
+name: QMD Compatibility Table
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 jobs:
-  screenshot:
+  table:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,103 +30,143 @@ jobs:
           echo "Found highest version: $HIGHEST_VERSION"
           echo "version=$HIGHEST_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
-          node-version: '20'
+          python-version: '3.13'
 
-      - name: Install Playwright
+      - name: Install requests
         run: |
-          npm init -y
-          npm install playwright
-          npx playwright install chromium --with-deps
+          pip install requests
 
-      - name: Take screenshot
+      - name: Generate table
         env:
           VERSION: ${{ steps.find-version.outputs.version }}
         run: |
-          cat > screenshot.js << 'SCRIPT'
-          const { chromium } = require('playwright');
-          const fs = require('fs');
-          const path = require('path');
+          cat > table.py << 'SCRIPT'
+          import os
+          import time
+          from enum import Enum
+          
+          import requests
+          
+          
+          class Status(Enum):
+              NONE = '-'
+              OK = '✅'
+              WARNING = '⚠️'
+              ERROR = '❌'
+          
+          
+          version = os.getenv('VERSION')
+          
+          qmd_files = [
+              os.path.join(version, file)
+              for file in os.listdir(version)
+              if file.endswith(".qmd")
+          ]
+          
+          if len(qmd_files) == 0:
+              print(f'No .qmd files found in {version}')
+              exit(1)
+          
+          print(f'Found {len(qmd_files)} QMD files in {version}/')
+          print('Files:', ', '.join([os.path.basename(file) for file in qmd_files]))
+          
+          url = 'https://qmdverify.scottlabs.io/api/compare'
+          
+          files = []
+          for file in qmd_files:
+              filename = os.path.basename(file)
+              files.append(('files', (filename, open(file, 'rb'))))
+              files.append(('paths', (None, filename)))
+          
+          print('Uploading files...')
+          
+          response = requests.post(url, files=files)
+          response.raise_for_status()
+          job_id = response.json()['jobId']
+          
+          print('Waiting for results...')
+          
+          while True:
+              response = requests.get(f'https://qmdverify.scottlabs.io/api/results/{job_id}')
+              response.raise_for_status()
+              results = response.json()
+          
+              if 'status' in results and results['status'] == 'pending':
+                  time.sleep(3)
+                  continue
+          
+              break
+          
+          print('Rendering the table...')
+          
+          table = '''
+          | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
+          | ---- | ------------ | ------------ | --------- | -------------- |
+          '''
+          
+          for file, result in results.items():
+              devices = {
+                  'rm1': Status.NONE,
+                  'rm2': Status.NONE,
+                  'rmpp': Status.NONE,
+                  'rmppm': Status.NONE
+              }
+          
+              for hashtable in result['compatible']:
+                  device = hashtable['device']
+                  if not hashtable['os_version'].startswith(f'{version}.'):
+                      continue
+          
+                  devices[device] = Status.OK
+          
+              for hashtable in result['incompatible']:
+                  device = hashtable['device']
+                  if not hashtable['os_version'].startswith(f'{version}.'):
+                      continue
+          
+                  if devices[device] == Status.OK:
+                      devices[device] = Status.WARNING
+                  elif devices[device] == Status.NONE:
+                      devices[device] = Status.ERROR
+          
+              table += f'| {file} |'
+              for status in devices.values():
+                  table += f' {status.value} |'
+              table += '\n'
+          
+          print('Updating the README...')
+          
+          start_marker = '<!-- compat:begin -->'
+          end_marker = '<!-- compat:end -->'
+          
+          with open('README.MD') as f:
+              readme = f.read()
+          
+          start = readme.index(start_marker)
+          end = readme.index(end_marker)
+          
+          readme = readme[:start + len(start_marker)] + table + readme[end:]
+          
+          with open('README.MD', 'w') as f:
+              f.write(readme)
 
-          (async () => {
-            const version = process.env.VERSION;
-            const versionDir = path.join(process.cwd(), version);
-
-            const qmdFiles = fs.readdirSync(versionDir)
-              .filter(f => f.endsWith('.qmd'))
-              .map(f => path.join(versionDir, f));
-
-            if (qmdFiles.length === 0) {
-              console.error(`No .qmd files found in ${versionDir}`);
-              process.exit(1);
-            }
-
-            console.log(`Found ${qmdFiles.length} QMD files in ${version}/`);
-            console.log('Files:', qmdFiles.map(f => path.basename(f)).join(', '));
-
-            const browser = await chromium.launch();
-            const context = await browser.newContext({
-              viewport: { width: 1920, height: 1080 },
-              deviceScaleFactor: 2
-            });
-            const page = await context.newPage();
-
-            const url = `https://qmdverify.scottlabs.io?minVersion=${version}.0&maxVersion=${version}.999`;
-            console.log(`Navigating to: ${url}`);
-            await page.goto(url, { waitUntil: 'networkidle' });
-
-            console.log('Uploading files...');
-            await page.setInputFiles('input[type="file"]', qmdFiles);
-
-            console.log('Clicking Compare button...');
-            await page.click('button:has-text("Compare")');
-
-            console.log('Waiting for results page...');
-            await page.waitForURL('**/results**', { timeout: 120000 });
-
-            console.log('Waiting for table to render...');
-            await page.waitForSelector('table', { timeout: 30000 });
-            await page.waitForTimeout(2000);
-
-            if (!fs.existsSync('assets')) {
-              fs.mkdirSync('assets', { recursive: true });
-            }
-
-            // Move mouse away from table to avoid hover effects
-            await page.mouse.move(0, 0);
-
-            const table = await page.locator('table');
-            await table.screenshot({ path: 'assets/compatibility-matrix.png' });
-            console.log('Screenshot saved to assets/compatibility-matrix.png (light)');
-
-            console.log('Switching to dark mode...');
-            await page.evaluate(() => {
-              localStorage.setItem('theme', 'dark');
-              document.documentElement.classList.add('dark');
-            });
-            await page.waitForTimeout(1500);
-
-            await table.screenshot({ path: 'assets/compatibility-matrix-dark.png' });
-            console.log('Screenshot saved to assets/compatibility-matrix-dark.png (dark)');
-
-            await browser.close();
-          })();
           SCRIPT
 
-          node screenshot.js
+          python table.py
 
-      - name: Commit screenshot
+      - name: Commit table
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add assets/compatibility-matrix.png assets/compatibility-matrix-dark.png
+          git add README.MD
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: update compatibility matrix screenshots for ${{ steps.find-version.outputs.version }}"
+            git commit -m "chore: update compatibility table for ${{ steps.find-version.outputs.version }}"
             git push
           fi
