@@ -21,6 +21,7 @@ Beta releases are not tested nor supported.
 | **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **extendListTitleWidth.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **fixPageNumberOnSlider.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **gestures.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ |
