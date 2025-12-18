@@ -23,7 +23,6 @@ Beta releases are not tested nor supported.
 | **extendListTitleWidth.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **fixLightIndicatorGap.qmd** | ❌ | ❌ | ✅ | ✅ |
-| **fixLightIndicatorSpace.qmd** | ❌ | ❌ | ✅ | ✅ |
 | **fixPageNumberOnSlider.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **gestures.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ |
