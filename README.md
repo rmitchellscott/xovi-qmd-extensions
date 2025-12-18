@@ -54,6 +54,9 @@ Remove extra right margin for titles in list view to fill more of the available 
 ### fixBatteryIndicator.qmd
 Fixes a bug introduced in 3.24 with the main navigator battery icon not updating to the correct number of bars after charging while the device is asleep.
 
+### fixLightIndicatorGap.qmd ###
+Removes the gap reserved for the frontlight icon when the light is off on Paper Pro and Paper Pro Move.
+
 ### fixPageNumberOnSlider.qmd
 3.23 and 3.24 only.  
 Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
