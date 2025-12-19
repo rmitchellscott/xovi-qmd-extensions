@@ -39,18 +39,18 @@ Beta releases are not tested nor supported.
 ## Original Extensions
 
 ### createPagesPaperProSize.qmd
-Override new page creation to use Paper Pro dimensions. Designed to allow better interoperability between rM2/Move and Paper Pro.  
+Overrides new page creation to use Paper Pro dimensions. Designed to allow better interoperability between rM2/Move and Paper Pro.  
 Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 
 ### createPagesRM2Size.qmd
-Override new page creation to use reMarkable 2 dimensions. Designed to allow better interoperability between Move and reMarkable 2.  
+Overrides new page creation to use reMarkable 2 dimensions. Designed to allow better interoperability between Move and reMarkable 2.  
 Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 
 ### disableSelectionAutoScroll.qmd
-Disable the auto scrolling when moving a selection added in 3.24.
+Disables the auto scrolling when moving a selection added in 3.24.
 
 ### extendListTitleWidth.qmd
-Remove extra right margin for titles in list view to fill more of the available space.
+Removes extra right margin for titles in list view to fill more of the available space.
 
 ### fixBatteryIndicator.qmd
 Fixes a bug introduced in 3.24 with the main navigator battery icon not updating to the correct number of bars after charging while the device is asleep.
@@ -63,10 +63,21 @@ Removes the gap reserved for the frontlight icon when the light is off on Paper 
 Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
 
 ### hideDevModeIcon.qmd
-Hide the developer mode icon next to the battery icon.
+Hides the developer mode icon next to the battery icon.
 
 ### hideZoomIndicator.qmd
-Auto-hide zoom indicator after 4 seconds (like the scrollbars).
+Auto-hides zoom indicator after 4 seconds (like the scrollbars).
+
+### notebookToc.qmd ###
+Adds the ability to add, delete, and edit ToC entries in notebooks.
+
+<table>
+  <tr>
+    <td><img src="assets/notebookToc-pro.png" height="400"/></td>
+    <td><img src="assets/notebookToc-move.png" height="400"/></td>
+    <td><img src="assets/notebookToc.png" height="400"/></td>
+  </tr>
+</table>
 
 ### preventNotebookZoomOut.qmd
 Forces all notebook pages to start at 1x zoom with optional horizontal offset. Only affects notebooks, only affects portrait orientation. Designed for the Paper Pro Move.
@@ -85,7 +96,7 @@ Requires:
 - [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
 
 ### unlockMethodsContent.qmd
-Bypass subscription check for using on-device Methods templates and documents.
+Bypasses subscription check for using on-device Methods templates and documents.
 
 ## Deprecated Extensions
 
@@ -113,7 +124,7 @@ PDF links in the tap area cannot be used while the toolbar is closed, show the t
 
 **Original**: https://github.com/ingatellent/xovi-qmd-extensions
 
-Hide the page numbers at the bottom of the screen when the toolbar is hidden. On the very last page the page numbers are still shown. To show the page numbers slide up from the bottom to show the page slider.
+Hides the page numbers at the bottom of the screen when the toolbar is hidden. On the very last page the page numbers are still shown. To show the page numbers slide up from the bottom to show the page slider.
 
 **Modifications I've made**
  - Fix for page number not appearing when the toolbar is open or in the page slider on 3.23
