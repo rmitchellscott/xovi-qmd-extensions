@@ -84,8 +84,8 @@ Forces all notebook pages to start at 1x zoom with optional horizontal offset. O
 
 ### quickSettingsScreenshot.qmd
 Adds a screenshot button to the quick settings menu. 
-- normal press: closes the menu and take a screenshot.
-- long-press: closes the menu and take a screenshot with a 5 second delay.
+- normal press: closes the menu and takes a screenshot.
+- long-press: closes the menu and takes a screenshot with a 5 second delay.
 
 Screenshots will be placed in `/home/root/screenshots`.  
 _See required repos for supported devices._
@@ -109,7 +109,7 @@ Fixed in 3.24.
 ### gestures.qmd
 **Original**: https://github.com/ingatellent/xovi-qmd-extensions
 
-Add the following gestures and tap areas:
+Adds the following gestures and tap areas:
 - Swipe down with three fingers to reset pan and zoom, i.e. to scroll to top of the page and zoom to 100%
 - Swipe out and in from the toolbar to show/hide the toolbar - for horizontal toolbar, the swipe only works at the show toolbar button (in order not to interfere with native gestures)
 - When the toolbar is hidden, tap on the bottom right to scroll down, and to change to the next page if you are already nearly at the bottom) (no scrollbar shown)
@@ -127,7 +127,7 @@ PDF links in the tap area cannot be used while the toolbar is closed, show the t
 Hides the page numbers at the bottom of the screen when the toolbar is hidden. On the very last page the page numbers are still shown. To show the page numbers slide up from the bottom to show the page slider.
 
 **Modifications I've made**
- - Fix for page number not appearing when the toolbar is open or in the page slider on 3.23
+ - Fixed page number not appearing when the toolbar is open or in the page slider on 3.23+
 
 ### miniLightSleep.qmd
 **Original**: https://github.com/StarNumber12046/xovi-qmd-extensions
@@ -141,10 +141,10 @@ Replaces the light sleep banner with text saying "Sleeping" at the top right of 
 ### quickSettingsClock.qmd
 **Original**: https://github.com/StarNumber12046/xovi-qmd-extensions
 
-A clock in the quick settings menu
+Adds a clock to the quick settings menu
 
 **Modifications I've made**
-- Use serif font
+- Changed to serif font
 
 ## License
 
