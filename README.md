@@ -29,6 +29,7 @@ Beta releases are not tested nor supported.
 | **hidePageLabelsInFullscreen.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **notebookToc.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsClock.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ |
