@@ -69,7 +69,9 @@ Hides the developer mode icon next to the battery icon.
 Auto-hides zoom indicator after 4 seconds (like the scrollbars).
 
 ### notebookToc.qmd ###
-Adds the ability to add, delete, and edit ToC entries in notebooks.
+Adds the ability to add, delete, and edit Table of Contents entries in notebooks.  
+On-disk, ToC data is stored inside the UUID directory for the notebook in a toc.json file.  
+This should sync between devices, though the change detection to trigger the sync doesn't take ToC into account. Flipping notebook pages or changing page content is required to trigger a sync on notebook closure.
 
 <table>
   <tr>
