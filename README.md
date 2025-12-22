@@ -29,7 +29,6 @@ Beta releases are not tested nor supported.
 | **hidePageLabelsInFullscreen.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **notebookToc.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsClock.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ |
@@ -68,7 +67,7 @@ Hides the developer mode icon next to the battery icon.
 ### hideZoomIndicator.qmd
 Auto-hides zoom indicator after 4 seconds (like the scrollbars).
 
-### notebookToc.qmd ###
+<!-- ### notebookToc.qmd ###
 Adds the ability to add, delete, and edit Table of Contents entries in notebooks.  
 On-disk, ToC data is stored inside the UUID directory for the notebook in a toc.json file.  
 This should sync between devices, though the change detection to trigger the sync doesn't take ToC into account. Flipping notebook pages or changing page content is required to trigger a sync on notebook closure.
@@ -79,7 +78,7 @@ This should sync between devices, though the change detection to trigger the syn
     <td><img src="assets/notebookToc-move.png" height="400"/></td>
     <td><img src="assets/notebookToc.png" height="400"/></td>
   </tr>
-</table>
+</table> -->
 
 ### preventNotebookZoomOut.qmd
 Forces all notebook pages to start at 1x zoom with optional horizontal offset. Only affects notebooks, only affects portrait orientation. Designed for the Paper Pro Move.
