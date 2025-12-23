@@ -38,6 +38,23 @@ Beta releases are not tested nor supported.
 
 ## Original Extensions
 
+### betterToc.qmd ###
+Adds the ability to add, delete*, and edit* Table of Contents entries in documents.  
+On-disk, ToC data is stored inside the UUID directory for the document in a toc.rm file.  
+This syncs between devices via cloud sync.  
+EPUB reflows can result in small amounts of drift due to limitations in progress calculation.
+
+<table>
+  <tr>
+    <td><img src="assets/betterToc-pro.png" height="400"/></td>
+    <td><img src="assets/betterToc-move.png" height="400"/></td>
+    <td><img src="assets/betterToc-notebook.png" height="400"/></td>
+    <td><img src="assets/betterToc-ebook.png" height="400"/></td>
+  </tr>
+</table>
+
+*Editing and deleting are limited to user-created ToC entries only
+
 ### createPagesPaperProSize.qmd
 Overrides new page creation to use Paper Pro dimensions. Designed to allow better interoperability between rM2/Move and Paper Pro.  
 Designed for use alongside preventNotebookZoomOut.qmd on the Move.
@@ -67,19 +84,6 @@ Hides the developer mode icon next to the battery icon.
 
 ### hideZoomIndicator.qmd
 Auto-hides zoom indicator after 4 seconds (like the scrollbars).
-
-<!-- ### notebookToc.qmd ###
-Adds the ability to add, delete, and edit Table of Contents entries in notebooks.  
-On-disk, ToC data is stored inside the UUID directory for the notebook in a toc.json file.  
-This should sync between devices, though the change detection to trigger the sync doesn't take ToC into account. Flipping notebook pages or changing page content is required to trigger a sync on notebook closure.
-
-<table>
-  <tr>
-    <td><img src="assets/notebookToc-pro.png" height="400"/></td>
-    <td><img src="assets/notebookToc-move.png" height="400"/></td>
-    <td><img src="assets/notebookToc.png" height="400"/></td>
-  </tr>
-</table> -->
 
 ### preventNotebookZoomOut.qmd
 Forces all notebook pages to start at 1x zoom with optional horizontal offset. Only affects notebooks, only affects portrait orientation. Designed for the Paper Pro Move.
