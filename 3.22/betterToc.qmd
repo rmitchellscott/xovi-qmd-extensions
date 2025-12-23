@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: MIT
-; Modified: 2025-12-23T15:09:41Z
+; Modified: 2025-12-23T19:10:11Z
 ;
 ; To use with rmhacks:
 ; 1. place this qmd in /home/root/xovi/exthome/qt-resource-rebuilder/rmitchellscott/notebookToc.qmd
@@ -329,11 +329,9 @@ AFFECT [[1224665461898798997]]
                 LOCATE BEFORE ALL INSERT {
                     onTocShowView: ~&15793094956877902211&~.tocShowView()
                     onTocAddEntry: (~&7083037950451&~) => {
-                        ~&15793094956877902211&~.tocAddEntry(~&7083037950451&~, "");
                         ~&15793094956877902211&~.tocShowRenameDialog(~&7083037950451&~);
                     }
                     onTocAddCurrentEntry: {
-                        ~&15793094956877902211&~.tocAddEntry(~&15793094956877902211&~.~&3321486226208410902&~, "");
                         ~&15793094956877902211&~.tocShowRenameDialog(~&15793094956877902211&~.~&3321486226208410902&~);
                     }
                 }
@@ -445,7 +443,7 @@ AFFECT [[1224665461898798997]]
                     ~&477061882630366844&~: ~&6504222003&~(~&"6503125400&~)
 
                     ~&8399893700003527327&~: (~&6504315758&~) => {
-                        ~&5972376&~ (~&6504315758&~.~&7082886407723&~) ~&15793094956877902211&~.tocRenameEntry(_tocRenamePopup.~&7083037950451&~, ~&6504315758&~.~&6504329413&~());
+                        ~&5972376&~ (~&6504315758&~.~&7082886407723&~) ~&15793094956877902211&~.tocAddEntry(_tocRenamePopup.~&7083037950451&~, ~&6504315758&~.~&6504329413&~());
                         _tocRenamePopup.~&254532220638374263&~();
                     }
 
