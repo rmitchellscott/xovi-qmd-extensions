@@ -17,7 +17,6 @@ Beta releases are not tested nor supported.
 <!-- compat:begin -->
 | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
 | ---- | :----------: | :----------: | :-------: | :------------: |
-| **betterToC.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **betterToc.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
