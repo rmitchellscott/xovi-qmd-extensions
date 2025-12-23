@@ -1,4 +1,4 @@
-name: Generate Changelogs
+name: Generate Changelog
 
 on:
   push:
@@ -19,64 +19,90 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
-      - name: Generate changelogs
+      - name: Find highest version
+        id: find-version
         run: |
-          VERSION_DIRS=$(ls -d */ 2>/dev/null | grep -E '^[0-9]+\.[0-9]+/$' | sed 's/\///' | sort -t. -k1,1n -k2,2n)
+          HIGHEST_VERSION=$(ls -d */ 2>/dev/null | grep -E '^[0-9]+\.[0-9]+/$' | sed 's/\///' | sort -t. -k1,1n -k2,2n | tail -1)
+          if [ -z "$HIGHEST_VERSION" ]; then
+            echo "No version folders found"
+            exit 1
+          fi
+          echo "Found highest version: $HIGHEST_VERSION"
+          echo "version=$HIGHEST_VERSION" >> $GITHUB_OUTPUT
 
-          for VERSION in $VERSION_DIRS; do
-            echo "Processing $VERSION..."
-            CHANGELOG="$VERSION/changelog.md"
+      - name: Update changelog
+        env:
+          VERSION: ${{ steps.find-version.outputs.version }}
+        run: |
+          CHANGELOG="CHANGELOG.md"
 
-            cat > "$CHANGELOG" << 'HEADER'
-          # Changelog
+          # Create changelog if it doesn't exist
+          if [ ! -f "$CHANGELOG" ]; then
+            echo "# Changelog" > "$CHANGELOG"
+            echo "" >> "$CHANGELOG"
+          fi
 
-          _Auto-generated from git history. Do not edit manually._
+          # Get files changed in this commit (only .qmd files in highest version)
+          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep "^$VERSION/.*\.qmd$" || true)
 
-          HEADER
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No .qmd files changed in $VERSION"
+            exit 0
+          fi
 
-            for file in $(ls "$VERSION"/*.qmd 2>/dev/null | sort); do
-              [ -f "$file" ] || continue
+          # Get commit message (cleaned up)
+          MSG=$(git log -1 --format="%s" | sed 's/ \[.*\]$//' | sed 's/ (#[0-9]*)$//' | sed 's/^\([a-z]*\)([^)]*): /\1: /')
 
-              FILENAME=$(basename "$file")
+          # Skip docs commits
+          if echo "$MSG" | grep -q "^docs:"; then
+            echo "Skipping docs commit"
+            exit 0
+          fi
 
-              MODIFIED_TS=$(grep -m1 "^; Modified:" "$file" 2>/dev/null | sed 's/^; Modified: //' || echo "")
+          # Process each changed file
+          for file in $CHANGED_FILES; do
+            FILENAME=$(basename "$file")
 
-              if [ -z "$MODIFIED_TS" ]; then
-                MODIFIED_TS=$(git log -1 --format="%cI" -- "$file" 2>/dev/null || echo "unknown")
-              fi
+            # Get Modified timestamp from file
+            MODIFIED=$(grep -m1 "^; Modified:" "$file" 2>/dev/null | sed 's/^; Modified: //' || echo "")
 
-              echo "## $FILENAME" >> "$CHANGELOG"
-              echo "" >> "$CHANGELOG"
-              echo "$MODIFIED_TS" >> "$CHANGELOG"
-              echo "" >> "$CHANGELOG"
+            if [ -z "$MODIFIED" ]; then
+              echo "No Modified timestamp in $file, skipping"
+              continue
+            fi
 
-              HISTORY=$(git log --pretty=format:"- %s (\`%h\`, %cs)" --follow -- "$file" 2>/dev/null || echo "")
+            # Build the new entry
+            NEW_ENTRY="#### $MODIFIED
+- $MSG"
 
-              if [ -n "$HISTORY" ]; then
-                echo "$HISTORY" >> "$CHANGELOG"
-              else
-                echo "_No git history available_" >> "$CHANGELOG"
-              fi
-
-              echo "" >> "$CHANGELOG"
-              echo "" >> "$CHANGELOG"
-            done
-
-            echo "Generated $CHANGELOG"
+            # Check if file section exists in changelog
+            if grep -q "^## $FILENAME$" "$CHANGELOG"; then
+              # Insert after the ## heading
+              sed -i "/^## $FILENAME$/a\\
+$NEW_ENTRY" "$CHANGELOG"
+            else
+              # Add new section after # Changelog header
+              sed -i "/^# Changelog$/a\\
+\\
+## $FILENAME\\
+$NEW_ENTRY" "$CHANGELOG"
+            fi
           done
 
-      - name: Commit changelogs
+          echo "Updated $CHANGELOG"
+
+      - name: Commit changelog
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add "*/changelog.md"
+          git add CHANGELOG.md
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: update changelogs"
+            git commit -m "chore: update changelog"
             git push
           fi
