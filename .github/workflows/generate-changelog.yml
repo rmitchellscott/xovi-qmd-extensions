@@ -1,0 +1,82 @@
+name: Generate Changelogs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '3.*/**/*.qmd'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate changelogs
+        run: |
+          VERSION_DIRS=$(ls -d */ 2>/dev/null | grep -E '^[0-9]+\.[0-9]+/$' | sed 's/\///' | sort -t. -k1,1n -k2,2n)
+
+          for VERSION in $VERSION_DIRS; do
+            echo "Processing $VERSION..."
+            CHANGELOG="$VERSION/changelog.md"
+
+            cat > "$CHANGELOG" << 'HEADER'
+          # Changelog
+
+          _Auto-generated from git history. Do not edit manually._
+
+          HEADER
+
+            for file in $(ls "$VERSION"/*.qmd 2>/dev/null | sort); do
+              [ -f "$file" ] || continue
+
+              FILENAME=$(basename "$file")
+
+              MODIFIED_TS=$(grep -m1 "^; Modified:" "$file" 2>/dev/null | sed 's/^; Modified: //' || echo "")
+
+              if [ -z "$MODIFIED_TS" ]; then
+                MODIFIED_TS=$(git log -1 --format="%cI" -- "$file" 2>/dev/null || echo "unknown")
+              fi
+
+              echo "## $FILENAME" >> "$CHANGELOG"
+              echo "" >> "$CHANGELOG"
+              echo "$MODIFIED_TS" >> "$CHANGELOG"
+              echo "" >> "$CHANGELOG"
+
+              HISTORY=$(git log --pretty=format:"- %s (\`%h\`, %cs)" --follow -- "$file" 2>/dev/null || echo "")
+
+              if [ -n "$HISTORY" ]; then
+                echo "$HISTORY" >> "$CHANGELOG"
+              else
+                echo "_No git history available_" >> "$CHANGELOG"
+              fi
+
+              echo "" >> "$CHANGELOG"
+              echo "" >> "$CHANGELOG"
+            done
+
+            echo "Generated $CHANGELOG"
+          done
+
+      - name: Commit changelogs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add "*/changelog.md"
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update changelogs"
+            git push
+          fi
