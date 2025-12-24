@@ -37,11 +37,8 @@ jobs:
           VERSION: ${{ steps.find-version.outputs.version }}
         run: |
           CHANGELOG="CHANGELOG.md"
-
-          # Create changelog if it doesn't exist
           if [ ! -f "$CHANGELOG" ]; then
-            echo "# Changelog" > "$CHANGELOG"
-            echo "" >> "$CHANGELOG"
+            printf "# Changelog\n\n" > "$CHANGELOG"
           fi
 
           # Get files changed in this commit (only .qmd files in highest version)
@@ -53,7 +50,7 @@ jobs:
           fi
 
           # Get commit message (cleaned up)
-          MSG=$(git log -1 --format="%s" | sed 's/ \[.*\]$//' | sed 's/ (#[0-9]*)$//' | sed 's/^\([a-z]*\)([^)]*): /\1: /')
+          MSG=$(git log -1 --format="%s" | sed -E 's/ \[[^]]*\]$//; s/ \(#[0-9]*\)$//; s/^([a-z]*)\([^)]*\): /\1: /')
 
           # Skip docs commits
           if echo "$MSG" | grep -q "^docs:"; then
@@ -66,29 +63,23 @@ jobs:
             FILENAME=$(basename "$file")
 
             # Get Modified timestamp from file
-            MODIFIED=$(grep -m1 "^; Modified:" "$file" 2>/dev/null | sed 's/^; Modified: //' || echo "")
+            MODIFIED=$(grep -m1 "^; Modified:" "$file" 2>/dev/null | sed 's/^; Modified: //' | xargs || echo "")
 
             if [ -z "$MODIFIED" ]; then
               echo "No Modified timestamp in $file, skipping"
               continue
             fi
 
-            # Build the new entry
-            NEW_ENTRY="#### $MODIFIED
-- $MSG"
-
-            # Check if file section exists in changelog
             if grep -q "^## $FILENAME$" "$CHANGELOG"; then
               # Insert after the ## heading
-              sed -i "/^## $FILENAME$/a\\
-$NEW_ENTRY" "$CHANGELOG"
+              printf "#### %s\n- %s\n" "$MODIFIED" "$MSG" > entry.tmp
+              sed -i "/^## $FILENAME$/r entry.tmp" "$CHANGELOG"
             else
               # Add new section after # Changelog header
-              sed -i "/^# Changelog$/a\\
-\\
-## $FILENAME\\
-$NEW_ENTRY" "$CHANGELOG"
+              printf "\n## %s\n#### %s\n- %s\n" "$FILENAME" "$MODIFIED" "$MSG" > entry.tmp
+              sed -i "/^# Changelog$/r entry.tmp" "$CHANGELOG"
             fi
+            rm -f entry.tmp
           done
 
           echo "Updated $CHANGELOG"
