@@ -39,7 +39,7 @@ Beta releases are not tested nor supported.
 ## Original Extensions
 
 ### betterToc.qmd ###
-Adds the ability to add, delete*, and edit* Table of Contents entries in documents.  
+Adds the ability to add, delete*, and edit* Table of Contents entries in notebooks, PDFs, and EPUBs.  
 On-disk, ToC data is stored inside the UUID directory for the document in a toc.rm file.  
 This syncs between devices via cloud sync.  
 EPUB reflows can result in small amounts of drift due to limitations in progress calculation.
