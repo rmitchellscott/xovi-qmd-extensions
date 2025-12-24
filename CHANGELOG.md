@@ -52,6 +52,8 @@
 
 
 ## fixBatteryIndicator.qmd
+#### 2025-12-24T00:35:57Z
+- fix: bug when plugged in across bar boundaries
 
 #### 2025-12-15T21:42:56Z
 - add fixBatteryIndicator
