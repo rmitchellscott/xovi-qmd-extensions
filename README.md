@@ -36,7 +36,7 @@ Beta releases are not tested nor supported.
 | **unlockMethodsContent.qmd** | ✅ | ✅ | ✅ | ✅ |
 <!-- compat:end -->
 
-## Original Extensions
+## Extensions
 
 ### betterToc.qmd ###
 Adds the ability to add, delete*, and edit* Table of Contents entries in notebooks, PDFs, and EPUBs.  
@@ -82,11 +82,23 @@ Restores the z-index for the pageLabel element so it appears on top of the page 
 ### hideDevModeIcon.qmd
 Hides the developer mode icon next to the battery icon.
 
+### hidePageLabelsInFullscreen.qmd
+
+Hides the page numbers at the bottom of the screen when the toolbar is hidden. On the very last page the page numbers are still shown. To show the page numbers slide up from the bottom to show the page slider.
+
 ### hideZoomIndicator.qmd
 Auto-hides zoom indicator after 4 seconds (like the scrollbars).
 
+### miniLightSleep.qmd
+
+Replaces the light sleep banner with text saying "Sleeping" at the top right of the screen.
+
 ### preventNotebookZoomOut.qmd
 Forces all notebook pages to start at 1x zoom with optional horizontal offset. Only affects notebooks, only affects portrait orientation. Designed for the Paper Pro Move.
+
+### quickSettingsClockSerif.qmd
+
+Adds a clock to the quick settings menu in serif font.
 
 ### quickSettingsScreenshot.qmd
 Adds a screenshot button to the quick settings menu. 
@@ -126,33 +138,6 @@ PDF links in the tap area cannot be used while the toolbar is closed, show the t
 **Modifications I've made**
  - Removed the 4-finger contrast filter gesture
 
-### hidePageLabelsInFullscreen.qmd
-
-**Original**: https://github.com/ingatellent/xovi-qmd-extensions
-
-Hides the page numbers at the bottom of the screen when the toolbar is hidden. On the very last page the page numbers are still shown. To show the page numbers slide up from the bottom to show the page slider.
-
-**Modifications I've made**
- - Fixed page number not appearing when the toolbar is open or in the page slider on 3.23+
-
-### miniLightSleep.qmd
-**Original**: https://github.com/StarNumber12046/xovi-qmd-extensions
-
-Replaces the light sleep banner with text saying "Sleeping" at the top right of the screen
-
-**Modifications I've made**
-- Changed text from "Zzz..." to "Sleeping"
-- Added white background to the sleeping text
-
-### quickSettingsClock.qmd
-**Original**: https://github.com/StarNumber12046/xovi-qmd-extensions
-
-Adds a clock to the quick settings menu
-
-**Modifications I've made**
-- Changed to serif font
-
 ## License
 
 - **Original works** are licensed under the MIT License (see [LICENSE](LICENSE)).
-- **Derivative works** retain attribution to their original authors - see individual file headers for details.

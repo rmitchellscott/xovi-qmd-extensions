@@ -1,5 +1,5 @@
-; Original: StarNumber12046 (https://github.com/StarNumber12046)
-; Modified by: Mitchell Scott (https://github.com/rmitchellscott)
+; Mitchell Scott (https://github.com/rmitchellscott)
+; SPDX-License-Identifier: MIT
 ; Modified: 2025-12-04T00:54:47Z
 
 AFFECT [[4993120499307475167]] 

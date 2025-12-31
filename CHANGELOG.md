@@ -155,7 +155,7 @@
 - add preventNotebookZoomOut
 
 
-## quickSettingsClock.qmd
+## quickSettingsClockSerif.qmd
 
 #### 2025-12-04T00:54:47Z
 - 3.24
