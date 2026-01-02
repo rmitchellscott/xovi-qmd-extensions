@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: MIT
-; Modified: 2025-12-23T19:28:59Z
+; Modified: 2025-12-30T15:48:51Z
 
 AFFECT [[1658694193319203921]]
     TRAVERSE [[6502786168]]
@@ -46,6 +46,7 @@ END AFFECT
 
 AFFECT [[1224665461898798997]]
     IMPORT [[6504469795.6504031891.233725061010028]] [[180922.180921]]
+    IMPORT [[9733119462033745177]] [[180922.180921]]
     TRAVERSE [[8397993708429497603]]
         LOCATE BEFORE ALL
         INSERT {
@@ -54,40 +55,91 @@ AFFECT [[1224665461898798997]]
             property ~&197102514&~ tocEntries: ({})
             property bool tocLoading: ~&214625660372&~
             property ~&197102514&~ _nativeTocModel: []
+            property ~&7083178290016&~ _pendingCrossDocPageId: ""
+            property ~&197102514&~ _crossDocBackTarget: ~&6504117156&~
+            property ~&7083178290016&~ _pendingPageDeletedXref: ""
+            property ~&7083178290016&~ _tocLoadingDocId: ""
+            property bool _tocModelRebuilding: ~&214625660372&~
+            property bool _nativeTocLoaded: ~&214625660372&~
 
             function tocLoadEntries() {
-                tocLoading = ~&6504329801&~;
-                tocEntries = ({});
+                _nativeTocLoaded = ~&214625660372&~;
                 ~&5972376&~ (!~&7712934851008712&~) {
+                    _tocLoadingDocId = "";
                     tocLoading = ~&214625660372&~;
+                    tocEntries = ({});
                     tocBuildModel();
                     ~&7083121450889&~;
                 }
 
+                ~&5972376&~ (_tocLoadingDocId === ~&7712934851008712&~.~&5972374&~ && tocLoading) ~&7083121450889&~;
+
+                _tocLoadingDocId = ~&7712934851008712&~.~&5972374&~;
+                tocLoading = ~&6504329801&~;
+                tocEntries = ({});
+
+                ~&214622607920&~ loadingId = ~&7712934851008712&~.~&5972374&~;
+
                 ~&7082020628281&~.tocReadEntries(~&7712934851008712&~.~&5972374&~, (~&6503736259&~) => {
+                    ~&5972376&~ (!~&7712934851008712&~ || ~&7712934851008712&~.~&5972374&~ !== loadingId) {
+                        ~&7083121450889&~;
+                    }
+
                     ~&214622607920&~ entries = ({});
 
                     ~&5972376&~ (!!~&6503736259&~) {
                         ~&197085552&~ (~&214622607920&~ [~&197090674&~, ~&197094916&~] ~&5972574&~ ~&7081747777088&~.entries(~&6503736259&~)) {
-                            ~&197091758&~ isValid = ~&214625660372&~;
-
-                            ~&5972376&~ (~&197090674&~.startsWith("p:")) {
-                                ~&214622607920&~ ratio = parseFloat(~&197090674&~.~&254548200562243306&~(2));
-                                isValid = ratio >= 0 && ratio <= 1;
-                            } ~&6503784146&~ ~&5972376&~ (!~&214629831714&~(~&7081731278802&~(~&197090674&~))) {
-                                isValid = ~&6504329801&~;
+                            ~&5972376&~ (~&197090674&~.startsWith("xref:")) {
+                                entries[~&197090674&~] = {
+                                    ~&6504095402&~: ~&197094916&~.~&6504095402&~ || "",
+                                    ~&214632930081&~: ~&197094916&~.~&214632930081&~ ?? 0,
+                                    targetDocId: ~&197094916&~.targetDocId || "",
+                                    targetPageKey: ~&197094916&~.targetPageKey || "",
+                                    targetDocName: ~&197094916&~.targetDocName || "",
+                                    afterEntry: ~&197094916&~.afterEntry || ~&6504117156&~,
+                                    pageDeleted: ~&197094916&~.pageDeleted || ~&214625660372&~
+                                };
                             } ~&6503784146&~ {
-                                isValid = ~&7712934851008712&~.pageForId(~&197090674&~) >= 0;
-                            }
+                                ~&197091758&~ isValid = ~&214625660372&~;
 
-                            ~&5972376&~ (isValid) {
-                                entries[~&197090674&~] = { ~&6504095402&~: ~&197094916&~.~&6504095402&~ || "", ~&214632930081&~: ~&197094916&~.~&214632930081&~ ?? 0 };
+                                ~&5972376&~ (~&197090674&~.startsWith("p:")) {
+                                    ~&214622607920&~ ratio = parseFloat(~&197090674&~.~&254548200562243306&~(2));
+                                    isValid = ratio >= 0 && ratio <= 1;
+                                } ~&6503784146&~ ~&5972376&~ (!~&214629831714&~(~&7081731278802&~(~&197090674&~))) {
+                                    isValid = ~&6504329801&~;
+                                } ~&6503784146&~ {
+                                    isValid = ~&7712934851008712&~.pageForId(~&197090674&~) >= 0;
+                                }
+
+                                ~&5972376&~ (isValid) {
+                                    entries[~&197090674&~] = { ~&6504095402&~: ~&197094916&~.~&6504095402&~ || "", ~&214632930081&~: ~&197094916&~.~&214632930081&~ ?? 0 };
+                                }
                             }
                         }
                         tocEntries = entries;
                     }
 
+                    ~&5972376&~ (_pendingPageDeletedXref && tocEntries[_pendingPageDeletedXref]) {
+                        tocEntries[_pendingPageDeletedXref].pageDeleted = ~&6504329801&~;
+                        ~&214622607920&~ xrefKey = _pendingPageDeletedXref;
+                        _pendingPageDeletedXref = "";
+                        tocLoading = ~&214625660372&~;
+                        tocSaveEntries();
+                        tocBuildModel();
+
+                        ~&5971598&~.~&254524858248187773&~(() => {
+                            _tocCrossDocErrorLoader.xrefKey = xrefKey;
+                            _tocCrossDocErrorLoader.~&8399437315161921173&~ = ~&6504222003&~("Page not found");
+                            _tocCrossDocErrorLoader.~&15848919715906354904&~ = ~&6504222003&~("The linked page has been deleted from this document.");
+                            _tocCrossDocErrorLoader.~&7082453764421&~ = ~&6504329801&~;
+                            tocShowView();
+                        });
+                        ~&7083121450889&~;
+                    }
+
                     tocLoading = ~&214625660372&~;
+                    tocBuildModel();
+                    tocTryShowPendingCrossDoc();
                 });
             }
 
@@ -146,10 +198,20 @@ AFFECT [[1224665461898798997]]
             }
 
             function tocDeleteEntry(~&7083037950451&~) {
-                ~&5972376&~ (tocEntries[~&7083037950451&~]) {
-                    ~&7082573250524&~ tocEntries[~&7083037950451&~];
-                    tocEntriesChanged();
+                ~&5972376&~ (!tocEntries[~&7083037950451&~]) ~&7083121450889&~;
+
+                ~&214622607920&~ ~&214634455770&~ = ~&6504254477&~.~&7713616698729984&~;
+                ~&214622607920&~ ~&197088462&~ = ~&214634455770&~.findIndex(e => e.~&7083037950451&~ === ~&7083037950451&~);
+                ~&214622607920&~ prevEntry = ~&197088462&~ > 0 ? ~&214634455770&~[~&197088462&~ - 1] : ~&6504117156&~;
+
+                ~&197085552&~ (~&214622607920&~ [k, ~&180991&~] ~&5972574&~ ~&7081747777088&~.entries(tocEntries)) {
+                    ~&5972376&~ (k.startsWith("xref:") && ~&180991&~.afterEntry === ~&7083037950451&~) {
+                        tocEntries[k].afterEntry = prevEntry?.~&7083037950451&~ || ~&6504117156&~;
+                    }
                 }
+
+                ~&7082573250524&~ tocEntries[~&7083037950451&~];
+                tocEntriesChanged();
             }
 
             function tocShowRenameDialog(~&7083037950451&~) {
@@ -188,8 +250,10 @@ AFFECT [[1224665461898798997]]
             }
 
             function tocRenameEntry(~&7083037950451&~, ~&6504095402&~) {
-                ~&214622607920&~ existingLevel = tocEntries[~&7083037950451&~]?.~&214632930081&~ ?? 0;
-                tocEntries[~&7083037950451&~] = { ~&6504095402&~: ~&6504095402&~, ~&214632930081&~: existingLevel };
+                ~&5972376&~ (!tocEntries[~&7083037950451&~]) ~&7083121450889&~;
+                ~&214622607920&~ existing = tocEntries[~&7083037950451&~];
+                existing.~&6504095402&~ = ~&6504095402&~;
+                tocEntries[~&7083037950451&~] = existing;
                 tocEntriesChanged();
             }
 
@@ -200,8 +264,89 @@ AFFECT [[1224665461898798997]]
                 }
             }
 
+            function tocAddCrossDocEntry(~&6504095402&~, targetDocId, targetPageKey, targetDocName, overridePage) {
+                ~&214622607920&~ ~&197090674&~ = "xref:" + ~&6502909715&~.random().~&7713616118928163&~(36).~&254548200562243306&~(2, 10);
+                ~&214622607920&~ ~&477346483278306569&~ = overridePage ?? ~&15793094956877902211&~.~&477346483278306569&~;
+
+                ~&197091758&~ inheritedLevel = 0;
+                ~&197091758&~ afterEntry = ~&6504117156&~;
+                ~&197085552&~ (~&214622607920&~ ~&214624950331&~ ~&5972574&~ ~&6504254477&~.~&7713616698729984&~) {
+                    ~&5972376&~ (~&214624950331&~.~&6504167078&~ !== ~&254550717068498203&~ && ~&214624950331&~.~&6504167078&~ > ~&477346483278306569&~) {
+                        ~&214621519406&~;
+                    }
+                    ~&5972376&~ (~&214624950331&~.~&6504167078&~ !== ~&254550717068498203&~) {
+                        inheritedLevel = ~&214624950331&~.~&214632930081&~ ?? 0;
+                        ~&5972376&~ (~&214624950331&~.~&7083037950451&~ != ~&6504117156&~) {
+                            afterEntry = ~&214624950331&~.~&7083037950451&~;
+                        }
+                    }
+                }
+
+                tocEntries[~&197090674&~] = {
+                    ~&6504095402&~: ~&6504095402&~ || targetDocName || "",
+                    ~&214632930081&~: inheritedLevel,
+                    targetDocId: targetDocId,
+                    targetPageKey: targetPageKey,
+                    targetDocName: targetDocName,
+                    afterEntry: afterEntry
+                };
+                tocEntriesChanged();
+                ~&7083121450889&~ ~&197090674&~;
+            }
+
+            property ~&7083178290016&~ _pendingCrossDocXrefKey: ""
+
+            function tocNavigateToCrossDoc(xrefKey, targetDocId, targetPageKey) {
+                ~&5972376&~ (tocEntries[xrefKey]?.pageDeleted) {
+                    _tocCrossDocErrorLoader.xrefKey = xrefKey;
+                    _tocCrossDocErrorLoader.~&8399437315161921173&~ = ~&6504222003&~("Page not found");
+                    _tocCrossDocErrorLoader.~&15848919715906354904&~ = ~&6504222003&~("The linked page has been deleted from this document.");
+                    _tocCrossDocErrorLoader.~&7082453764421&~ = ~&6504329801&~;
+                    ~&7083121450889&~;
+                }
+
+                ~&214622607920&~ ~&214624950331&~ = ~&233694067165438&~.~&8399431778896295215&~(targetDocId);
+
+                ~&5972376&~ (!~&214624950331&~) {
+                    _tocCrossDocErrorLoader.xrefKey = xrefKey;
+                    _tocCrossDocErrorLoader.~&8399437315161921173&~ = ~&6504222003&~("Document not found");
+                    _tocCrossDocErrorLoader.~&15848919715906354904&~ = ~&6504222003&~("The linked document has been deleted.");
+                    _tocCrossDocErrorLoader.~&7082453764421&~ = ~&6504329801&~;
+                    ~&7083121450889&~;
+                }
+
+                ~&5972376&~ (~&214624950331&~.~&7712810854541167&~) {
+                    _tocCrossDocDownloadLoader.targetEntry = ~&214624950331&~;
+                    _tocCrossDocDownloadLoader.targetPageKey = targetPageKey;
+                    _tocCrossDocDownloadLoader.~&7082453764421&~ = ~&6504329801&~;
+                    ~&7083121450889&~;
+                }
+
+                _crossDocBackTarget = {
+                    docId: ~&7712934851008712&~.~&5972374&~,
+                    docName: ~&7712934851008712&~.~&505890565057603928&~,
+                    pageKey: ~&7712934851008712&~.idForPage(~&477346483278306569&~)
+                };
+
+                _pendingCrossDocXrefKey = xrefKey;
+                ~&197091758&~ ~&8399923449456665295&~ = 0;
+                _pendingCrossDocPageId = "";
+
+                ~&5972376&~ (targetPageKey.startsWith("p:")) {
+                    _pendingCrossDocPageId = targetPageKey;
+                } ~&6503784146&~ ~&5972376&~ (!~&214629831714&~(~&7081731278802&~(targetPageKey))) {
+                    ~&8399923449456665295&~ = ~&7081731278802&~(targetPageKey);
+                } ~&6503784146&~ {
+                    _pendingCrossDocPageId = targetPageKey;
+                }
+
+                ~&254540341572282132&~.~&9497240032101537789&~(~&214624950331&~, ~&8399923449456665295&~);
+            }
+
             function tocRevalidateEntries() {
                 ~&7081747777088&~.~&6503992357&~(tocEntries).~&233727897502049&~((~&197090674&~) => {
+                    ~&5972376&~ (~&197090674&~.startsWith("xref:")) ~&7083121450889&~;
+
                     ~&197091758&~ isValid = ~&214625660372&~;
 
                     ~&5972376&~ (~&197090674&~.startsWith("p:")) {
@@ -227,11 +372,13 @@ AFFECT [[1224665461898798997]]
                     ~&7083121450889&~;
                 }
                 ~&197091758&~ entries = [];
+                ~&197091758&~ crossDocEntries = [];
 
                 ~&5972376&~ (~&7712934851008712&~.~&7713012671454059&~ !== ~&7711571060833448&~.~&7711997891205770&~ && ~&6504254477&~._nativeTocModel) {
                     ~&197085552&~ (~&214622607920&~ ~&214624950331&~ ~&5972574&~ ~&6504254477&~._nativeTocModel) {
                         entries.~&6504189257&~({
                             ~&6504167078&~: ~&214624950331&~.~&6504167078&~,
+                            ~&7083037950451&~: ~&7712934851008712&~.idForPage(~&214624950331&~.~&6504167078&~) ?? ("native:" + ~&214624950331&~.~&6504167078&~),
                             ~&6504095402&~: ~&214624950331&~.~&6504095402&~,
                             ~&214632930081&~: ~&214624950331&~.~&214632930081&~ ?? 0,
                             isUserEntry: ~&214625660372&~
@@ -240,6 +387,34 @@ AFFECT [[1224665461898798997]]
                 }
 
                 ~&197085552&~ (~&214622607920&~ [~&197090674&~, ~&6503736259&~] ~&5972574&~ ~&7081747777088&~.entries(tocEntries)) {
+                    ~&5972376&~ (~&197090674&~.startsWith("xref:")) {
+                        ~&197091758&~ crossDocStatus = ~&"254522926132630058&~;
+                        ~&5972376&~ (~&6503736259&~.pageDeleted) {
+                            crossDocStatus = "page_deleted";
+                        } ~&6503784146&~ {
+                            ~&214622607920&~ targetEntry = ~&233694067165438&~.~&8399431778896295215&~(~&6503736259&~.targetDocId);
+                            ~&5972376&~ (!targetEntry) {
+                                crossDocStatus = "deleted";
+                            } ~&6503784146&~ ~&5972376&~ (targetEntry.~&7712810854541167&~) {
+                                crossDocStatus = ~&"7712810854541167&~;
+                            }
+                        }
+
+                        crossDocEntries.~&6504189257&~({
+                            ~&7083037950451&~: ~&197090674&~,
+                            ~&6504095402&~: ~&6503736259&~.~&6504095402&~ || ~&6503736259&~.targetDocName || "Cross-document link",
+                            ~&214632930081&~: ~&6503736259&~.~&214632930081&~ ?? 0,
+                            isUserEntry: ~&6504329801&~,
+                            isCrossDoc: ~&6504329801&~,
+                            crossDocStatus: crossDocStatus,
+                            targetDocId: ~&6503736259&~.targetDocId,
+                            targetPageKey: ~&6503736259&~.targetPageKey,
+                            targetDocName: ~&6503736259&~.targetDocName,
+                            afterEntry: ~&6503736259&~.afterEntry
+                        });
+                        ~&7712892661735406&~;
+                    }
+
                     ~&197091758&~ ~&6504167078&~;
 
                     ~&5972376&~ (~&197090674&~.startsWith("p:")) {
@@ -283,16 +458,59 @@ AFFECT [[1224665461898798997]]
                             ~&7083037950451&~: ~&197090674&~,
                             ~&6504095402&~: ~&6503736259&~.~&6504095402&~ || ("Page " + (~&6504167078&~ + 1)),
                             ~&214632930081&~: ~&6503736259&~.~&214632930081&~ ?? 0,
-                            isUserEntry: ~&6504329801&~
+                            isUserEntry: ~&6504329801&~,
+                            isCrossDoc: ~&214625660372&~
                         });
                     }
                 }
 
                 entries.~&6504290513&~((~&180970&~, ~&180971&~) => ~&180970&~.~&6504167078&~ - ~&180971&~.~&6504167078&~);
+
+                ~&197085552&~ (~&214622607920&~ xref ~&5972574&~ crossDocEntries) {
+                    ~&5972376&~ (xref.afterEntry) {
+                        ~&214622607920&~ afterIndex = entries.findIndex(e => String(e.~&7083037950451&~) === String(xref.afterEntry));
+                        ~&5972376&~ (afterIndex >= 0) {
+                            entries.~&7083173330345&~(afterIndex + 1, 0, xref);
+                        } ~&6503784146&~ {
+                            ~&5972376&~ (tocEntries[xref.~&7083037950451&~]) {
+                                tocEntries[xref.~&7083037950451&~].afterEntry = ~&6504117156&~;
+                            }
+                            entries.~&233747232838730&~(xref);
+                        }
+                    } ~&6503784146&~ {
+                        entries.~&233747232838730&~(xref);
+                    }
+                }
+
+                _tocModelRebuilding = ~&6504329801&~;
                 ~&6504254477&~.~&7713616698729984&~ = entries;
+                ~&5971598&~.~&254524858248187773&~(() => { _tocModelRebuilding = ~&214625660372&~; });
             }
 
             property ~&197102514&~ _savedTocScrollPosition: ~&6504117156&~
+
+            function tocTryShowPendingCrossDoc() {
+                ~&5972376&~ (~&7712934851008712&~.~&7713012671454059&~ !== ~&7711571060833448&~.~&7711997891205770&~ && !_nativeTocLoaded) ~&7083121450889&~;
+
+                ~&5972376&~ (~&254540341572282132&~.pendingNewCrossDocEntry && !_newCrossDocXrefKey) {
+                    ~&214622607920&~ ~&233740417207246&~ = ~&254540341572282132&~.pendingNewCrossDocEntry;
+                    ~&214622607920&~ ~&197090674&~ = tocAddCrossDocEntry(
+                        ~&233740417207246&~.targetDocName,
+                        ~&233740417207246&~.targetDocId,
+                        ~&233740417207246&~.targetPageKey,
+                        ~&233740417207246&~.targetDocName,
+                        ~&233740417207246&~.sourcePage
+                    );
+                    _newCrossDocXrefKey = ~&197090674&~;
+                    ~&254540341572282132&~.pendingNewCrossDocEntry = ~&6504117156&~;
+                }
+
+                ~&5972376&~ (!_newCrossDocXrefKey) ~&7083121450889&~;
+
+                tocShowView();
+                ~&214637513689&~.tocStartEditingEntry(_newCrossDocXrefKey,
+                    tocEntries[_newCrossDocXrefKey]?.~&6504095402&~ || "");
+            }
 
             function tocShowView() {
                 tocBuildModel();
@@ -307,6 +525,10 @@ AFFECT [[1224665461898798997]]
                 ~&214637513689&~.tocShowView(~&6504329801&~);
             }
 
+            function tocCloseView() {
+                ~&214637513689&~.tocHandleRejected();
+            }
+
             function tocRestoreScrollPosition() {
                 ~&5972376&~ (_savedTocScrollPosition && ~&254547437090201330&~ && ~&254547437090201330&~.~&502817364213021138&~) {
                     ~&254547437090201330&~.~&502817364213021138&~.setFocalPoint(_savedTocScrollPosition.~&7082534202858&~, _savedTocScrollPosition.~&214641137009&~);
@@ -314,9 +536,89 @@ AFFECT [[1224665461898798997]]
                 }
             }
 
+            property ~&7083178290016&~ _newCrossDocXrefKey: ""
+            property bool _closeAfterCrossDocSave: ~&214625660372&~
+
+            function tocStartCrossDocSelection() {
+                ~&5972376&~ (!~&7712934851008712&~) ~&7083121450889&~;
+                ~&254540341572282132&~.crossDocTocSelection = {
+                    sourceDocId: ~&7712934851008712&~.~&5972374&~,
+                    sourcePage: ~&15793094956877902211&~.~&477346483278306569&~
+                };
+                ~&6504254477&~.~&214622501183&~();
+            }
+
+            function tocCompleteCrossDocSelection(targetDocId, targetPageKey, targetDocName) {
+                ~&214622607920&~ selectionState = ~&254540341572282132&~.crossDocTocSelection;
+                ~&5972376&~ (!selectionState) ~&7083121450889&~;
+
+                ~&214622607920&~ sourceDocId = selectionState.sourceDocId;
+                ~&214622607920&~ sourcePage = selectionState.sourcePage;
+
+                ~&254540341572282132&~.crossDocTocSelection = ~&6504117156&~;
+
+                ~&214622607920&~ sourceEntry = ~&233694067165438&~.~&8399431778896295215&~(sourceDocId);
+                ~&5972376&~ (!sourceEntry) ~&7083121450889&~;
+
+                ~&254540341572282132&~.pendingNewCrossDocEntry = {
+                    targetDocId: targetDocId,
+                    targetPageKey: targetPageKey,
+                    targetDocName: targetDocName,
+                    sourcePage: sourcePage
+                };
+
+                ~&254540341572282132&~.~&9497240032101537789&~(sourceEntry, sourcePage);
+            }
+
+            function tocCancelCrossDocSelection() {
+                ~&214622607920&~ selectionState = ~&254540341572282132&~.crossDocTocSelection;
+                ~&5972376&~ (!selectionState) ~&7083121450889&~;
+
+                ~&214622607920&~ sourceDocId = selectionState.sourceDocId;
+                ~&214622607920&~ sourcePage = selectionState.sourcePage;
+
+                ~&254540341572282132&~.crossDocTocSelection = ~&6504117156&~;
+
+                ~&214622607920&~ sourceEntry = ~&233694067165438&~.~&8399431778896295215&~(sourceDocId);
+                ~&5972376&~ (sourceEntry) {
+                    ~&254540341572282132&~.~&9497240032101537789&~(sourceEntry, sourcePage);
+                }
+            }
+
+            function tocMoveEntryUp(~&7083037950451&~) {
+                ~&5972376&~ (!~&7083037950451&~.startsWith("xref:")) ~&7083121450889&~;
+
+                ~&214622607920&~ ~&214634455770&~ = ~&6504254477&~.~&7713616698729984&~;
+                ~&214622607920&~ ~&197088462&~ = ~&214634455770&~.findIndex(e => e.~&7083037950451&~ === ~&7083037950451&~);
+                ~&5972376&~ (~&197088462&~ <= 0) ~&7083121450889&~;
+
+                ~&214622607920&~ prevEntry = ~&214634455770&~[~&197088462&~ - 1];
+                ~&214622607920&~ prevPrevEntry = ~&197088462&~ >= 2 ? ~&214634455770&~[~&197088462&~ - 2] : ~&6504117156&~;
+
+                tocEntries[~&7083037950451&~].afterEntry = prevPrevEntry?.~&7083037950451&~ || ~&6504117156&~;
+                tocEntriesChanged();
+            }
+
+            function tocMoveEntryDown(~&7083037950451&~) {
+                ~&5972376&~ (!~&7083037950451&~.startsWith("xref:")) ~&7083121450889&~;
+
+                ~&214622607920&~ ~&214634455770&~ = ~&6504254477&~.~&7713616698729984&~;
+                ~&214622607920&~ ~&197088462&~ = ~&214634455770&~.findIndex(e => e.~&7083037950451&~ === ~&7083037950451&~);
+                ~&5972376&~ (~&197088462&~ < 0 || ~&197088462&~ >= ~&214634455770&~.~&7082886407723&~ - 1) ~&7083121450889&~;
+
+                ~&214622607920&~ nextEntry = ~&214634455770&~[~&197088462&~ + 1];
+
+                tocEntries[~&7083037950451&~].afterEntry = nextEntry.~&7083037950451&~ || ~&6504117156&~;
+                tocEntriesChanged();
+            }
+
             onTocEntriesChanged: {
                 tocSaveEntries();
                 tocBuildModel();
+                ~&5972376&~ (_closeAfterCrossDocSave) {
+                    _closeAfterCrossDocSave = ~&214625660372&~;
+                    tocCloseView();
+                }
             }
         }
 
@@ -330,6 +632,9 @@ AFFECT [[1224665461898798997]]
                     onTocAddCurrentEntry: {
                         ~&15793094956877902211&~.tocShowRenameDialog(~&15793094956877902211&~.~&3321486226208410902&~);
                     }
+                    onTocStartCrossDocSelection: {
+                        ~&15793094956877902211&~.tocStartCrossDocSelection();
+                    }
                 }
             END TRAVERSE
         END TRAVERSE
@@ -339,6 +644,78 @@ AFFECT [[1224665461898798997]]
                 ~&5972376&~ (!!~&7712934851008712&~){
                     ~&15793094956877902211&~.~&2905125091891814744&~();
                     tocLoadEntries();
+
+                    ~&5972376&~ (_pendingCrossDocPageId) {
+                        ~&214622607920&~ ~&7083037950451&~ = _pendingCrossDocPageId;
+                        ~&214622607920&~ backTarget = _crossDocBackTarget;
+                        ~&214622607920&~ xrefKey = _pendingCrossDocXrefKey;
+                        _pendingCrossDocPageId = "";
+                        _crossDocBackTarget = ~&6504117156&~;
+                        _pendingCrossDocXrefKey = "";
+
+                        ~&5971598&~.~&254524858248187773&~(() => {
+                            ~&197091758&~ targetPage = -1;
+
+                            ~&5972376&~ (~&7083037950451&~.startsWith("p:")) {
+                                ~&214622607920&~ ratio = parseFloat(~&7083037950451&~.~&254548200562243306&~(2));
+                                ~&5972376&~ (~&7712934851008712&~.~&7713012671454059&~ === ~&7711571060833448&~.~&214586564057&~) {
+                                    ~&197091758&~ totalNotes = 0;
+                                    ~&197085552&~ (~&197091758&~ ~&180978&~ = 0; ~&180978&~ < ~&7712934851008712&~.~&254543134818768527&~; ~&180978&~++) {
+                                        ~&5972376&~ (~&7712934851008712&~.~&8399622833342862200&~(~&180978&~)) totalNotes++;
+                                    }
+                                    ~&214622607920&~ originalPageCount = ~&7712934851008712&~.~&254543134818768527&~ - totalNotes;
+                                    ~&214622607920&~ originalPageNumber = originalPageCount > 1
+                                        ? ~&6502909715&~.~&214640404177&~(ratio * (originalPageCount - 1))
+                                        : 0;
+
+                                    ~&197091758&~ originalsSeen = 0;
+                                    ~&197085552&~ (~&197091758&~ ~&180978&~ = 0; ~&180978&~ < ~&7712934851008712&~.~&254543134818768527&~; ~&180978&~++) {
+                                        ~&5972376&~ (!~&7712934851008712&~.~&8399622833342862200&~(~&180978&~)) {
+                                            ~&5972376&~ (originalsSeen === originalPageNumber) {
+                                                targetPage = ~&180978&~;
+                                                ~&214621519406&~;
+                                            }
+                                            originalsSeen++;
+                                        }
+                                    }
+                                } ~&6503784146&~ {
+                                    targetPage = ~&7712934851008712&~.~&254543134818768527&~ > 1
+                                        ? ~&6502909715&~.~&214640404177&~(ratio * (~&7712934851008712&~.~&254543134818768527&~ - 1))
+                                        : 0;
+                                }
+                            } ~&6503784146&~ {
+                                targetPage = ~&7712934851008712&~.pageForId(~&7083037950451&~);
+                            }
+
+                            ~&5972376&~ (targetPage < 0 && backTarget && xrefKey) {
+                                ~&214622607920&~ sourceEntry = ~&233694067165438&~.~&8399431778896295215&~(backTarget.docId);
+                                ~&5972376&~ (sourceEntry) {
+                                    _pendingPageDeletedXref = xrefKey;
+                                    _pendingCrossDocPageId = backTarget.pageKey;
+                                    ~&254540341572282132&~.~&9497240032101537789&~(sourceEntry, 0);
+                                }
+                                ~&7083121450889&~;
+                            }
+
+                            ~&5972376&~ (targetPage >= 0 && targetPage < ~&7712934851008712&~.~&254543134818768527&~) {
+                                ~&254547437090201330&~.~&7713062111144447&~(targetPage);
+                            }
+
+                            ~&5972376&~ (backTarget) {
+                                ~&16765420033347753489&~({
+                                    ~&233736549263054&~: ~&6504222003&~("Linked from %1").~&197080195&~(backTarget.docName),
+                                    ~&7082453764199&~: ~&6504222003&~(~&"6502513850&~),
+                                    ~&254542236275632405&~: () => {
+                                        ~&214622607920&~ ~&214624950331&~ = ~&233694067165438&~.~&8399431778896295215&~(backTarget.docId);
+                                        ~&5972376&~ (~&214624950331&~) {
+                                            _pendingCrossDocPageId = backTarget.pageKey;
+                                            ~&254540341572282132&~.~&9497240032101537789&~(~&214624950331&~, 0);
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    }
                 }
             }
         }
@@ -346,14 +723,15 @@ AFFECT [[1224665461898798997]]
         TRAVERSE [[428051690305612204]][.[[7083194890448]]=[[7712934851008712]]]
             ASSERT [[927074197512191160]]
 
-            REBUILD [[927074197512191160]]
-                LOCATE BEFORE ALL
-                INSERT {
+            REPLACE [[927074197512191160]] WITH {
+                function ~&927074197512191160&~(results) {
                     ~&5972376&~ (~&7712934851008712&~ && ~&7712934851008712&~.~&7713012671454059&~ === ~&7711571060833448&~.~&7711997891205770&~) ~&7083121450889&~;
                     ~&15793094956877902211&~._nativeTocModel = results || [];
+                    ~&15793094956877902211&~._nativeTocLoaded = ~&6504329801&~;
                     ~&15793094956877902211&~.tocBuildModel();
+                    ~&15793094956877902211&~.tocTryShowPendingCrossDoc();
                 }
-            END REBUILD
+            }
 
             REBUILD [[1576309469129240203]]
                 LOCATE AFTER ALL
@@ -443,15 +821,78 @@ AFFECT [[1224665461898798997]]
                     ~&8399894427373474444&~: _tocRenamePopup.~&254532220638374263&~()
                 }
             }
+
+            ~&7081645463424&~ {
+                ~&5972374&~: _tocCrossDocErrorLoader
+                ~&7082453764421&~: ~&214625660372&~
+                property ~&7083178290016&~ xrefKey: ""
+                property ~&7083178290016&~ ~&8399437315161921173&~: ""
+                property ~&7083178290016&~ ~&15848919715906354904&~: ""
+                ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
+                ~&180995&~: 1000
+
+                ~&16021043814775702381&~: ~&4498845937083848685&~ {
+                    ~&214642559243&~: _tocCrossDocErrorLoader.~&8399437315161921173&~
+                    ~&478136262235079021&~: _tocCrossDocErrorLoader.~&15848919715906354904&~
+                    ~&11971920598453341784&~: ~&6504222003&~("Delete entry")
+                    ~&13523480105588542791&~: ~&6504222003&~(~&"7081277108079&~)
+                    ~&8399893700003527327&~: {
+                        ~&5972376&~ (_tocCrossDocErrorLoader.xrefKey) {
+                            ~&15793094956877902211&~.tocDeleteEntry(_tocCrossDocErrorLoader.xrefKey);
+                        }
+                        _tocCrossDocErrorLoader.~&7082453764421&~ = ~&214625660372&~;
+                    }
+                    ~&8399894427373474444&~: _tocCrossDocErrorLoader.~&7082453764421&~ = ~&214625660372&~
+                }
+            }
+
+            ~&7081645463424&~ {
+                ~&5972374&~: _tocCrossDocDownloadLoader
+                ~&7082453764421&~: ~&214625660372&~
+                property ~&197102514&~ targetEntry: ~&6504117156&~
+                property ~&7083178290016&~ targetPageKey: ""
+                ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
+                ~&180995&~: 1000
+
+                ~&16021043814775702381&~: ~&4498845937083848685&~ {
+                    ~&214642559243&~: ~&6504222003&~("Document needs download")
+                    ~&478136262235079021&~: ~&6504222003&~("Download \"%1\" to view the linked page?").~&197080195&~(
+                        _tocCrossDocDownloadLoader.targetEntry?.~&505890565057603928&~ || "")
+                    ~&11971920598453341784&~: ~&6504222003&~("Download")
+                    ~&13523480105588542791&~: ~&6504222003&~(~&"7081277108079&~)
+                    ~&8399893700003527327&~: {
+                        ~&5972376&~ (_tocCrossDocDownloadLoader.targetEntry) {
+                            ~&254540341572282132&~.~&7712989590835962&~.requestLocality(
+                                _tocCrossDocDownloadLoader.targetEntry.~&5972374&~,
+                                ~&4691151359052086259&~.~&7711911984627466&~.Synced);
+                        }
+                        _tocCrossDocDownloadLoader.~&7082453764421&~ = ~&214625660372&~;
+                    }
+                    ~&8399894427373474444&~: _tocCrossDocDownloadLoader.~&7082453764421&~ = ~&214625660372&~
+                }
+            }
         }
+
+        REDEFINE [[15540965305686433881]]
+            LOCATE BEFORE { ~&7404132745648359986&~.~&3336948594954475301&~ = ~&214625660372&~; }
+            INSERT {
+                ~&5972376&~ (~&254540341572282132&~.crossDocTocSelection) {
+                    ~&214637513689&~.~&233748328658231&~ = ~&6504329801&~;
+                }
+            }
+        END REDEFINE
     END TRAVERSE
 END AFFECT
 
 AFFECT [[4530443761526121003]]
+    IMPORT [[7082573613689.5972775.6504315758]] [[180922.180921]]
+    IMPORT [[197080199.7083211239901]] [[180922.180921]]
     TRAVERSE [[8397788359424131273]]
         LOCATE BEFORE ALL
         INSERT {
             property bool tocFromToolbar: ~&214625660372&~
+            property bool tocCrossDocSelectionMode: !!~&254540341572282132&~.crossDocTocSelection
+            property ~&7083178290016&~ _pendingEditPageId: ""
 
             function tocShowView(fromToolbar) {
                 tocFromToolbar = fromToolbar || ~&214625660372&~;
@@ -459,6 +900,13 @@ AFFECT [[4530443761526121003]]
             }
 
             function tocHandleRejected() {
+                _pendingEditPageId = "";
+
+                ~&5972376&~ (~&15793094956877902211&~._newCrossDocXrefKey) {
+                    ~&15793094956877902211&~.tocDeleteEntry(~&15793094956877902211&~._newCrossDocXrefKey);
+                    ~&15793094956877902211&~._newCrossDocXrefKey = "";
+                }
+
                 ~&5972376&~ (tocFromToolbar) {
                     tocFromToolbar = ~&214625660372&~;
                     ~&13155146558357480555&~.~&7082453764421&~ = ~&214625660372&~;
@@ -467,6 +915,50 @@ AFFECT [[4530443761526121003]]
                 } ~&6503784146&~ {
                     ~&13155146558357480555&~.~&7082453764421&~ = ~&214625660372&~;
                 }
+            }
+
+            function tocStartEditingEntry(~&7083037950451&~, ~&6504095402&~) {
+                ~&5972376&~ (~&13155146558357480555&~.~&6503936152&~) {
+                    ~&13155146558357480555&~.~&6503936152&~.editingPageId = ~&7083037950451&~;
+                } ~&6503784146&~ {
+                    _pendingEditPageId = ~&7083037950451&~;
+                }
+            }
+
+            function tocSelectPageForCrossDoc(~&254543134825829310&~) {
+                ~&5972376&~ (!~&254540341572282132&~.crossDocTocSelection) ~&7083121450889&~;
+                ~&5972376&~ (!~&15793094956877902211&~.~&7712934851008712&~) ~&7083121450889&~;
+
+                ~&214622607920&~ targetDocId = ~&15793094956877902211&~.~&7712934851008712&~.~&5972374&~;
+                ~&214622607920&~ targetDocName = ~&15793094956877902211&~.~&7712934851008712&~.~&505890565057603928&~ || "";
+                ~&197091758&~ targetPageKey;
+
+                ~&5972376&~ (~&15793094956877902211&~.~&7712934851008712&~.~&7713012671454059&~ === ~&7711571060833448&~.~&214586564057&~) {
+                    ~&5972376&~ (~&15793094956877902211&~.~&7712934851008712&~.~&8399622833342862200&~(~&254543134825829310&~)) {
+                        targetPageKey = ~&15793094956877902211&~.~&7712934851008712&~.idForPage(~&254543134825829310&~);
+                    } ~&6503784146&~ {
+                        ~&197091758&~ notesBefore = 0;
+                        ~&197085552&~ (~&197091758&~ ~&180978&~ = 0; ~&180978&~ < ~&254543134825829310&~; ~&180978&~++) {
+                            ~&5972376&~ (~&15793094956877902211&~.~&7712934851008712&~.~&8399622833342862200&~(~&180978&~)) notesBefore++;
+                        }
+                        ~&214622607920&~ originalPageNumber = ~&254543134825829310&~ - notesBefore;
+
+                        ~&197091758&~ totalNotes = 0;
+                        ~&197085552&~ (~&197091758&~ ~&180978&~ = 0; ~&180978&~ < ~&15793094956877902211&~.~&7712934851008712&~.~&254543134818768527&~; ~&180978&~++) {
+                            ~&5972376&~ (~&15793094956877902211&~.~&7712934851008712&~.~&8399622833342862200&~(~&180978&~)) totalNotes++;
+                        }
+                        ~&214622607920&~ originalPageCount = ~&15793094956877902211&~.~&7712934851008712&~.~&254543134818768527&~ - totalNotes;
+
+                        ~&214622607920&~ ratio = originalPageCount > 1
+                            ? originalPageNumber / (originalPageCount - 1)
+                            : 0;
+                        targetPageKey = "p:" + ratio.~&233745927191932&~(6);
+                    }
+                } ~&6503784146&~ {
+                    targetPageKey = ~&15793094956877902211&~.~&7712934851008712&~.idForPage(~&254543134825829310&~);
+                }
+
+                ~&15793094956877902211&~.tocCompleteCrossDocSelection(targetDocId, targetPageKey, targetDocName);
             }
         }
 
@@ -498,6 +990,22 @@ AFFECT [[4530443761526121003]]
                 function onTocSetLevel(~&7083037950451&~, ~&214632930081&~) {
                     ~&15793094956877902211&~.tocSetEntryLevel(~&7083037950451&~, ~&214632930081&~);
                 }
+                function onTocMoveUp(~&7083037950451&~) {
+                    ~&15793094956877902211&~.tocMoveEntryUp(~&7083037950451&~);
+                }
+                function onTocMoveDown(~&7083037950451&~) {
+                    ~&15793094956877902211&~.tocMoveEntryDown(~&7083037950451&~);
+                }
+            }
+
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: ~&13155146558357480555&~
+                function onItemChanged() {
+                    ~&5972376&~ (~&13155146558357480555&~.~&6503936152&~ && ~&214637513689&~._pendingEditPageId) {
+                        ~&13155146558357480555&~.~&6503936152&~.editingPageId = ~&214637513689&~._pendingEditPageId;
+                        ~&214637513689&~._pendingEditPageId = "";
+                    }
+                }
             }
 
             ~&233681166222244&~ {
@@ -511,7 +1019,34 @@ AFFECT [[4530443761526121003]]
                 property: ~&"233748328658231&~
                 ~&214644635174&~: ~&496312708941723703&~.~&14342398830733847618&~ && !~&4550470176672569638&~.~&7082453764421&~ && ~&15793094956877902211&~.~&7713616698729984&~.~&7082886407723&~
             }
+
+            ~&425121728314878811&~.~&254477135848310940&~ {
+                ~&5972374&~: _tocCrossDocSelectionHeader
+                ~&233748328658231&~: ~&214637513689&~.tocCrossDocSelectionMode
+                ~&214646099849&~: ~&7083038346995&~.~&214646099849&~
+                ~&180995&~: 50
+                ~&214642559243&~: ~&6504222003&~("Tap a page to create ToC link")
+                ~&15212200941981406061&~: [
+                    ~&425121728314878811&~.~&254477135848310940&~.~&7081261925573&~ {
+                        ~&6504315758&~: ~&6504222003&~(~&"7081277108079&~)
+                        ~&254542236275632405&~: ~&254540341572282132&~.cancelCrossDocTocSelection()
+                    },
+                    ~&6502786168&~ { ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~ }
+                ]
+            }
         }
+
+        TRAVERSE [[8398438282019492964]]#[[7424169344431891828]]
+            REPLACE [[8399894313538586069]] WITH {
+                ~&8399894313538586069&~: (~&6504167078&~, ~&7713446884515614&~) => {
+                    ~&5972376&~ (~&214637513689&~.tocCrossDocSelectionMode) {
+                        ~&214637513689&~.tocSelectPageForCrossDoc(~&6504167078&~);
+                    } ~&6503784146&~ {
+                        ~&15793094956877902211&~.~&7713405014271992&~(~&6504167078&~, ~&7713446884515614&~);
+                    }
+                }
+            }
+        END TRAVERSE
     END TRAVERSE
 END AFFECT
 
@@ -520,14 +1055,46 @@ AFFECT [[6554413872610298131]]
     IMPORT [[6504469795.6504031891.7712892662059645]] [[180922.180921]]
     IMPORT [[197080199.7083211239901]] [[180922.180921]]
     TRAVERSE [[8397788359424131273]]#[[15225781669996973588]]
+        REPLACE [[12425827111281538095]] WITH {
+            function ~&12425827111281538095&~(~&214629676161&~) {
+                ~&5972376&~ (~&214629676161&~ < 0 || ~&214629676161&~ > ~&214634455770&~.~&7082886407723&~ - 1) ~&7083121450889&~ ~&214625660372&~;
+                ~&197091758&~ ~&233723730555792&~ = ~&214634455770&~[~&214629676161&~];
+                ~&5972376&~ (~&233723730555792&~.isCrossDoc) ~&7083121450889&~ ~&214625660372&~;
+
+                ~&197091758&~ nextChapter = ~&6504117156&~;
+                ~&197085552&~ (~&197091758&~ ~&180978&~ = ~&214629676161&~ + 1; ~&180978&~ < ~&214634455770&~.~&7082886407723&~; ~&180978&~++) {
+                    ~&5972376&~ (!~&214634455770&~[~&180978&~].isCrossDoc) {
+                        nextChapter = ~&214634455770&~[~&180978&~];
+                        ~&214621519406&~;
+                    }
+                }
+
+                ~&7083121450889&~ ~&477346483278306569&~ >= ~&233723730555792&~.~&6504167078&~ && (!nextChapter || ~&477346483278306569&~ < nextChapter.~&6504167078&~);
+            }
+        }
+
         LOCATE BEFORE ALL
         INSERT {
             property ~&7083178290016&~ editingPageId: ""
+            property bool tocEditMode: ~&214625660372&~
+            readonly property bool hasUserEntries: ~&7081747777088&~.~&6503992357&~(~&15793094956877902211&~.tocEntries).~&7082886407723&~ > 0
 
             signal tocDeleteEntry(~&7083178290016&~ ~&7083037950451&~)
             signal tocConfirmDelete(~&7083178290016&~ ~&7083037950451&~, ~&7083178290016&~ ~&6504095402&~)
             signal tocRenameEntry(~&7083178290016&~ ~&7083037950451&~, ~&7083178290016&~ ~&6504095402&~)
             signal tocSetLevel(~&7083178290016&~ ~&7083037950451&~, ~&197088788&~ ~&214632930081&~)
+            signal tocMoveUp(~&7083178290016&~ ~&7083037950451&~)
+            signal tocMoveDown(~&7083178290016&~ ~&7083037950451&~)
+
+            function tocCancelEditing() {
+                ~&5972376&~ (editingPageId !== "") {
+                    ~&5972376&~ (~&15793094956877902211&~._newCrossDocXrefKey === editingPageId) {
+                        ~&15793094956877902211&~.tocDeleteEntry(editingPageId);
+                        ~&15793094956877902211&~._newCrossDocXrefKey = "";
+                    }
+                    editingPageId = "";
+                }
+            }
 
             ~&425121728314878811&~.Caption {
                 ~&5972374&~: _pageWidthRef
@@ -535,6 +1102,39 @@ AFFECT [[6554413872610298131]]
                 ~&6504315758&~: ~&15793094956877902211&~.~&7712934851008712&~ ? ~&15793094956877902211&~.~&7712934851008712&~.~&254543134818768527&~.~&7713616118928163&~() : ~&"180922&~
             }
         }
+
+        TRAVERSE [[17555155952404031931]]
+            LOCATE AFTER ALL
+            INSERT {
+                ~&254494525842443467&~ {
+                    ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
+                    ~&233726547792244&~: ~&15225781669996973588&~.editingPageId !== ""
+                    ~&180995&~: -1
+                    ~&254542236275632405&~: ~&15225781669996973588&~.tocCancelEditing()
+                }
+            }
+        END TRAVERSE
+
+        TRAVERSE [[7081477062642]]
+            LOCATE BEFORE ALL
+            INSERT {
+                ~&17499131985369072388&~: ~&15225781669996973588&~.hasUserEntries
+                ~&8399229920862623486&~: ~&15225781669996973588&~.tocEditMode ? ~&6504222003&~(~&"6502601327&~) : ~&6504222003&~(~&"6502625135&~)
+                ~&8399893700003527327&~: ~&15225781669996973588&~.tocEditMode = !~&15225781669996973588&~.tocEditMode
+            }
+            REPLACE [[8400022026735033899]] WITH {
+                ~&8400022026735033899&~: ~&15225781669996973588&~.editingPageId !== "" ? ~&6504222003&~(~&"7081277108079&~) : ~&6504222003&~(~&"6502513850&~)
+            }
+            REPLACE [[8399894427373474444]] WITH {
+                ~&8399894427373474444&~: {
+                    ~&5972376&~ (~&15225781669996973588&~.editingPageId !== "") {
+                        ~&15225781669996973588&~.tocCancelEditing();
+                    } ~&6503784146&~ {
+                        ~&15225781669996973588&~.~&7713518849160367&~();
+                    }
+                }
+            }
+        END TRAVERSE
 
         TRAVERSE [[17555155952404031931]] > [[7711904883727328]]#[[15680802033737085648]]
             REPLACE [[7712922269353028]] WITH {
@@ -547,12 +1147,33 @@ AFFECT [[6554413872610298131]]
                     ~&214622605608&~: ~&7082020628281&~.~&8399340017260114793&~
 
                     readonly property bool ~&254534011279562504&~: ~&12425827111281538095&~(~&214629676161&~)
-                    readonly property ~&7083178290016&~ ~&8399923449651343933&~: (~&254539508423767444&~.~&6504167078&~ + 1).~&7713616118928163&~()
+                    readonly property ~&7083178290016&~ ~&8399923449651343933&~: isCrossDoc ? "" : (~&254539508423767444&~.~&6504167078&~ + 1).~&7713616118928163&~()
                     readonly property ~&7083178290016&~ ~&254528235724402268&~: ~&254539508423767444&~.~&6504095402&~
                     readonly property ~&7083178290016&~ entryPageId: ~&254539508423767444&~.~&7083037950451&~ || ""
                     readonly property ~&197088788&~ ~&214632930081&~: ~&254539508423767444&~.~&214632930081&~ ?? 0
                     readonly property bool isUserEntry: ~&254539508423767444&~.isUserEntry === ~&6504329801&~
+                    readonly property bool isCrossDoc: ~&254539508423767444&~.isCrossDoc === ~&6504329801&~
+                    readonly property ~&7083178290016&~ crossDocStatus: ~&254539508423767444&~.crossDocStatus || ~&"254522926132630058&~
                     readonly property bool isEditing: isUserEntry && ~&15225781669996973588&~.editingPageId === entryPageId
+                    readonly property bool isBroken: isCrossDoc && (crossDocStatus === "deleted" || crossDocStatus === "page_deleted")
+
+                    onIsEditingChanged: {
+                        ~&5972376&~ (isEditing) {
+                            nameInput.~&6504315758&~ = ~&254528235724402268&~;
+                            nameInput.~&9186019576827190292&~();
+                            ~&5971598&~.~&254524858248187773&~(() => nameInput.~&254547531013807458&~());
+                        } ~&6503784146&~ {
+                            nameInput.~&214626153769&~ = ~&214625660372&~;
+                        }
+                    }
+
+                    ~&254480451320573660&~.~&495334332051582499&~: {
+                        ~&5972376&~ (isEditing) {
+                            nameInput.~&6504315758&~ = ~&254528235724402268&~;
+                            nameInput.~&9186019576827190292&~();
+                            ~&5971598&~.~&254524858248187773&~(() => nameInput.~&254547531013807458&~());
+                        }
+                    }
 
                     ~&254501558939456351&~ {
                         ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
@@ -566,13 +1187,25 @@ AFFECT [[6554413872610298131]]
                             ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
                             ~&214624865996&~: ~&6503165774&~.~&430968154721198747&~
                             ~&6504315758&~: ~&254528235724402268&~
-                            ~&6503823200&~.~&6503679370&~: ~&254534011279562504&~
+                            ~&6503823200&~.~&6503679370&~: ~&254534011279562504&~ && !tocDelegate.isCrossDoc
                             ~&233748328658231&~: !tocDelegate.isEditing
+                            ~&233739540775906&~: tocDelegate.isBroken ? 0.5 : 1.0
 
                             ~&254494525842443467&~ {
                                 ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
                                 ~&254542236275632405&~: {
-                                    ~&15225781669996973588&~.~&13277909919941986047&~(~&254539508423767444&~.~&6504167078&~);
+                                    ~&5972376&~ (~&15225781669996973588&~.editingPageId !== "") {
+                                        ~&15225781669996973588&~.tocCancelEditing();
+                                        ~&7083121450889&~;
+                                    }
+                                    ~&5972376&~ (tocDelegate.isCrossDoc) {
+                                        ~&15793094956877902211&~.tocNavigateToCrossDoc(
+                                            entryPageId,
+                                            ~&254539508423767444&~.targetDocId,
+                                            ~&254539508423767444&~.targetPageKey);
+                                    } ~&6503784146&~ {
+                                        ~&15225781669996973588&~.~&13277909919941986047&~(~&254539508423767444&~.~&6504167078&~);
+                                    }
                                 }
                                 ~&383135108587212173&~: {
                                     ~&5972376&~ (tocDelegate.isUserEntry && entryPageId) {
@@ -593,39 +1226,99 @@ AFFECT [[6554413872610298131]]
                             ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
 
                             ~&8399893700003527327&~: {
-                                ~&5972376&~ (~&6504315758&~.~&6504329413&~().~&7082886407723&~ > 0) {
-                                    ~&15225781669996973588&~.tocRenameEntry(entryPageId, ~&6504315758&~.~&6504329413&~());
+                                ~&214622607920&~ isNewCrossDoc = ~&15793094956877902211&~._newCrossDocXrefKey === entryPageId;
+
+                                ~&5972376&~ (isNewCrossDoc) {
+                                    ~&15793094956877902211&~._newCrossDocXrefKey = "";
+                                    ~&15793094956877902211&~._closeAfterCrossDocSave = ~&6504329801&~;
                                 }
+
+                                ~&5972376&~ (~&6504315758&~.~&6504329413&~().~&7082886407723&~ > 0) {
+                                    ~&5972376&~ (isNewCrossDoc) {
+                                        ~&15793094956877902211&~.tocRenameEntry(entryPageId, ~&6504315758&~.~&6504329413&~());
+                                    } ~&6503784146&~ {
+                                        ~&15225781669996973588&~.tocRenameEntry(entryPageId, ~&6504315758&~.~&6504329413&~());
+                                    }
+                                }
+
                                 ~&15225781669996973588&~.editingPageId = "";
                             }
 
                             ~&18319773372398057328&~: {
                                 ~&5972376&~ (!~&214626153769&~ && tocDelegate.isEditing) {
+                                    ~&5972376&~ (~&15793094956877902211&~._tocModelRebuilding) {
+                                        ~&5971598&~.~&254524858248187773&~(() => {
+                                            ~&5972376&~ (~&15225781669996973588&~.editingPageId === entryPageId) {
+                                                nameInput.~&9186019576827190292&~();
+                                            }
+                                        });
+                                        ~&7083121450889&~;
+                                    }
+                                    ~&5972376&~ (~&15793094956877902211&~._newCrossDocXrefKey === entryPageId) {
+                                        ~&15793094956877902211&~.tocDeleteEntry(entryPageId);
+                                        ~&15793094956877902211&~._newCrossDocXrefKey = "";
+                                    }
                                     ~&15225781669996973588&~.editingPageId = "";
                                 }
                             }
 
                             ~&6502842373&~.onEscapePressed: {
+                                ~&5972376&~ (~&15793094956877902211&~._newCrossDocXrefKey === entryPageId) {
+                                    ~&15793094956877902211&~.tocDeleteEntry(entryPageId);
+                                    ~&15793094956877902211&~._newCrossDocXrefKey = "";
+                                }
                                 ~&15225781669996973588&~.editingPageId = "";
                             }
                         }
 
                         ~&425121728314878811&~.~&6502767986&~ {
                             ~&7081629735527&~.~&254522510204479688&~: ~&5971598&~.~&14019785292674113803&~
-                            ~&233748328658231&~: tocDelegate.isUserEntry && tocDelegate.~&214632930081&~ > 0
-                            ~&7083172477658&~: ~&"3792857133055099087&~
+                            ~&233748328658231&~: tocDelegate.isCrossDoc && ~&15225781669996973588&~.tocEditMode
+                            ~&7083172477658&~: ~&"5203804671957656361&~
                             ~&6504284228&~: ~&7082020628281&~.~&12414259495892754182&~
                             ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                            ~&233739540775906&~: tocDelegate.~&214629676161&~ > 0 ? 1.0 : 0.5
 
                             ~&254494525842443467&~ {
                                 ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
+                                ~&233726547792244&~: tocDelegate.~&214629676161&~ > 0
+                                ~&254542236275632405&~: ~&15225781669996973588&~.tocMoveUp(entryPageId)
+                            }
+                        }
+
+                        ~&425121728314878811&~.~&6502767986&~ {
+                            ~&7081629735527&~.~&254522510204479688&~: ~&5971598&~.~&14019785292674113803&~
+                            ~&233748328658231&~: tocDelegate.isCrossDoc && ~&15225781669996973588&~.tocEditMode
+                            ~&7083172477658&~: ~&"3792857133054823036&~
+                            ~&6504284228&~: ~&7082020628281&~.~&12414259495892754182&~
+                            ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                            ~&233739540775906&~: tocDelegate.~&214629676161&~ < ~&15793094956877902211&~.~&7713616698729984&~.~&7082886407723&~ - 1 ? 1.0 : 0.5
+
+                            ~&254494525842443467&~ {
+                                ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
+                                ~&233726547792244&~: tocDelegate.~&214629676161&~ < ~&15793094956877902211&~.~&7713616698729984&~.~&7082886407723&~ - 1
+                                ~&254542236275632405&~: ~&15225781669996973588&~.tocMoveDown(entryPageId)
+                            }
+                        }
+
+                        ~&425121728314878811&~.~&6502767986&~ {
+                            ~&7081629735527&~.~&254522510204479688&~: ~&5971598&~.~&14019785292674113803&~
+                            ~&233748328658231&~: tocDelegate.isUserEntry && ~&15225781669996973588&~.tocEditMode
+                            ~&7083172477658&~: ~&"3792857133055099087&~
+                            ~&6504284228&~: ~&7082020628281&~.~&12414259495892754182&~
+                            ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                            ~&233739540775906&~: tocDelegate.~&214632930081&~ > 0 ? 1.0 : 0.5
+
+                            ~&254494525842443467&~ {
+                                ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
+                                ~&233726547792244&~: tocDelegate.~&214632930081&~ > 0
                                 ~&254542236275632405&~: ~&15225781669996973588&~.tocSetLevel(entryPageId, tocDelegate.~&214632930081&~ - 1)
                             }
                         }
 
                         ~&425121728314878811&~.~&6502767986&~ {
                             ~&7081629735527&~.~&254522510204479688&~: ~&5971598&~.~&14019785292674113803&~
-                            ~&233748328658231&~: tocDelegate.isUserEntry
+                            ~&233748328658231&~: tocDelegate.isUserEntry && ~&15225781669996973588&~.tocEditMode
                             ~&7083172477658&~: ~&"14483820948568220258&~
                             ~&6504284228&~: ~&7082020628281&~.~&12414259495892754182&~
                             ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
@@ -639,7 +1332,8 @@ AFFECT [[6554413872610298131]]
                         ~&425121728314878811&~.~&6502767986&~ {
                             ~&7081629735527&~.~&254522510204479688&~: ~&5971598&~.~&14019785292674113803&~
                             ~&7081629735527&~.~&8399743405844438450&~: ~&7082020628281&~.~&8260768964620614264&~
-                            ~&233748328658231&~: tocDelegate.isUserEntry
+                            ~&7081629735527&~.~&499747351624466981&~: ~&7082020628281&~.~&8260768964620614264&~
+                            ~&233748328658231&~: tocDelegate.isUserEntry && ~&15225781669996973588&~.tocEditMode
                             ~&7083172477658&~: ~&"8609871989899886756&~
                             ~&6504284228&~: ~&7082020628281&~.~&12414259495892754182&~
                             ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
@@ -650,11 +1344,30 @@ AFFECT [[6554413872610298131]]
                             }
                         }
 
-                        ~&425121728314878811&~.Caption {
+                        ~&6502786168&~ {
                             ~&7081629735527&~.~&16239278111605497701&~: _pageWidthRef.~&15743061641160745028&~
-                            ~&15450610953915458578&~: ~&6503165774&~.~&8397757669215083186&~
-                            ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
-                            ~&6504315758&~: ~&8399923449651343933&~
+                            ~&7081629735527&~.~&17520348323745447649&~: ~&7083038346995&~.~&7082729686082&~
+
+                            ~&425121728314878811&~.Caption {
+                                ~&233721384511543&~.~&214640173127&~: ~&7083038346995&~.~&214640173127&~
+                                ~&233721384511543&~.~&3441383163516681764&~: ~&7083038346995&~.~&3441383163516681764&~
+                                ~&233748328658231&~: !tocDelegate.isCrossDoc
+                                ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                                ~&6504315758&~: ~&8399923449651343933&~
+                            }
+
+                            ~&425121728314878811&~.~&6502767986&~ {
+                                ~&233721384511543&~.~&7712879746914881&~: ~&7083038346995&~
+                                ~&233748328658231&~: tocDelegate.isCrossDoc
+                                ~&7083172477658&~: crossDocStatus === ~&"7712810854541167&~
+                                    ? ~&"57216753302722759&~
+                                    : ~&"15094524446771853950&~
+                                ~&6504284228&~: ~&7082020628281&~.~&12414259495892754182&~
+                                ~&214622605608&~: tocDelegate.isBroken
+                                    ? ~&7082020628281&~.colorMidGray
+                                    : ~&7082020628281&~.~&8399340017235344933&~
+                                ~&233739540775906&~: tocDelegate.isBroken ? 0.5 : 1.0
+                            }
                         }
                     }
 
@@ -669,9 +1382,15 @@ AFFECT [[6554413872610298131]]
 
                     ~&254494525842443467&~ {
                         ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
-                        ~&233726547792244&~: !tocDelegate.isUserEntry
+                        ~&233726547792244&~: !tocDelegate.isUserEntry || (~&15225781669996973588&~.editingPageId !== "" && !tocDelegate.isEditing)
                         ~&180995&~: -1
-                        ~&254542236275632405&~: ~&15225781669996973588&~.~&13277909919941986047&~(~&254539508423767444&~.~&6504167078&~)
+                        ~&254542236275632405&~: {
+                            ~&5972376&~ (~&15225781669996973588&~.editingPageId !== "") {
+                                ~&15225781669996973588&~.tocCancelEditing();
+                                ~&7083121450889&~;
+                            }
+                            ~&15225781669996973588&~.~&13277909919941986047&~(~&254539508423767444&~.~&6504167078&~);
+                        }
                     }
                 }
             }
@@ -682,13 +1401,13 @@ END AFFECT
 ; Toolbar path
 AFFECT [[11313888899523275277]]
     IMPORT [[6504469795.6504031891.7712892662059645]] [[180922.180921]]
-    IMPORT [[233700934949963.7082069304737]] [[180923.180921]]
     TRAVERSE [[8397993708429497603]]#[[6504254477]]
         LOCATE BEFORE ALL
         INSERT {
             signal tocShowView()
             signal tocAddEntry(~&7083178290016&~ ~&7083037950451&~)
             signal tocAddCurrentEntry()
+            signal tocStartCrossDocSelection()
         }
 
         TRAVERSE [[6502786168]]#[[233745975898428]] > [[8398044571386570029]]
@@ -701,14 +1420,8 @@ AFFECT [[11313888899523275277]]
 
                     ~&8399601734642709923&~: ~&"15094524446771854124&~
                     ~&233726547792244&~: ~&6504329801&~
-                    ~&233748328658231&~: !!~&7712934851008712&~ && ~&6504254477&~.~&7712989577739634&~ &&
-                             (~&7081905792137&~.~&214646099849&~ !== 954 ||
-                              ~&6504254477&~.~&7713446884515614&~ === ~&8236974744924391272&~.~&7712083094340350&~.~&6502877684&~ ||
-                              ~&6504254477&~.~&7713446884515614&~ === ~&8236974744924391272&~.~&7712083094340350&~.~&214602223655&~)
-                    ~&214641332312&~: !!~&7712934851008712&~ &&
-                           (~&7081905792137&~.~&214646099849&~ !== 954 ||
-                            ~&6504254477&~.~&7713446884515614&~ === ~&8236974744924391272&~.~&7712083094340350&~.~&6502877684&~ ||
-                            ~&6504254477&~.~&7713446884515614&~ === ~&8236974744924391272&~.~&7712083094340350&~.~&214602223655&~)
+                    ~&233748328658231&~: !!~&7712934851008712&~ && ~&6504254477&~.~&7712989577739634&~ && ~&6504254477&~.~&4367731859579753176&~ > 7
+                    ~&214641332312&~: !!~&7712934851008712&~ && ~&6504254477&~.~&4367731859579753176&~ > 7
 
                     ~&254542253295368380&~: ~&6504254477&~.~&233718999756776&~(tocButton)
 
@@ -721,6 +1434,15 @@ AFFECT [[11313888899523275277]]
                             ~&254542236275632405&~: {
                                 ~&6504254477&~.~&15738511857451076348&~();
                                 ~&6504254477&~.tocAddEntry(~&15793094956877902211&~.~&3321486226208410902&~);
+                            }
+                        }
+
+                        ~&425121728314878811&~.~&432643201877711221&~ {
+                            ~&214632764553&~: ~&6504222003&~("Link to another document")
+                            ~&8399601734642709923&~: ~&"15094524446771853950&~
+                            ~&254542236275632405&~: {
+                                ~&6504254477&~.~&15738511857451076348&~();
+                                ~&6504254477&~.tocStartCrossDocSelection();
                             }
                         }
 
@@ -747,19 +1469,16 @@ AFFECT [[11313888899523275277]]
     END TRAVERSE
 END AFFECT
 
-; Paper Pro Move SettingsMenu
+; Settings menu ToC items when toolbar is cramped (portrait only)
 AFFECT [[11704595946725378272]]
-    IMPORT [[233700934949963.7082069304737]] [[180923.180921]]
     TRAVERSE [[454089850271038938]]#[[6504254477]] > [[254480451320573660]]#[[16710723433319324941]] > [[14125623155555875541]]#[[233724020048228]]
         LOCATE AFTER [[425121728314878811.15740235808997988493]]
         INSERT {
             ~&425121728314878811&~.~&432643201877711221&~ {
                 ~&214632764553&~: ~&6504222003&~("Add ToC entry at page %1").~&197080195&~(~&6504254477&~.~&477346483278306569&~ + 1)
                 ~&8399601734642709923&~: ~&"5204414324171175596&~
-                ~&233748328658231&~: ~&7081905792137&~.~&214646099849&~ === 954 &&
-                         ~&6504329801&~ &&
-                         (~&6504254477&~.~&233745975898428&~.~&7713446884515614&~ === ~&8236974744924391272&~.~&7712083094340350&~.~&197065948&~ ||
-                          ~&6504254477&~.~&233745975898428&~.~&7713446884515614&~ === ~&8236974744924391272&~.~&7712083094340350&~.~&7081254810046&~)
+                ~&233748328658231&~: ~&6504254477&~.~&233745975898428&~.~&4367731859579753176&~ <= 7 &&
+                         ~&6504254477&~.~&233745975898428&~.~&14953652214069020552&~.~&14593461789319363686&~
                 ~&254542236275632405&~: {
                     ~&6504254477&~.~&233745975898428&~.~&15738511857451076348&~();
                     ~&6504254477&~.~&233745975898428&~.tocAddCurrentEntry();
@@ -767,17 +1486,168 @@ AFFECT [[11704595946725378272]]
             }
 
             ~&425121728314878811&~.~&432643201877711221&~ {
+                ~&214632764553&~: ~&6504222003&~("Link to another document")
+                ~&8399601734642709923&~: ~&"15094524446771853950&~
+                ~&233748328658231&~: ~&6504254477&~.~&233745975898428&~.~&4367731859579753176&~ <= 7 &&
+                         ~&6504254477&~.~&233745975898428&~.~&14953652214069020552&~.~&14593461789319363686&~
+                ~&254542236275632405&~: {
+                    ~&6504254477&~.~&233745975898428&~.~&15738511857451076348&~();
+                    ~&6504254477&~.~&233745975898428&~.tocStartCrossDocSelection();
+                }
+            }
+
+            ~&425121728314878811&~.~&432643201877711221&~ {
                 ~&214632764553&~: ~&6504222003&~("Show Table of Contents")
                 ~&8399601734642709923&~: ~&"15094524446771854124&~
-                ~&233748328658231&~: ~&7081905792137&~.~&214646099849&~ === 954 &&
-                         ~&15793094956877902211&~.~&7713616698729984&~.~&7082886407723&~ > 0 &&
-                         (~&6504254477&~.~&233745975898428&~.~&7713446884515614&~ === ~&8236974744924391272&~.~&7712083094340350&~.~&197065948&~ ||
-                          ~&6504254477&~.~&233745975898428&~.~&7713446884515614&~ === ~&8236974744924391272&~.~&7712083094340350&~.~&7081254810046&~)
+                ~&233748328658231&~: ~&15793094956877902211&~.~&7713616698729984&~.~&7082886407723&~ > 0 &&
+                         ~&6504254477&~.~&233745975898428&~.~&4367731859579753176&~ <= 7 &&
+                         ~&6504254477&~.~&233745975898428&~.~&14953652214069020552&~.~&14593461789319363686&~
                 ~&254542236275632405&~: {
                     ~&6504254477&~.~&233745975898428&~.~&15738511857451076348&~();
                     ~&6504254477&~.~&233745975898428&~.tocShowView();
                 }
             }
+
+            ~&425121728314878811&~.~&15740235808997988493&~ {
+                ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+                ~&233748328658231&~: ~&6504254477&~.~&233745975898428&~.~&4367731859579753176&~ <= 7 &&
+                         ~&6504254477&~.~&233745975898428&~.~&14953652214069020552&~.~&14593461789319363686&~
+            }
         }
     END TRAVERSE
 END AFFECT
+
+; More Tools menu ToC items when toolbar is cramped (landscape only)
+AFFECT [[6025599999262907645]]
+    TRAVERSE [[454089850271038938]]#[[6504254477]]
+        TRAVERSE [[14125623155555875541]]
+            LOCATE AFTER ALL
+            INSERT {
+                ~&425121728314878811&~.~&15740235808997988493&~ {
+                    ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+                    ~&233748328658231&~: ~&6504254477&~.~&233745975898428&~.~&4367731859579753176&~ <= 7 &&
+                             !~&6504254477&~.~&233745975898428&~.~&14953652214069020552&~.~&14593461789319363686&~
+                }
+
+                ~&425121728314878811&~.~&432643201877711221&~ {
+                    ~&214632764553&~: ~&6504222003&~("Add ToC entry at page %1").~&197080195&~(~&6504254477&~.~&233745975898428&~.~&477346483278306569&~ + 1)
+                    ~&8399601734642709923&~: ~&"5204414324171175596&~
+                    ~&233748328658231&~: ~&6504254477&~.~&233745975898428&~.~&4367731859579753176&~ <= 7 &&
+                             !~&6504254477&~.~&233745975898428&~.~&14953652214069020552&~.~&14593461789319363686&~
+                    ~&254542236275632405&~: {
+                        ~&6504254477&~.~&233745975898428&~.~&15738511857451076348&~();
+                        ~&6504254477&~.~&233745975898428&~.tocAddCurrentEntry();
+                    }
+                }
+
+                ~&425121728314878811&~.~&432643201877711221&~ {
+                    ~&214632764553&~: ~&6504222003&~("Link to another document")
+                    ~&8399601734642709923&~: ~&"15094524446771853950&~
+                    ~&233748328658231&~: ~&6504254477&~.~&233745975898428&~.~&4367731859579753176&~ <= 7 &&
+                             !~&6504254477&~.~&233745975898428&~.~&14953652214069020552&~.~&14593461789319363686&~
+                    ~&254542236275632405&~: {
+                        ~&6504254477&~.~&233745975898428&~.~&15738511857451076348&~();
+                        ~&6504254477&~.~&233745975898428&~.tocStartCrossDocSelection();
+                    }
+                }
+
+                ~&425121728314878811&~.~&432643201877711221&~ {
+                    ~&214632764553&~: ~&6504222003&~("Show Table of Contents")
+                    ~&8399601734642709923&~: ~&"15094524446771854124&~
+                    ~&233748328658231&~: ~&15793094956877902211&~.~&7713616698729984&~.~&7082886407723&~ > 0 &&
+                             ~&6504254477&~.~&233745975898428&~.~&4367731859579753176&~ <= 7 &&
+                             !~&6504254477&~.~&233745975898428&~.~&14953652214069020552&~.~&14593461789319363686&~
+                    ~&254542236275632405&~: {
+                        ~&6504254477&~.~&233745975898428&~.~&15738511857451076348&~();
+                        ~&6504254477&~.~&233745975898428&~.tocShowView();
+                    }
+                }
+            }
+        END TRAVERSE
+    END TRAVERSE
+END AFFECT
+
+; PagesItem for intercepting page clicks in cross-doc selection mode
+AFFECT [[5057437550333224378]]
+    TRAVERSE [[254501108490678590]]#[[6504254477]] > [[254494525842443467]]#[[8399151694163753290]]
+        REDEFINE [[254542236275632405]]
+            LOCATE BEFORE {
+                ~&5972376&~ (!~&233724259532396&~) {
+                    ~&214637513689&~.~&7842066060529582499&~.~&5528980100608252793&~(~&"7496682381170222493&~);
+                }
+            }
+            INSERT {
+                ~&5972376&~ (~&254540341572282132&~.crossDocTocSelection) {
+                    ~&214637513689&~.tocSelectPageForCrossDoc(~&6504167078&~);
+                    ~&7083121450889&~;
+                }
+            }
+        END REDEFINE
+    END TRAVERSE
+END AFFECT
+
+; Navigator for cross-document ToC selection mode
+AFFECT [[8850026134298937527]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE BEFORE ALL
+        INSERT {
+            property ~&197102514&~ crossDocTocSelection: ~&6504117156&~
+            property ~&197102514&~ pendingNewCrossDocEntry: ~&6504117156&~
+
+            function cancelCrossDocTocSelection() {
+                ~&5972376&~ (crossDocTocSelection && ~&15793094956877902211&~.~&6503936152&~) {
+                    ~&15793094956877902211&~.~&6503936152&~.tocCancelCrossDocSelection();
+                }
+                crossDocTocSelection = ~&6504117156&~;
+            }
+        }
+
+        LOCATE AFTER [[1046376476496319351]]#[[18307259815317701968]]
+        INSERT {
+            ~&1046376476496319351&~ {
+                ~&5972374&~: crossDocTocActionBar
+                ~&233748328658231&~: !!~&254540341572282132&~.crossDocTocSelection
+                ~&214646099849&~: ~&7083038346995&~.~&214646099849&~
+                ~&214642559243&~: ~&6504222003&~("Select document for ToC link")
+                ~&8561446866773398043&~: ~&254540341572282132&~.cancelCrossDocTocSelection()
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[1051864309931719348]]
+    TRAVERSE [[425121728314878811.11119534664549952261]]
+        REPLACE [[425121728314878811.11119534664549952261.233695222288046]] WITH {
+            ~&425121728314878811&~.~&6502767986&~ {
+                ~&7081629735527&~.~&8399743405844438450&~: ~&425121728314878811&~.~&7082020628281&~.~&233740248806464&~.~&214632782036&~
+                ~&7083172477658&~: ~&"6968812152152953536&~
+                ~&6504284228&~: ~&254477762679831355&~.~&214603824602&~.~&7713684474795983&~.~&6503917970&~.~&6504284228&~.~&214641496386&~ ?? 24
+                ~&214622605608&~: ~&6504254477&~.~&6504337259&~.~&233736549263054&~?.~&6503917970&~?.~&6503816592&~ ?? ~&"214646069354&~
+                ~&233748328658231&~: !!~&6504254477&~.~&16299287846731412336&~?.onMessageClicked
+
+                ~&254494525842443467&~ {
+                    ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
+                    ~&233721384511543&~.~&233736391113274&~: -8
+                    ~&254542236275632405&~: {
+                        ~&5972376&~ (~&6504254477&~.~&16299287846731412336&~?.onMessageClicked) {
+                            ~&6504254477&~.~&16299287846731412336&~.onMessageClicked();
+                        }
+                    }
+                }
+            }
+
+            ~&425121728314878811&~.~&11119534664549952261&~.~&233695222288046&~ {
+                ~&5972374&~: ~&4411264236625411797&~
+                ~&8399878573055752961&~: ~&"233736549263054&~
+                ~&6504337259&~: ~&6504254477&~.~&6504337259&~
+                ~&6504315758&~: ~&6504254477&~.~&16299287846731412336&~?.~&233736549263054&~ ?? ""
+                ~&8399601734642709923&~: ~&6504254477&~.~&16299287846731412336&~?.~&17709935371711292712&~ ?? ""
+                ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+                ~&7081629735527&~.~&8399743405844438450&~: ~&425121728314878811&~.~&7082020628281&~.~&233740248806464&~.~&7082925185962&~
+                ~&7081629735527&~.~&499747351624466981&~: ~&425121728314878811&~.~&7082020628281&~.~&233740248806464&~.~&214632782036&~
+                ~&233748328658231&~: !!~&6504254477&~.~&16299287846731412336&~?.~&233736549263054&~
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
