@@ -38,7 +38,7 @@ Beta releases are not tested nor supported.
 
 ## Extensions
 
-### betterToc.qmd ###
+### betterToc.qmd
 Adds the ability to add, delete*, and edit* Table of Contents entries in notebooks, PDFs, and EPUBs.  
 On-disk, ToC data is stored inside the UUID directory for the document in a toc.rm file.  
 This syncs between devices via cloud sync.  
@@ -72,7 +72,7 @@ Removes extra right margin for titles in list view to fill more of the available
 ### fixBatteryIndicator.qmd
 Fixes a bug introduced in 3.24 with the main navigator battery icon not updating to the correct number of bars after charging while the device is asleep.
 
-### fixLightIndicatorGap.qmd ###
+### fixLightIndicatorGap.qmd
 Removes the gap reserved for the frontlight icon when the light is off on Paper Pro and Paper Pro Move.
 
 ### fixPageNumberOnSlider.qmd
