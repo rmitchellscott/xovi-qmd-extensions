@@ -3,6 +3,8 @@
 ## betterToc.qmd
 #### 2025-12-30T15:48:51Z
 - betterToc: add cross-doc linking
+#### 2025-12-30T15:48:51Z
+- betterToc: add cross-doc linking
 
 #### 2025-12-23T19:28:59Z
 - fix: fail to create entry with default text
