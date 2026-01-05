@@ -1,0 +1,15 @@
+; Mitchell Scott (https://github.com/rmitchellscott)
+; SPDX-License-Identifier: MIT
+; Modified: 2026-01-05T19:33:37Z
+
+AFFECT [[6722609618937832156]]
+
+    TRAVERSE [[233699089663818]] > [[7708106203292350108]]
+
+        REPLACE [[14419969282314418184]] WITH {
+            ~&14419969282314418184&~: ~&6504329801&~
+        }
+
+    END TRAVERSE
+
+END AFFECT
