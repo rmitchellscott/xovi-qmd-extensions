@@ -68,6 +68,9 @@ Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 ### disableSelectionAutoScroll.qmd
 Disables the auto scrolling when moving a selection added in 3.24.
 
+### enableMoveSecondPen.qmd
+Enables the secondary pen feature on Paper Pro Move.
+
 ### extendListTitleWidth.qmd
 Removes extra right margin for titles in list view to fill more of the available space.
 

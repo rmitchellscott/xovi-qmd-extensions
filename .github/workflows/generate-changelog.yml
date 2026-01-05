@@ -1,4 +1,4 @@
-name: Generate Changelog
+name: Update Changelog and Compatibility Table
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 jobs:
-  changelog:
+  update:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,7 +41,6 @@ jobs:
             printf "# Changelog\n\n" > "$CHANGELOG"
           fi
 
-          # Get files changed in this commit (only .qmd files in highest version)
           CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep "^$VERSION/.*\.qmd$" || true)
 
           if [ -z "$CHANGED_FILES" ]; then
@@ -49,20 +48,15 @@ jobs:
             exit 0
           fi
 
-          # Get commit message (cleaned up)
           MSG=$(git log -1 --format="%s" | sed -E 's/ \[[^]]*\]$//; s/ \(#[0-9]*\)$//; s/^([a-z]*)\([^)]*\): /\1: /')
 
-          # Skip docs commits
           if echo "$MSG" | grep -q "^docs:"; then
             echo "Skipping docs commit"
             exit 0
           fi
 
-          # Process each changed file
           for file in $CHANGED_FILES; do
             FILENAME=$(basename "$file")
-
-            # Get Modified timestamp from file
             MODIFIED=$(grep -m1 "^; Modified:" "$file" 2>/dev/null | sed 's/^; Modified: //' | xargs || echo "")
 
             if [ -z "$MODIFIED" ]; then
@@ -71,11 +65,9 @@ jobs:
             fi
 
             if grep -q "^## $FILENAME$" "$CHANGELOG"; then
-              # Insert after the ## heading
               printf "#### %s\n- %s\n" "$MODIFIED" "$MSG" > entry.tmp
               sed -i "/^## $FILENAME$/r entry.tmp" "$CHANGELOG"
             else
-              # Add new section after # Changelog header
               printf "\n## %s\n#### %s\n- %s\n" "$FILENAME" "$MODIFIED" "$MSG" > entry.tmp
               sed -i "/^# Changelog$/r entry.tmp" "$CHANGELOG"
             fi
@@ -84,16 +76,142 @@ jobs:
 
           echo "Updated $CHANGELOG"
 
-      - name: Commit changelog
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Generate compatibility table
+        env:
+          VERSION: ${{ steps.find-version.outputs.version }}
+        run: |
+          cat > table.py << 'SCRIPT'
+          import os
+          import time
+          from enum import Enum
+
+          import requests
+
+
+          class Status(Enum):
+              NONE = '-'
+              OK = '✅'
+              WARNING = '⚠️'
+              ERROR = '❌'
+
+
+          version = os.getenv('VERSION')
+
+          qmd_files = [
+              os.path.join(version, file)
+              for file in os.listdir(version)
+              if file.endswith(".qmd")
+          ]
+
+          if len(qmd_files) == 0:
+              print(f'No .qmd files found in {version}')
+              exit(1)
+
+          print(f'Found {len(qmd_files)} QMD files in {version}/')
+          print('Files:', ', '.join([os.path.basename(file) for file in qmd_files]))
+
+          url = 'https://qmdverify.scottlabs.io/api/compare'
+
+          files = []
+          for file in qmd_files:
+              filename = os.path.basename(file)
+              files.append(('files', (filename, open(file, 'rb'))))
+              files.append(('paths', (None, filename)))
+
+          print('Uploading files...')
+
+          response = requests.post(url, files=files)
+          response.raise_for_status()
+          job_id = response.json()['jobId']
+
+          print('Waiting for results...')
+
+          while True:
+              response = requests.get(f'https://qmdverify.scottlabs.io/api/results/{job_id}')
+              response.raise_for_status()
+              results = response.json()
+
+              if 'status' in results and results['status'] == 'pending':
+                  time.sleep(3)
+                  continue
+
+              break
+
+          print('Rendering the table...')
+
+          table = '''
+          | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
+          | ---- | :----------: | :----------: | :-------: | :------------: |
+          '''
+
+          for file, result in results.items():
+              devices = {
+                  'rm1': Status.NONE,
+                  'rm2': Status.NONE,
+                  'rmpp': Status.NONE,
+                  'rmppm': Status.NONE
+              }
+
+              for hashtable in result['compatible']:
+                  device = hashtable['device']
+                  if not hashtable['os_version'].startswith(f'{version}.'):
+                      continue
+
+                  devices[device] = Status.OK
+
+              for hashtable in result['incompatible']:
+                  device = hashtable['device']
+                  if not hashtable['os_version'].startswith(f'{version}.'):
+                      continue
+
+                  if devices[device] == Status.OK:
+                      devices[device] = Status.WARNING
+                  elif devices[device] == Status.NONE:
+                      devices[device] = Status.ERROR
+
+              table += f'| **{file}** |'
+              for status in devices.values():
+                  table += f' {status.value} |'
+              table += '\n'
+
+          print('Updating the README...')
+
+          start_marker = '<!-- compat:begin -->'
+          end_marker = '<!-- compat:end -->'
+
+          with open('README.md') as f:
+              readme = f.read()
+
+          start = readme.index(start_marker)
+          end = readme.index(end_marker)
+
+          readme = readme[:start + len(start_marker)] + table + readme[end:]
+
+          with open('README.md', 'w') as f:
+              f.write(readme)
+
+          SCRIPT
+
+          python table.py
+
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add CHANGELOG.md
+          git add README.md CHANGELOG.md
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: update changelog"
+            git commit -m "chore: update changelog and compatibility table"
             git push
           fi

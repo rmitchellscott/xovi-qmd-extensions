@@ -1,0 +1,9 @@
+; Mitchell Scott (https://github.com/rmitchellscott)
+; SPDX-License-Identifier: MIT
+; Modified: 2026-01-05T18:26:57Z
+
+AFFECT REBUILD /src/xofm/bundles/chiappa/chiappa.json
+    LOCATE AFTER { "SecondaryPen" }
+    LOCATE AFTER { ~&"254522926132630058&~ }
+    REPLACE { ~&214625660372&~ } WITH { ~&6504329801&~ }
+END REBUILD
