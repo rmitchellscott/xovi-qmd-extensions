@@ -8,8 +8,6 @@ Download the extensions from the folder matching your reMarkable software versio
 
 Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and restart xovi.
 
-Some of the QMD files in this repo are my own and some are modifications I've made to extensions created by others in the community. Modifications will link to the original author.
-
 Extensions have been tested only for the latest reMarkable OS version, though they may work on newer versions.
 
 Beta releases are not tested nor supported.
@@ -79,6 +77,21 @@ Removes the gap reserved for the frontlight icon when the light is off on Paper 
 3.23 and 3.24 only.  
 Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
 
+### gestureContrastToggle.qmd
+Four-finger tap to toggle the contrast filter between Off and Fullpage (PDF/EPUB only).
+
+### gestureResetView.qmd
+Three-finger swipe down to reset pan and zoom (returns to 100% zoom, top of page).
+
+### gestureTapToPage.qmd
+When the toolbar is hidden, tap the right edge (bottom 65% of screen) to scroll down / advance to the next page. Tap the left edge to scroll up / go to the previous page. Note: PDF links in these tap zones won't activate while in this mode.
+
+### gestureToolbarHide.qmd
+Single-finger swipe from the toolbar edge to hide the toolbar.
+
+### gestureToolbarShow.qmd
+Single-finger swipe from the toolbar edge to show the toolbar. For horizontal toolbars (top/bottom), the show gesture only works near the toolbar button to avoid conflicting with native gestures.
+
 ### hideDevModeIcon.qmd
 Hides the developer mode icon next to the battery icon.
 
@@ -121,22 +134,6 @@ Bypasses subscription check for using on-device Methods templates and documents.
 ### fixQuickSettingsTempSeparator.qmd 
 Removes the duplicate horizontal separator in quick settings when high temp warnings are present on Paper Pro family devices.  
 Fixed in 3.24.
-
-## Modified Extensions
-
-### gestures.qmd
-**Original**: https://github.com/ingatellent/xovi-qmd-extensions
-
-Adds the following gestures and tap areas:
-- Swipe down with three fingers to reset pan and zoom, i.e. to scroll to top of the page and zoom to 100%
-- Swipe out and in from the toolbar to show/hide the toolbar - for horizontal toolbar, the swipe only works at the show toolbar button (in order not to interfere with native gestures)
-- When the toolbar is hidden, tap on the bottom right to scroll down, and to change to the next page if you are already nearly at the bottom) (no scrollbar shown)
-- When the toolbar is hidden, tap on the bottom left to scroll up, and to change to the previous page if you are already nearly at the top) (no scrollbar shown)
-
-PDF links in the tap area cannot be used while the toolbar is closed, show the toolbar to restore link functionality.
-
-**Modifications I've made**
- - Removed the 4-finger contrast filter gesture
 
 ## License
 
