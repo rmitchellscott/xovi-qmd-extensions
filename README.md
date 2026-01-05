@@ -19,6 +19,7 @@ Beta releases are not tested nor supported.
 | **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **enableFullColors.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **enableMoveSecondPen.qmd** | ❌ | ❌ | ❌ | ✅ |
 | **extendListTitleWidth.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |

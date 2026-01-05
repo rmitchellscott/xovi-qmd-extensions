@@ -1,5 +1,9 @@
 # Changelog
 
+## enableFullColors.qmd
+#### 2026-01-05T19:33:37Z
+- add enableFullColors
+
 ## enableMoveSecondPen.qmd
 #### 2026-01-05T18:26:57Z
 - add enableMoveSecondPen
