@@ -70,8 +70,11 @@ Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 ### disableSelectionAutoScroll.qmd
 Disables the auto scrolling when moving a selection added in 3.24.
 
+### enableFullColors.qmd
+Enables the full color picker for pens on reMarkable 1 and reMarkable 2.
+
 ### enableMoveSecondPen.qmd
-Enables the secondary pen feature on Paper Pro Move.
+Enables the secondary pen on Paper Pro Move.
 
 ### extendListTitleWidth.qmd
 Removes extra right margin for titles in list view to fill more of the available space.
