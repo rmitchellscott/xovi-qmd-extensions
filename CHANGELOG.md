@@ -1,5 +1,25 @@
 # Changelog
 
+## gestureToolbarShow.qmd
+#### 2026-01-05T16:42:08Z
+- break up gestures
+
+## gestureToolbarHide.qmd
+#### 2026-01-05T16:42:08Z
+- break up gestures
+
+## gestureTapToPage.qmd
+#### 2026-01-05T16:42:08Z
+- break up gestures
+
+## gestureResetView.qmd
+#### 2026-01-05T16:42:08Z
+- break up gestures
+
+## gestureContrastToggle.qmd
+#### 2026-01-05T16:42:08Z
+- break up gestures
+
 ## betterToc.qmd
 #### 2025-12-30T15:48:51Z
 - betterToc: add cross-doc linking
@@ -120,6 +140,8 @@
 
 
 ## miniLightSleep.qmd
+#### 2026-01-05T16:42:08Z
+- break up gestures
 
 #### 2025-12-04T00:54:47Z
 - 3.24
@@ -147,6 +169,8 @@
 
 
 ## quickSettingsClockSerif.qmd
+#### 2026-01-05T16:42:08Z
+- break up gestures
 
 #### 2025-12-04T00:54:47Z
 - 3.24
