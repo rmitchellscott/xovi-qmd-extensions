@@ -1,6 +1,18 @@
 # Xovi Extensions
 
-This repo consists of multiple xovi (.qmd) extensions that are QoL improvements to the xochitl interface. These require qt-resource-rebuilder.so to work.
+This repo consists of multiple xovi (.qmd) extensions that are QoL improvements to the xochitl interface. 
+
+Extensions have been tested only for the latest reMarkable OS version, though they may work on newer versions.
+
+Beta releases are not tested nor supported.
+
+## Installation
+
+Installation via the [Vellum package manager](https://github.com/vellum-dev/vellum) is recommended. Dependencies are handled automatically.  
+
+### Manual
+
+All extensions require qt-resource-rebuilder, some will require other xovi extensions. See each extension for details. 
 
 Instructions to install xovi can be found [here](https://github.com/asivery/rmpp-xovi-extensions). 
 
@@ -8,9 +20,7 @@ Download the extensions from the folder matching your reMarkable software versio
 
 Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and restart xovi.
 
-Extensions have been tested only for the latest reMarkable OS version, though they may work on newer versions.
-
-Beta releases are not tested nor supported.
+## Compatibility
 
 <!-- compat:begin -->
 | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
