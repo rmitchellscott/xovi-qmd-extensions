@@ -52,6 +52,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 
 ### betterToc.qmd
 Adds the ability to add, delete*, and edit* Table of Contents entries in notebooks, PDFs, and EPUBs.  
+Supports cross-document linking.  
 On-disk, ToC data is stored inside the UUID directory for the document in a toc.rm file.  
 This syncs between devices via cloud sync.  
 EPUB reflows can result in small amounts of drift due to limitations in progress calculation.
