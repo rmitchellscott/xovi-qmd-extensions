@@ -84,7 +84,7 @@ Removes extra right margin for titles in list view to fill more of the available
 Removes the gap reserved for the frontlight icon when the light is off on Paper Pro and Paper Pro Move.
 
 ### fixPageNumberOnSlider.qmd
-3.23 and 3.24 only.  
+3.23+  
 Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
 
 ### gestureContrastToggle.qmd
