@@ -39,7 +39,6 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **gestureToolbarHide.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **gestureToolbarShow.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **hidePageLabelsInFullscreen.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ |

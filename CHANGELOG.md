@@ -11,26 +11,38 @@
 - add enableMoveSecondPen
 
 ## gestureToolbarShow.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## gestureToolbarHide.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## gestureTapToPage.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## gestureResetView.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## gestureContrastToggle.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2025-12-30T15:48:51Z
 - betterToc: add cross-doc linking
 #### 2025-12-30T15:48:51Z
@@ -50,6 +62,8 @@
 - add betterToc.qmd
 
 ## createPagesPaperProSize.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-04T00:54:47Z
 - 3.24
@@ -62,6 +76,8 @@
 
 
 ## createPagesRM2Size.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-04T00:54:47Z
 - 3.24
@@ -74,18 +90,24 @@
 
 
 ## disableSelectionAutoScroll.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-04T23:17:20Z
 - add disableSelectionAutoScroll
 
 
 ## extendListTitleWidth.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-09T15:49:04Z
 - add extendListTitleWidth
 
 
 ## fixBatteryIndicator.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2025-12-24T00:35:57Z
 - fix: bug when plugged in across bar boundaries
 
@@ -94,12 +116,16 @@
 
 
 ## fixLightIndicatorGap.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-18T19:34:44Z
 - add fixLightIndicatorGap
 
 
 ## fixPageNumberOnSlider.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-23T17:07:38Z
 - chore: remove version number
@@ -114,6 +140,8 @@
 - add fixPageNumberOnSlider
 
 ## hideDevModeIcon.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-04T00:54:47Z
 - 3.24
@@ -136,6 +164,8 @@
 
 
 ## hideZoomIndicator.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-04T00:54:47Z
 - 3.24
@@ -150,6 +180,8 @@
 
 
 ## miniLightSleep.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
@@ -164,6 +196,8 @@
 
 
 ## preventNotebookZoomOut.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-04T00:54:47Z
 - 3.24
@@ -179,6 +213,8 @@
 
 
 ## quickSettingsClockSerif.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
@@ -190,6 +226,8 @@
 
 
 ## quickSettingsScreenshot.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-04T00:54:47Z
 - 3.24
@@ -204,6 +242,8 @@
 - add quickSettingsScreenshot
 
 ## unlockMethodsContent.qmd
+#### 2026-01-31T02:07:28Z
+- update for 3.25
 
 #### 2025-12-04T00:54:47Z
 - 3.24
