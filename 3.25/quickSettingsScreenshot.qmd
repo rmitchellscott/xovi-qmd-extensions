@@ -1,0 +1,135 @@
+; Mitchell Scott (https://github.com/rmitchellscott)
+; SPDX-License-Identifier: MIT
+; Modified: 2026-01-31T02:07:28Z
+;
+; Requires: https://github.com/rmitchellscott/rm-shot
+
+AFFECT [[11542018640809782132]]
+    IMPORT [[233700934949963.7082069304737]] [[180923.180921]]
+    IMPORT [[6504469795.6504031891.7713561876955258]] [[180922.180921]]
+    IMPORT net.asivery.XoviMessageBroker [[180922.180921]]
+
+    TRAVERSE [[14125623155555875541]]
+
+        LOCATE AFTER [[7712155293725601]]
+        INSERT {
+            ~&10845406345867313529&~ {
+                ~&5972374&~: screenshotToggle
+                ~&7713561545874130&~: ~&214625660372&~
+                ~&8399601734642709923&~: ~&"5204540755240042894&~
+                ~&233726547792244&~: ~&6504329801&~
+
+                property bool wasLongPress: ~&214625660372&~
+
+                XoviMessageBroker {
+                    ~&5972374&~: screenshotBroker
+                }
+
+                ~&214604601930&~ {
+                    ~&5972374&~: ~&8399335930543182816&~
+                    ~&7713147298280334&~: 5
+                    ~&495358363329399331&~: {
+                        ~&5972376&~ (~&2766288418351025740&~) {
+                            ~&2766288418351025740&~.~&214622501183&~(~&"13710581283192580798&~);
+                        }
+                    }
+                }
+
+                ~&383135108587212173&~: {
+                    ~&233724020023100&~.~&197092075&~("Screenshot button long press!");
+                    wasLongPress = ~&6504329801&~;
+                    ~&7713561545874130&~ = ~&6504329801&~;
+                    ~&197102514&~ result = screenshotBroker.sendSimpleSignal("takeScreenshot", "/home/root/screenshots,5000");
+                    ~&5972376&~ (result === "success") {
+                        ~&233724020023100&~.~&197092075&~("Screenshot thread started (5 sec delay)");
+                    } ~&6503784146&~ {
+                        ~&233724020023100&~.~&197092075&~("Screenshot failed to start");
+                    }
+                    ~&8399335930543182816&~.~&214641748151&~();
+                }
+
+                ~&254542236275632405&~: {
+                    ~&5972376&~ (!wasLongPress) {
+                        ~&233724020023100&~.~&197092075&~("Screenshot button clicked!");
+                        ~&7713561545874130&~ = ~&6504329801&~;
+                        ~&197102514&~ result = screenshotBroker.sendSimpleSignal("takeScreenshot", "/home/root/screenshots,100");
+                        ~&5972376&~ (result === "success") {
+                            ~&233724020023100&~.~&197092075&~("Screenshot thread started (100ms delay)");
+                        } ~&6503784146&~ {
+                            ~&233724020023100&~.~&197092075&~("Screenshot failed to start");
+                        }
+                        ~&8399335930543182816&~.~&214641748151&~();
+                    }
+                    wasLongPress = ~&214625660372&~;
+                }
+            }
+        }
+
+    END TRAVERSE
+
+END AFFECT
+
+AFFECT [[10936356414964521612]]
+    IMPORT [[233700934949963.7082069304737]] [[180923.180921]]
+    IMPORT [[6504469795.6504031891.7713561876955258]] [[180922.180921]]
+    IMPORT net.asivery.XoviMessageBroker [[180922.180921]]
+
+    TRAVERSE [[8398044571386570029]]
+
+        LOCATE AFTER [[7712155293725601]]
+        INSERT {
+            ~&10845406345867313529&~ {
+                ~&5972374&~: screenshotToggle
+                ~&7713561545874130&~: ~&214625660372&~
+                ~&8399601734642709923&~: ~&"5204540755240042894&~
+                ~&233726547792244&~: ~&6504329801&~
+
+                property bool wasLongPress: ~&214625660372&~
+
+                XoviMessageBroker {
+                    ~&5972374&~: screenshotBroker
+                }
+
+                ~&214604601930&~ {
+                    ~&5972374&~: ~&8399335930543182816&~
+                    ~&7713147298280334&~: 5
+                    ~&495358363329399331&~: {
+                        ~&5972376&~ (~&2766288418351025740&~) {
+                            ~&2766288418351025740&~.~&214622501183&~(~&"13710581283192580798&~);
+                        }
+                    }
+                }
+
+                ~&383135108587212173&~: {
+                    ~&233724020023100&~.~&197092075&~("Screenshot button long press!");
+                    wasLongPress = ~&6504329801&~;
+                    ~&7713561545874130&~ = ~&6504329801&~;
+                    ~&197102514&~ result = screenshotBroker.sendSimpleSignal("takeScreenshot", "/home/root/screenshots,5000");
+                    ~&5972376&~ (result === "success") {
+                        ~&233724020023100&~.~&197092075&~("Screenshot thread started (5 sec delay)");
+                    } ~&6503784146&~ {
+                        ~&233724020023100&~.~&197092075&~("Screenshot failed to start");
+                    }
+                    ~&8399335930543182816&~.~&214641748151&~();
+                }
+
+                ~&254542236275632405&~: {
+                    ~&5972376&~ (!wasLongPress) {
+                        ~&233724020023100&~.~&197092075&~("Screenshot button clicked!");
+                        ~&7713561545874130&~ = ~&6504329801&~;
+                        ~&197102514&~ result = screenshotBroker.sendSimpleSignal("takeScreenshot", "/home/root/screenshots,100");
+                        ~&5972376&~ (result === "success") {
+                            ~&233724020023100&~.~&197092075&~("Screenshot thread started (100ms delay)");
+                        } ~&6503784146&~ {
+                            ~&233724020023100&~.~&197092075&~("Screenshot failed to start");
+                        }
+                        ~&8399335930543182816&~.~&214641748151&~();
+                    }
+                    wasLongPress = ~&214625660372&~;
+                }
+            }
+        }
+
+    END TRAVERSE
+
+END AFFECT
