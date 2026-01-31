@@ -82,7 +82,7 @@ Disables the auto scrolling when moving a selection added in 3.24.
 Removes extra right margin for titles in list view to fill more of the available space.
 
 ### fixBatteryIndicator.qmd
-Fixes a bug in 3.24 with the main navigator battery icon not updating in certain cases.
+Fixes a bug in 3.24+ with the main navigator battery icon not updating in certain cases.
 
 ### fixLightIndicatorGap.qmd
 Removes the gap reserved for the frontlight icon when the light is off on Paper Pro and Paper Pro Move.
