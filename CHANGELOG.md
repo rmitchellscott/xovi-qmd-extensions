@@ -11,36 +11,48 @@
 - add enableMoveSecondPen
 
 ## gestureToolbarShow.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## gestureToolbarHide.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## gestureTapToPage.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## gestureResetView.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## gestureContrastToggle.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2026-01-05T16:42:08Z
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2025-12-30T15:48:51Z
@@ -62,6 +74,8 @@
 - add betterToc.qmd
 
 ## createPagesPaperProSize.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -76,6 +90,8 @@
 
 
 ## createPagesRM2Size.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -90,6 +106,8 @@
 
 
 ## disableSelectionAutoScroll.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -98,6 +116,8 @@
 
 
 ## extendListTitleWidth.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -116,6 +136,8 @@
 
 
 ## fixLightIndicatorGap.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -124,6 +146,8 @@
 
 
 ## fixPageNumberOnSlider.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -140,6 +164,8 @@
 - add fixPageNumberOnSlider
 
 ## hideDevModeIcon.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -164,6 +190,8 @@
 
 
 ## hideZoomIndicator.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -180,6 +208,8 @@
 
 
 ## miniLightSleep.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2026-01-05T16:42:08Z
@@ -196,6 +226,8 @@
 
 
 ## preventNotebookZoomOut.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -213,6 +245,8 @@
 
 
 ## quickSettingsClockSerif.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2026-01-05T16:42:08Z
@@ -226,6 +260,8 @@
 
 
 ## quickSettingsScreenshot.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
@@ -242,6 +278,8 @@
 - add quickSettingsScreenshot
 
 ## unlockMethodsContent.qmd
+#### 2026-01-31T02:09:24Z
+- update for 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 
