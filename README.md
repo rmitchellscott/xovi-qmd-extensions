@@ -80,6 +80,9 @@ Disables the auto scrolling when moving a selection added in 3.24.
 ### extendListTitleWidth.qmd
 Removes extra right margin for titles in list view to fill more of the available space.
 
+### fixBatteryIndicator.qmd
+Fixes a bug in 3.24 with the main navigator battery icon not updating in certain cases.
+
 ### fixLightIndicatorGap.qmd
 Removes the gap reserved for the frontlight icon when the light is off on Paper Pro and Paper Pro Move.
 
@@ -140,10 +143,6 @@ Requires:
 Bypasses subscription check for using on-device Methods templates and documents.
 
 ## Deprecated Extensions
-
-### fixBatteryIndicator.qmd
-Fixes a bug in 3.24 with the main navigator battery icon not updating to the correct number of bars after charging while the device is asleep.  
-Fixed in 3.25.
 
 ### fixQuickSettingsTempSeparator.qmd 
 Removes the duplicate horizontal separator in quick settings when high temp warnings are present on Paper Pro family devices.  
