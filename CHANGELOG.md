@@ -126,6 +126,8 @@
 
 
 ## fixBatteryIndicator.qmd
+#### 2026-01-31T12:54:58Z
+- fix-batt-indicator: still needed on 3.25
 #### 2026-01-31T02:07:28Z
 - update for 3.25
 #### 2025-12-24T00:35:57Z
