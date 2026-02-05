@@ -142,7 +142,7 @@ Requires:
 - [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
 
 ### stylusButtonEraser.qmd
-Erases when stlyus side button is held on rM1 and rM2.  
+Erases when stylus side button is held on rM1 and rM2.  
 Requires [rm-stylus](https://github.com/rmitchellscott/rm-stylus)
 
 ### unlockMethodsContent.qmd
