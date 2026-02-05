@@ -1,5 +1,9 @@
 # Changelog
 
+## stylusButtonEraser.qmd
+#### 2026-02-05T04:51:24Z
+- add sylusButtonEraser
+
 ## enableFullColors.qmd
 #### 2026-01-05T19:33:37Z
 - add enableFullColors
