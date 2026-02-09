@@ -5,6 +5,8 @@
 - add settingsRmSyncRestart
 
 ## stylusButtonEraser.qmd
+#### 2026-02-09T15:20:01Z
+- update stylusButtonEraser for rm-stylus
 #### 2026-02-05T04:51:24Z
 - add sylusButtonEraser
 
