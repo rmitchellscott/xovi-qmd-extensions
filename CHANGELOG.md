@@ -278,6 +278,8 @@
 
 
 ## quickSettingsScreenshot.qmd
+#### 2026-02-09T23:11:40Z
+- quickSettingsScreenshot: move to SLOT
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
