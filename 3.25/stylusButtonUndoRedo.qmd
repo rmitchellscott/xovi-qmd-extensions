@@ -1,0 +1,28 @@
+; Mitchell Scott (https://github.com/rmitchellscott)
+; SPDX-License-Identifier: MIT
+; Modified: 2026-02-09T15:35:10Z
+
+AFFECT [[1224665461898798997]]
+IMPORT net.rmitchellscott.RmStylus [[180922.180921]]
+TRAVERSE ?#[[6504254477]]
+    LOCATE AFTER ALL
+    INSERT {
+        property ~&197088788&~ clickCount: 0
+        RmStylus {
+            onButtonReleased: {
+                clickCount++;
+                clickTimer.~&233743006639214&~();
+            }
+        }
+        ~&214604601930&~ {
+            ~&5972374&~: clickTimer
+            ~&7713147298280334&~: 200
+            ~&495358363329399331&~: {
+                ~&5972376&~ (clickCount === 2) ~&11179472971324505115&~.~&6504360831&~();
+                ~&6503784146&~ ~&5972376&~ (clickCount >= 3) ~&11179472971324505115&~.~&6504243219&~();
+                clickCount = 0;
+            }
+        }
+    }
+END TRAVERSE
+END AFFECT
