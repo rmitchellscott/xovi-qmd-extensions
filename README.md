@@ -44,6 +44,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsClockSerif.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **settingsRmSyncRestart.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **stylusButtonEraser.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **unlockMethodsContent.qmd** | ✅ | ✅ | ✅ | ✅ |
 <!-- compat:end -->

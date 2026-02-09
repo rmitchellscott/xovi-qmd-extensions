@@ -1,5 +1,9 @@
 # Changelog
 
+## settingsRmSyncRestart.qmd
+#### 2026-02-09T14:02:30Z
+- add settingsRmSyncRestart
+
 ## stylusButtonEraser.qmd
 #### 2026-02-05T04:51:24Z
 - add sylusButtonEraser
