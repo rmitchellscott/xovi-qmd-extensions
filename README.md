@@ -142,6 +142,10 @@ Requires:
 - [framebuffer-spy](https://github.com/asivery/rm-xovi-extensions)
 - [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
 
+### settingsRmSyncRestart.qmd
+Adds a button to the Settings > Cloud page to restart the sync service.  
+Requires qt-command-executor.
+
 ### stylusButtonEraser.qmd
 Erases when stylus side button is held on rM1 and rM2.  
 Requires [rm-stylus](https://github.com/rmitchellscott/rm-stylus)
