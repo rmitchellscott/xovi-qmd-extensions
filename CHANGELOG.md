@@ -1,5 +1,9 @@
 # Changelog
 
+## stylusButtonUndoRedo.qmd
+#### 2026-02-09T15:35:10Z
+- add stylusButtonUndoRedo
+
 ## settingsRmSyncRestart.qmd
 #### 2026-02-09T14:02:30Z
 - add settingsRmSyncRestart
