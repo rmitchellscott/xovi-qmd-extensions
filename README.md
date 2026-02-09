@@ -52,7 +52,9 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 
 ## Extensions
 
-### betterToc.qmd
+### betterToc.qmd 
+[![vellum](https://img.shields.io/badge/vellum-bettertoc-purple)](https://vellum.delivery/#/package/bettertoc/)
+
 Adds the ability to add, delete*, and edit* Table of Contents entries in notebooks, PDFs, and EPUBs.  
 Supports cross-document linking.  
 On-disk, ToC data is stored inside the UUID directory for the document in a toc.rm file.  
@@ -70,67 +72,72 @@ EPUB reflows can result in small amounts of drift due to limitations in progress
 
 *Editing and deleting are limited to user-created ToC entries only
 
-### createPagesPaperProSize.qmd
+### createPagesPaperProSize
+[![vellum](https://img.shields.io/badge/vellum-createpages--paperpro-purple)](https://vellum.delivery/#/package/createpages-paperpro/) 
+
 Overrides new page creation to use Paper Pro dimensions. Designed to allow better interoperability between rM2/Move and Paper Pro.  
 Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 
-### createPagesRM2Size.qmd
+### createPagesRM2Size
+[![vellum](https://img.shields.io/badge/vellum-createpages--rm2-purple)](https://vellum.delivery/#/package/createpages-rm2/)
+
 Overrides new page creation to use reMarkable 2 dimensions. Designed to allow better interoperability between Move and reMarkable 2.  
 Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 
-### disableSelectionAutoScroll.qmd
+### disableSelectionAutoScroll
+[![vellum](https://img.shields.io/badge/vellum-disable--selection--autoscroll-purple)](https://vellum.delivery/#/package/disable-selection-autoscroll/)
+
 Disables the auto scrolling when moving a selection added in 3.24.
 
-### extendListTitleWidth.qmd
+### extendListTitleWidth
+[![vellum](https://img.shields.io/badge/vellum-extend--list--title--width-purple)](https://vellum.delivery/#/package/extend-list-title-width/)
+
 Removes extra right margin for titles in list view to fill more of the available space.
 
-### fixBatteryIndicator.qmd
+### fixBatteryIndicator
+[![vellum](https://img.shields.io/badge/vellum-fix--battery--indicator-purple)](https://vellum.delivery/#/package/fix-battery-indicator/)
+
 Fixes a bug in 3.24+ with the main navigator battery icon not updating in certain cases.
 
-### fixLightIndicatorGap.qmd
+### fixLightIndicatorGap
+[![vellum](https://img.shields.io/badge/vellum-fix--light--indicator--gap-purple)](https://vellum.delivery/#/package/fix-light-indicator-gap/)
+
 Removes the gap reserved for the frontlight icon when the light is off on Paper Pro and Paper Pro Move.
 
-### fixPageNumberOnSlider.qmd
+### fixPageNumberOnSlider
+[![vellum](https://img.shields.io/badge/vellum-fix--page--number--on--slider-purple)](https://vellum.delivery/#/package/fix-page-number-on-slider/)
+
 3.23+  
 Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
 
-### gestureContrastToggle.qmd
-Four-finger tap to toggle the contrast filter between Off and Fullpage (PDF/EPUB only).
+### hideDevModeIcon
+[![vellum](https://img.shields.io/badge/vellum-hide--dev--mode--icon-purple)](https://vellum.delivery/#/package/hide-dev-mode-icon/)
 
-### gestureResetView.qmd
-Three-finger swipe down to reset pan and zoom (returns to 100% zoom, top of page).
-
-### gestureTapToPage.qmd
-When the toolbar is hidden, tap the right edge (bottom 65% of screen) to scroll down / advance to the next page. Tap the left edge to scroll up / go to the previous page. Note: PDF links in these tap zones won't activate while in this mode.
-
-### gestureToolbarHide.qmd
-Single-finger swipe from the toolbar edge to hide the toolbar.
-
-### gestureToolbarShow.qmd
-Single-finger swipe from the toolbar edge to show the toolbar. For horizontal toolbars (top/bottom), the show gesture only works near the toolbar button to avoid conflicting with native gestures.
-
-### hideDevModeIcon.qmd
 Hides the developer mode icon next to the battery icon.
 
-### hidePageLabelsInFullscreen.qmd
+### hideZoomIndicator
+[![vellum](https://img.shields.io/badge/vellum-hide--zoom--indicator-purple)](https://vellum.delivery/#/package/hide-zoom-indicator/)
 
-Hides the page numbers at the bottom of the screen when the toolbar is hidden. On the very last page the page numbers are still shown. To show the page numbers slide up from the bottom to show the page slider.
-
-### hideZoomIndicator.qmd
 Auto-hides zoom indicator after 4 seconds (like the scrollbars).
 
-### miniLightSleep.qmd
+### miniLightSleep
+[![vellum](https://img.shields.io/badge/vellum-mini--light--sleep-purple)](https://vellum.delivery/#/package/mini-light-sleep/)
 
 Replaces the light sleep banner with text saying "Sleeping" at the top right of the screen.
 
-### preventNotebookZoomOut.qmd
+### preventNotebookZoomOut
+[![vellum](https://img.shields.io/badge/vellum-prevent--notebook--zoom--out-purple)](https://vellum.delivery/#/package/prevent-notebook-zoomout/)
+
 Forces all notebook pages to start at 1x zoom with optional horizontal offset. Only affects notebooks, only affects portrait orientation. Designed for the Paper Pro Move.
 
-### quickSettingsClockSerif.qmd
+### quickSettingsClockSerif
+[![vellum](https://img.shields.io/badge/vellum-quicksettings--clock--serif-purple)](https://vellum.delivery/#/package/quicksettings-clock-serif/)
 
 Adds a clock to the quick settings menu in serif font.
 
-### quickSettingsScreenshot.qmd
+### quickSettingsScreenshot
+[![vellum](https://img.shields.io/badge/vellum-quicksettings--screenshot-purple)](https://vellum.delivery/#/package/quicksettings-screenshot/)
+
 Adds a screenshot button to the quick settings menu. 
 - normal press: closes the menu and takes a screenshot.
 - long-press: closes the menu and takes a screenshot with a 5 second delay.
@@ -143,20 +150,26 @@ Requires:
 - [framebuffer-spy](https://github.com/asivery/rm-xovi-extensions)
 - [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
 
-### settingsRmSyncRestart.qmd
+### settingsRmSyncRestart
+[![vellum](https://img.shields.io/badge/vellum-settings--rmsync--restart-purple)](https://vellum.delivery/#/package/settings-rmsync-restart/)
+
 Adds a button to the Settings > Cloud page to restart the sync service.  
 Requires qt-command-executor.
 
-### stylusButtonEraser.qmd
+### stylusButtonEraser
+[![vellum](https://img.shields.io/badge/vellum-stylus--button--eraser-purple)](https://vellum.delivery/#/package/stylus-button-eraser/)
+
 Erases when stylus side button is held on rM1 and rM2.  
 Requires [rm-stylus](https://github.com/rmitchellscott/rm-stylus)
 
-### unlockMethodsContent.qmd
+### unlockMethodsContent
+[![vellum](https://img.shields.io/badge/vellum-unlock--methods--content-purple)](https://vellum.delivery/#/package/unlock-methods-content/)
+
 Bypasses subscription check for using on-device Methods templates and documents.
 
 ## Deprecated Extensions
 
-### fixQuickSettingsTempSeparator.qmd 
+### fixQuickSettingsTempSeparator
 Removes the duplicate horizontal separator in quick settings when high temp warnings are present on Paper Pro family devices.  
 Fixed in 3.24.
 
