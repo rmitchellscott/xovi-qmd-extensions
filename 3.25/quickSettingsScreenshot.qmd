@@ -1,13 +1,13 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: MIT
-; Modified: 2026-02-09T23:11:40Z
+; Modified: 2026-02-09T23:14:36Z
 ;
 ; Requires: https://github.com/rmitchellscott/rm-shot
 
-SLOT screenshotToggle
+SLOT screenshotButton
     INSERT {
         ~&10845406345867313529&~ {
-            ~&5972374&~: screenshotToggle
+            ~&5972374&~: screenshotButton
             ~&7713561545874130&~: ~&214625660372&~
             ~&8399601734642709923&~: ~&"5204540755240042894&~
             ~&233726547792244&~: ~&6504329801&~
@@ -66,7 +66,7 @@ AFFECT [[11542018640809782132]]
 
     TRAVERSE ?#[[6504254477]]
         LOCATE AFTER [[7712155293725601]]
-        INSERT SLOT screenshotToggle
+        INSERT SLOT screenshotButton
     END TRAVERSE
 END AFFECT
 
@@ -77,6 +77,6 @@ AFFECT [[10936356414964521612]]
 
     TRAVERSE ?#[[6504254477]]
         LOCATE AFTER [[7712155293725601]]
-        INSERT SLOT screenshotToggle
+        INSERT SLOT screenshotButton
     END TRAVERSE
 END AFFECT
