@@ -65,6 +65,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-02-11T19:45:26Z
+- bettertoc: add support for multiple toc entries per page
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
