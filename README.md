@@ -163,6 +163,12 @@ Requires qt-command-executor.
 Erases when stylus side button is held on rM1 and rM2.  
 Requires [rm-stylus](https://github.com/rmitchellscott/rm-stylus)
 
+### tocFromSelection
+[![vellum](https://img.shields.io/badge/vellum-toc--from--selection-purple)](https://vellum.delivery/#/package/toc-from-selection/)
+
+Adds a button to the selection context menu to add the selected text as a ToC entry.  
+Requires betterToc and Connect or rmfakecloud for handwriting-to-text conversion.
+
 ### unlockMethodsContent
 [![vellum](https://img.shields.io/badge/vellum-unlock--methods--content-purple)](https://vellum.delivery/#/package/unlock-methods-content/)
 
