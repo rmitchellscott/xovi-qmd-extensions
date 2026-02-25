@@ -1,6 +1,8 @@
 # Changelog
 
 ## tocFromSelection.qmd
+#### 2026-02-25T00:13:01Z
+- add tocFromSelection
 #### 2026-02-25T00:08:16Z
 - add tocFromSelection
 
