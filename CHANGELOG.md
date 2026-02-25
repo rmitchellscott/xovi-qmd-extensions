@@ -1,5 +1,9 @@
 # Changelog
 
+## tocFromSelection.qmd
+#### 2026-02-25T00:08:16Z
+- add tocFromSelection
+
 ## stylusButtonUndoRedo.qmd
 #### 2026-02-09T15:35:10Z
 - add stylusButtonUndoRedo

@@ -47,6 +47,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **settingsRmSyncRestart.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **stylusButtonEraser.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **stylusButtonUndoRedo.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **tocFromSelection.qmd** | ❌ | ❌ | ❌ | ❌ |
 | **unlockMethodsContent.qmd** | ✅ | ✅ | ✅ | ✅ |
 <!-- compat:end -->
 
