@@ -138,6 +138,8 @@ Forces all notebook pages to start at 1x zoom with optional horizontal offset. O
 
 Adds a clock to the quick settings menu in serif font.
 
+<img src="assets/quicksettingsClockSerif.png" height="150"/>
+
 ### quickSettingsScreenshot
 [![vellum](https://img.shields.io/badge/vellum-quicksettings--screenshot-purple)](https://vellum.delivery/#/package/quicksettings-screenshot/)
 
@@ -153,6 +155,8 @@ Requires:
 - [framebuffer-spy](https://github.com/asivery/rm-xovi-extensions)
 - [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
 
+<img src="assets/quickSettingsScreenshot.png" height="300"/>
+
 ### quicksheetUseTemplate
 [![vellum](https://img.shields.io/badge/vellum-quicksheet--use--template-purple)](https://vellum.delivery/#/package/quicksheet-use-template/)
 
@@ -163,6 +167,8 @@ Use the last page's template when adding a quicksheet page.
 
 Adds a button to the Settings > Cloud page to restart the sync service.  
 Requires qt-command-executor.
+
+<img src="assets/settingsRmsyncRestart.png" height="200"/>
 
 ### stylusButtonEraser
 [![vellum](https://img.shields.io/badge/vellum-stylus--button--eraser-purple)](https://vellum.delivery/#/package/stylus-button-eraser/)
