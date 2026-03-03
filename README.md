@@ -176,6 +176,8 @@ Requires [rm-stylus](https://github.com/rmitchellscott/rm-stylus)
 Adds a button to the selection context menu to add the selected text as a ToC entry.  
 Requires betterToc and Connect or rmfakecloud for handwriting-to-text conversion.
 
+<img src="assets/toc-from-selection.png" height="150"/>
+
 ### unlockMethodsContent
 [![vellum](https://img.shields.io/badge/vellum-unlock--methods--content-purple)](https://vellum.delivery/#/package/unlock-methods-content/)
 
