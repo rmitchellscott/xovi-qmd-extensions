@@ -153,6 +153,7 @@ Requires:
 - [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
 
 ### quicksheetUseTemplate
+[![vellum](https://img.shields.io/badge/vellum-quicksheet--use--template-purple)](https://vellum.delivery/#/package/quicksheet-use-template/)
 
 Use the last page's template when adding a quicksheet page.  
 
