@@ -68,6 +68,7 @@ EPUB reflows can result in small amounts of drift due to limitations in progress
     <td><img src="assets/betterToc-pro.png" height="400"/></td>
     <td><img src="assets/betterToc-move.png" height="400"/></td>
     <td><img src="assets/betterToc-notebook.png" height="400"/></td>
+    <td><img src="assets/betterToc-edit.png" height="400"/></td>
     <td><img src="assets/betterToc-ebook.png" height="400"/></td>
   </tr>
 </table>
