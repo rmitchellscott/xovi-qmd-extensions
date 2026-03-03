@@ -152,6 +152,10 @@ Requires:
 - [framebuffer-spy](https://github.com/asivery/rm-xovi-extensions)
 - [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
 
+### quicksheetUseTemplate
+
+Use the last page's template when adding a quicksheet page.  
+
 ### settingsRmSyncRestart
 [![vellum](https://img.shields.io/badge/vellum-settings--rmsync--restart-purple)](https://vellum.delivery/#/package/settings-rmsync-restart/)
 
