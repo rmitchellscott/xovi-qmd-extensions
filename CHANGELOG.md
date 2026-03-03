@@ -1,5 +1,9 @@
 # Changelog
 
+## quicksheetUseTemplate.qmd
+#### 2026-03-03T01:12:56Z
+- quicksheetUseTemplate
+
 ## tocFromSelection.qmd
 #### 2026-02-25T00:13:01Z
 - add tocFromSelection
