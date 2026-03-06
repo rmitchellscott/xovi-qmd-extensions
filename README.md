@@ -54,7 +54,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 
 ## Extensions
 
-### betterToc.qmd 
+### betterToc
 [![vellum](https://img.shields.io/badge/vellum-bettertoc-purple)](https://vellum.delivery/#/package/bettertoc/)
 
 Adds the ability to add, delete*, and edit* Table of Contents entries in notebooks, PDFs, and EPUBs.  
