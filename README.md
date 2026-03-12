@@ -185,6 +185,13 @@ Requires betterToc and Connect or rmfakecloud for handwriting-to-text conversion
 
 <img src="assets/toc-from-selection.png" height="150"/>
 
+### touchLock
+[![vellum](https://img.shields.io/badge/vellum-touch--lock-purple)](https://vellum.delivery/#/package/touch-lock/)
+
+Adds a button to the toolbar to lock out touch input in documents. Toolbar remains touch-aware and pen input is unaffected.
+
+<img src="assets/touchLock.png" height="150"/>
+
 ### unlockMethodsContent
 [![vellum](https://img.shields.io/badge/vellum-unlock--methods--content-purple)](https://vellum.delivery/#/package/unlock-methods-content/)
 
