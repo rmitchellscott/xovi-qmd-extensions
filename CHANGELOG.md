@@ -1,5 +1,9 @@
 # Changelog
 
+## touchLock.qmd
+#### 2026-03-12T13:07:00Z
+- add touchLock
+
 ## quicksheetUseTemplate.qmd
 #### 2026-03-03T01:12:56Z
 - quicksheetUseTemplate
