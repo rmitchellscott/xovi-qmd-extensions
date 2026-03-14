@@ -33,11 +33,6 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **fixLightIndicatorGap.qmd** | ❌ | ❌ | ✅ | ✅ |
 | **fixPageNumberOnSlider.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **gestureContrastToggle.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **gestureResetView.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **gestureTapToPage.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **gestureToolbarHide.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **gestureToolbarShow.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ |
