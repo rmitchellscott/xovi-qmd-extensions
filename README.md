@@ -203,6 +203,15 @@ Bypasses subscription check for using on-device Methods templates and documents.
 Removes the duplicate horizontal separator in quick settings when high temp warnings are present on Paper Pro family devices.  
 Fixed in 3.24.
 
+### Gesture Extensions
+
+* gestureContrastToggle
+* gestureTapToPage
+* gestureToolbarHide
+* gestureToolbarShow
+
+Superseded by https://github.com/ingatellent/xovi-qmd-extensions
+
 ## License
 
 - **Original works** are licensed under the MIT License (see [LICENSE](LICENSE)).
