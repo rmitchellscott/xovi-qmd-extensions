@@ -1,6 +1,8 @@
 # Changelog
 
 ## touchLock.qmd
+#### 2026-03-15T14:54:21Z
+- fix: touchLock blocking pen tap events
 #### 2026-03-12T13:07:00Z
 - add touchLock
 
