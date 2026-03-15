@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: MIT
-; Modified: 2026-03-12T13:07:00Z
+; Modified: 2026-03-15T14:54:21Z
 
 ; Add touchLocked property and toolbar button
 AFFECT [[11313888899523275277]]
@@ -92,7 +92,7 @@ AFFECT [[1224665461898798997]]
             ~&5829722763406825114&~ {
                 ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
                 ~&233748328658231&~: ~&233745975898428&~.touchLocked
-                ~&16248806127106825405&~: ~&6504329801&~
+                ~&16248806127106825405&~: ~&214625660372&~
                 minimumTouchPoints: 1
                 maximumTouchPoints: 10
                 touchPoints: [
