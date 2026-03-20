@@ -1,30 +1,42 @@
 # Changelog
 
 ## touchLock.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-03-15T14:54:21Z
 - fix: touchLock blocking pen tap events
 #### 2026-03-12T13:07:00Z
 - add touchLock
 
 ## quicksheetUseTemplate.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-03-03T01:12:56Z
 - quicksheetUseTemplate
 
 ## tocFromSelection.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-02-25T00:13:01Z
 - add tocFromSelection
 #### 2026-02-25T00:08:16Z
 - add tocFromSelection
 
 ## stylusButtonUndoRedo.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-02-09T15:35:10Z
 - add stylusButtonUndoRedo
 
 ## settingsRmSyncRestart.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-02-09T14:02:30Z
 - add settingsRmSyncRestart
 
 ## stylusButtonEraser.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-02-09T15:20:01Z
 - update stylusButtonEraser for rm-stylus
 #### 2026-02-05T04:51:24Z
@@ -81,6 +93,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-02-11T19:45:26Z
 - bettertoc: add support for multiple toc entries per page
 #### 2026-01-31T02:09:24Z
@@ -106,6 +120,8 @@
 - add betterToc.qmd
 
 ## createPagesPaperProSize.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -122,6 +138,8 @@
 
 
 ## createPagesRM2Size.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -138,6 +156,8 @@
 
 
 ## disableSelectionAutoScroll.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -148,6 +168,8 @@
 
 
 ## extendListTitleWidth.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -158,6 +180,8 @@
 
 
 ## fixBatteryIndicator.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T12:54:58Z
 - fix-batt-indicator: still needed on 3.25
 #### 2026-01-31T02:07:28Z
@@ -170,6 +194,8 @@
 
 
 ## fixLightIndicatorGap.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -180,6 +206,8 @@
 
 
 ## fixPageNumberOnSlider.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -198,6 +226,8 @@
 - add fixPageNumberOnSlider
 
 ## hideDevModeIcon.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -224,6 +254,8 @@
 
 
 ## hideZoomIndicator.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-02-01T15:25:41Z
 - hideZoomIndicator: simplify
 #### 2026-01-31T02:09:24Z
@@ -244,6 +276,8 @@
 
 
 ## miniLightSleep.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -262,6 +296,8 @@
 
 
 ## preventNotebookZoomOut.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -281,6 +317,8 @@
 
 
 ## quickSettingsClockSerif.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
@@ -296,6 +334,8 @@
 
 
 ## quickSettingsScreenshot.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-02-09T23:14:36Z
 - quickSettingsScreenshot: move to SLOT
 #### 2026-02-09T23:11:40Z
@@ -318,6 +358,8 @@
 - add quickSettingsScreenshot
 
 ## unlockMethodsContent.qmd
+#### 2026-03-20T02:00:38Z
+- 3.26
 #### 2026-01-31T02:09:24Z
 - update for 3.25
 #### 2026-01-31T02:07:28Z
