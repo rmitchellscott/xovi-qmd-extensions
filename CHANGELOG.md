@@ -334,6 +334,8 @@
 
 
 ## quickSettingsScreenshot.qmd
+#### 2026-03-23T20:35:10Z
+- quickSettingsScreenshot: update for xovi v18
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-02-09T23:14:36Z
