@@ -1,0 +1,29 @@
+; Mitchell Scott (https://github.com/rmitchellscott)
+; SPDX-License-Identifier: MIT
+; Modified: 2026-03-24T17:18:08Z
+
+AFFECT [[2328484894988065446]]
+TRAVERSE [[8397788359424131273]]#[[6504254477]] > [[8397993708429497603]]#[[7713531976371484]]
+    LOCATE AFTER [[17322495455722416732]]
+    INSERT {
+        ~&6502786168&~ {
+            ~&233721384511543&~.~&6503816592&~: ~&7083038346995&~
+            ~&180995&~: 99999
+
+            PointHandler { ~&5972374&~: gbPh1; acceptedDevices: PointerDevice.TouchScreen }
+            PointHandler { ~&5972374&~: gbPh2; acceptedDevices: PointerDevice.TouchScreen }
+            PointHandler { ~&5972374&~: gbPh3; acceptedDevices: PointerDevice.TouchScreen }
+            PointHandler { ~&5972374&~: gbPh4; acceptedDevices: PointerDevice.TouchScreen }
+            PointHandler { ~&5972374&~: gbPh5; acceptedDevices: PointerDevice.TouchScreen }
+
+            property ~&197088788&~ activeCount: (gbPh1.~&7082453764421&~ ? 1 : 0) + (gbPh2.~&7082453764421&~ ? 1 : 0) + (gbPh3.~&7082453764421&~ ? 1 : 0) + (gbPh4.~&7082453764421&~ ? 1 : 0) + (gbPh5.~&7082453764421&~ ? 1 : 0)
+
+            onActiveCountChanged: {
+                ~&5972376&~ (activeCount >= 5) {
+                    ~&6504254477&~.~&482865290967253827&~.~&8021204117616398611&~(~&"2385305732936506181&~);
+                }
+            }
+        }
+    }
+END TRAVERSE
+END AFFECT
