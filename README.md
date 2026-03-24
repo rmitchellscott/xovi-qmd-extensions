@@ -110,6 +110,11 @@ Removes the gap reserved for the frontlight icon when the light is off on Paper 
 3.23+  
 Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
 
+### ghostbuster
+[![vellum](https://img.shields.io/badge/vellum-ghostbuster-purple)](https://vellum.delivery/#/package/ghostbuster/)
+
+Triggers a full screen refresh with a 5-finger tap in documents.
+
 ### hideDevModeIcon
 [![vellum](https://img.shields.io/badge/vellum-hide--dev--mode--icon-purple)](https://vellum.delivery/#/package/hide-dev-mode-icon/)
 
