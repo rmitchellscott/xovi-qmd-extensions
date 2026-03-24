@@ -1,5 +1,9 @@
 # Changelog
 
+## ghostbuster.qmd
+#### 2026-03-24T17:18:08Z
+- add ghostbuster
+
 ## touchLock.qmd
 #### 2026-03-20T02:00:38Z
 - 3.26
