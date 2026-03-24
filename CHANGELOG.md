@@ -1,6 +1,8 @@
 # Changelog
 
 ## ghostbuster.qmd
+#### 2026-03-24T23:00:59Z
+- add ghostbuster
 #### 2026-03-24T17:18:08Z
 - add ghostbuster
 
