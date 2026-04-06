@@ -30,6 +30,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **extendListTitleWidth.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **filterAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **fixLightIndicatorGap.qmd** | ❌ | ❌ | ✅ | ✅ |
 | **fixPageNumberOnSlider.qmd** | ✅ | ✅ | ✅ | ✅ |

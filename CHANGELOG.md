@@ -1,5 +1,9 @@
 # Changelog
 
+## filterAnnotatedPages.qmd
+#### 2026-04-06T16:31:23Z
+- add filterAnnotatedPages
+
 ## ghostbuster.qmd
 #### 2026-03-24T23:00:59Z
 - add ghostbuster
