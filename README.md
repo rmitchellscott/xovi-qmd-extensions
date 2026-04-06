@@ -95,6 +95,18 @@ Disables the auto scrolling when moving a selection added in 3.24.
 
 Removes extra right margin for titles in list view to fill more of the available space.
 
+### filterAnnotatedPages
+[![vellum](https://img.shields.io/badge/vellum-filter--annotated--pages-purple)](https://vellum.delivery/#/package/filter-annotated-pages/)
+
+Adds a button to the Page Overview to show only pages with annotations.
+
+<table>
+  <tr>
+    <td><img src="assets/filterAnnotations-all.png" height="400"/></td>
+    <td><img src="assets/filterAnnotations.png" height="400"/></td>
+  </tr>
+</table>
+
 ### fixBatteryIndicator
 [![vellum](https://img.shields.io/badge/vellum-fix--battery--indicator-purple)](https://vellum.delivery/#/package/fix-battery-indicator/)
 
