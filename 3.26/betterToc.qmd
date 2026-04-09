@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
-; SPDX-License-Identifier: MIT
-; Modified: 2026-03-20T02:00:38Z
+; SPDX-License-Identifier: GPL-3.0-only
+; Modified: 2026-04-09T02:48:27Z
 
 AFFECT [[1658694193319203921]]
     TRAVERSE [[6502786168]]
@@ -1876,4 +1876,3 @@ AFFECT [[1051864309931719348]]
         }
     END TRAVERSE
 END AFFECT
-

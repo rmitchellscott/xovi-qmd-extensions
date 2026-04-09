@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
-; SPDX-License-Identifier: MIT
-; Modified: 2026-03-23T20:35:10Z
+; SPDX-License-Identifier: GPL-3.0-only
+; Modified: 2026-04-09T02:48:27Z
 ;
 ; Requires: https://github.com/rmitchellscott/rm-shot
 
