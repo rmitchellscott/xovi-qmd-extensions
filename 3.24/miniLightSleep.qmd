@@ -1,5 +1,5 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
-; SPDX-License-Identifier: MIT
+; SPDX-License-Identifier: GPL-3.0-only
 ; Modified: 2026-01-05T16:42:08Z
 
 AFFECT [[4993120499307475167]] 

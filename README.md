@@ -230,4 +230,4 @@ Superseded by https://github.com/ingatellent/xovi-qmd-extensions
 
 ## License
 
-- **Original works** are licensed under the MIT License (see [LICENSE](LICENSE)).
+- **Original works** are licensed under the GPLv3 License (see [LICENSE](LICENSE)).
