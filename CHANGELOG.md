@@ -1,20 +1,30 @@
 # Changelog
 
+## duplicateAnnotatedPages.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
+
 ## disableInfiniteScroll.qmd
 #### 2026-04-09T02:38:04Z
 - add disableInfiniteScroll
 
 ## filterAnnotatedPages.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-04-06T16:31:23Z
 - add filterAnnotatedPages
 
 ## ghostbuster.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-24T23:00:59Z
 - add ghostbuster
 #### 2026-03-24T17:18:08Z
 - add ghostbuster
 
 ## touchLock.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-03-15T14:54:21Z
@@ -23,12 +33,16 @@
 - add touchLock
 
 ## quicksheetUseTemplate.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-03-03T01:12:56Z
 - quicksheetUseTemplate
 
 ## tocFromSelection.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-02-25T00:13:01Z
@@ -37,18 +51,24 @@
 - add tocFromSelection
 
 ## stylusButtonUndoRedo.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-02-09T15:35:10Z
 - add stylusButtonUndoRedo
 
 ## settingsRmSyncRestart.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-02-09T14:02:30Z
 - add settingsRmSyncRestart
 
 ## stylusButtonEraser.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-02-09T15:20:01Z
@@ -107,6 +127,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-02-11T19:45:26Z
@@ -134,6 +156,8 @@
 - add betterToc.qmd
 
 ## createPagesPaperProSize.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -152,6 +176,8 @@
 
 
 ## createPagesRM2Size.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -170,6 +196,8 @@
 
 
 ## disableSelectionAutoScroll.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -182,6 +210,8 @@
 
 
 ## extendListTitleWidth.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -194,6 +224,8 @@
 
 
 ## fixBatteryIndicator.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T12:54:58Z
@@ -208,6 +240,8 @@
 
 
 ## fixLightIndicatorGap.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -220,6 +254,8 @@
 
 
 ## fixPageNumberOnSlider.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -240,6 +276,8 @@
 - add fixPageNumberOnSlider
 
 ## hideDevModeIcon.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -268,6 +306,8 @@
 
 
 ## hideZoomIndicator.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-02-01T15:25:41Z
@@ -290,6 +330,8 @@
 
 
 ## miniLightSleep.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -310,6 +352,8 @@
 
 
 ## preventNotebookZoomOut.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -331,6 +375,8 @@
 
 
 ## quickSettingsClockSerif.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
@@ -348,6 +394,8 @@
 
 
 ## quickSettingsScreenshot.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-23T20:35:10Z
 - quickSettingsScreenshot: update for xovi v18
 #### 2026-03-20T02:00:38Z
@@ -374,6 +422,8 @@
 - add quickSettingsScreenshot
 
 ## unlockMethodsContent.qmd
+#### 2026-04-09T02:48:27Z
+- add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
 - 3.26
 #### 2026-01-31T02:09:24Z
