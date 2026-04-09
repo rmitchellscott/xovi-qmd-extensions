@@ -87,10 +87,22 @@ Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 Overrides new page creation to use reMarkable 2 dimensions. Designed to allow better interoperability between Move and reMarkable 2.  
 Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 
+### disableInfiniteScroll
+[![vellum](https://img.shields.io/badge/vellum-disable--infinite--scroll-purple)](https://vellum.delivery/#/package/disable-infinite-scroll/)
+
+Disables infinite scroll by limiting zooming and scrolling to page boundaries.
+
 ### disableSelectionAutoScroll
 [![vellum](https://img.shields.io/badge/vellum-disable--selection--autoscroll-purple)](https://vellum.delivery/#/package/disable-selection-autoscroll/)
 
 Disables the auto scrolling when moving a selection added in 3.24.
+
+### duplicateAnnotatedPages
+[![vellum](https://img.shields.io/badge/vellum-duplicate--annotated--pages-purple)](https://vellum.delivery/#/package/duplicate-annotated-pages/)
+
+Adds an option to the Duplicate menu to duplicate only pages that have been annotated. ePUBs will be converted to PDFs.
+
+<img src="assets/duplicateAnnotations.png" height="400"/>
 
 ### extendListTitleWidth
 [![vellum](https://img.shields.io/badge/vellum-extend--list--title--width-purple)](https://vellum.delivery/#/package/extend-list-title-width/)
