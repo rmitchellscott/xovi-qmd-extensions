@@ -5,6 +5,8 @@
 - add duplicateAnnotatedPages
 
 ## disableInfiniteScroll.qmd
+#### 2026-04-09T02:49:16Z
+- add disableInfiniteScroll
 #### 2026-04-09T02:38:04Z
 - add disableInfiniteScroll
 
