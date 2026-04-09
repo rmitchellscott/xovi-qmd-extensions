@@ -1,5 +1,9 @@
 # Changelog
 
+## disableInfiniteScroll.qmd
+#### 2026-04-09T02:38:04Z
+- add disableInfiniteScroll
+
 ## filterAnnotatedPages.qmd
 #### 2026-04-06T16:31:23Z
 - add filterAnnotatedPages

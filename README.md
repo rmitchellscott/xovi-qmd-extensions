@@ -28,6 +28,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **betterToc.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **disableInfiniteScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **extendListTitleWidth.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **filterAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ |
