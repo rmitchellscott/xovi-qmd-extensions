@@ -102,7 +102,13 @@ Disables the auto scrolling when moving a selection added in 3.24.
 
 Adds an option to the Duplicate menu to duplicate only pages that have been annotated. ePUBs will be converted to PDFs.
 
+Requires:
+- [librarian](https://github.com/rmitchellscott/rm-librarian)
+- [qt-command-executor](https://github.com/asivery/rm-xovi-extensions)
+- [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
+
 <img src="assets/duplicateAnnotations.png" height="400"/>
+
 
 ### extendListTitleWidth
 [![vellum](https://img.shields.io/badge/vellum-extend--list--title--width-purple)](https://vellum.delivery/#/package/extend-list-title-width/)
