@@ -129,6 +129,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-04-11T16:52:17Z
+- fix: UX for editing entries
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
