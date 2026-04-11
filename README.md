@@ -91,6 +91,9 @@ Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 [![vellum](https://img.shields.io/badge/vellum-disable--infinite--scroll-purple)](https://vellum.delivery/#/package/disable-infinite-scroll/)
 
 Disables infinite scroll by limiting zooming and scrolling to page boundaries.
+Adds two items to the Display settings to control behavior:
+
+<img src="assets/disableInfiniteScroll-settings.png" height="150"/>
 
 ### disableSelectionAutoScroll
 [![vellum](https://img.shields.io/badge/vellum-disable--selection--autoscroll-purple)](https://vellum.delivery/#/package/disable-selection-autoscroll/)
