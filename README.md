@@ -57,6 +57,8 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 ### betterToc
 [![vellum](https://img.shields.io/badge/vellum-bettertoc-purple)](https://vellum.delivery/#/package/bettertoc/)
 
+[Video Walkthrough](https://www.youtube.com/watch?v=WlVVxxCql80)
+
 Adds the ability to add, delete*, and edit* Table of Contents entries in notebooks, PDFs, and EPUBs.  
 Supports cross-document linking.  
 On-disk, ToC data is stored inside the UUID directory for the document in a toc.rm file.  
