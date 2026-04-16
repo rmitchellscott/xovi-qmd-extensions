@@ -171,6 +171,11 @@ Auto-hides zoom indicator after 4 seconds (like the scrollbars).
 
 Replaces the light sleep banner with text saying "Sleeping" at the top right of the screen.
 
+### penLayerMemory
+[![vellum](https://img.shields.io/badge/vellum-pen--layer--memory-purple)](https://vellum.delivery/#/package/pen-layer-memory/)
+
+Remembers which layer each pen tool was last used on, and switches to that layer when the pen is selected. Erase and selection tools remain on the currently selected layer.
+
 ### preventNotebookZoomOut
 [![vellum](https://img.shields.io/badge/vellum-prevent--notebook--zoom--out-purple)](https://vellum.delivery/#/package/prevent-notebook-zoomout/)
 
