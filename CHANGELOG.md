@@ -1,5 +1,9 @@
 # Changelog
 
+## penLayerMemory.qmd
+#### 2026-04-16T17:40:14Z
+- add penLayerMemory
+
 ## duplicateAnnotatedPages.qmd
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages

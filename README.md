@@ -40,6 +40,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **penLayerMemory.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsClockSerif.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ |
