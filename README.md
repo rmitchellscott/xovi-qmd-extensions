@@ -77,6 +77,8 @@ EPUB reflows can result in small amounts of drift due to limitations in progress
 
 *Editing and deleting are limited to user-created ToC entries only
 
+**rmhacks users can use the `migrate-bookmarks-to-toc.sh` script located in this repo's scripts directory to migrate from `.bookm` to `toc.rm` format. `.bookm` files are retained. The script should be executed from the reMarkable tablet, and `chmod +x migrate-bookmarks-to-toc.sh` may be required.
+
 ### createPagesPaperProSize
 [![vellum](https://img.shields.io/badge/vellum-createpages--paperpro-purple)](https://vellum.delivery/#/package/createpages-paperpro/) 
 
