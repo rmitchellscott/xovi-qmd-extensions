@@ -131,6 +131,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-04-16T17:14:04Z
+- betterToc: convert page entries to p:ratio for epubs
 #### 2026-04-11T16:52:17Z
 - fix: UX for editing entries
 #### 2026-04-09T02:48:27Z
