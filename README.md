@@ -260,5 +260,6 @@ Fixed in 3.24.
 Superseded by https://github.com/ingatellent/xovi-qmd-extensions
 
 ## License
+Copyright (C) 2025 Mitchell Scott
 
-- **Original works** are licensed under the GPLv3 License (see [LICENSE](LICENSE)).
+Licensed under the GNU General Public License v3.0.
