@@ -162,6 +162,11 @@ Triggers a full screen refresh with a 5-finger tap in documents.
 
 Hides the developer mode icon next to the battery icon.
 
+### hideHyperlinkBackButton
+[![vellum](https://img.shields.io/badge/vellum-hide--hyperlink--back--button-purple)](https://vellum.delivery/#/package/hide-hyperlink-back-button/)
+
+Hides the "Back" button when clicking PDF hyperlinks.
+
 ### hideZoomIndicator
 [![vellum](https://img.shields.io/badge/vellum-hide--zoom--indicator-purple)](https://vellum.delivery/#/package/hide-zoom-indicator/)
 
