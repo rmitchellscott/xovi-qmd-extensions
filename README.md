@@ -38,6 +38,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **fixPageNumberOnSlider.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **ghostbuster.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **hideHyperlinkBackButton.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **penLayerMemory.qmd** | ✅ | ✅ | ✅ | ✅ |

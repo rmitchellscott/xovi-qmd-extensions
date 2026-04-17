@@ -1,5 +1,9 @@
 # Changelog
 
+## hideHyperlinkBackButton.qmd
+#### 2026-04-17T17:47:44Z
+- add hideHyperlinkBackButton
+
 ## penLayerMemory.qmd
 #### 2026-04-16T17:40:14Z
 - add penLayerMemory
