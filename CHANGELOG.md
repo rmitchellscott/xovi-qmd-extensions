@@ -5,6 +5,8 @@
 - add hideHyperlinkBackButton
 
 ## penLayerMemory.qmd
+#### 2026-04-18T19:02:57Z
+- penLayerMemory: work with floating-toolbar
 #### 2026-04-16T17:40:14Z
 - add penLayerMemory
 
