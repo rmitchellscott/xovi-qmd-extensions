@@ -1,5 +1,9 @@
 # Changelog
 
+## createDocumentFromPages.qmd
+#### 2026-04-20T22:42:18Z
+- add createDocumentFromPages
+
 ## hideHyperlinkBackButton.qmd
 #### 2026-04-17T17:47:44Z
 - add hideHyperlinkBackButton
