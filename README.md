@@ -82,6 +82,18 @@ EPUB reflows can result in small amounts of drift due to limitations in progress
 
 **rmhacks users can use the `migrate-bookmarks-to-toc.sh` script located in this repo's scripts directory to migrate from `.bookm` to `toc.rm` format. `.bookm` files are retained. The script should be executed from the reMarkable tablet, and `chmod +x migrate-bookmarks-to-toc.sh` may be required.
 
+### createDocumentFromPages
+[![vellum](https://img.shields.io/badge/vellum-create--document--from--pages-purple)](https://vellum.delivery/#/package/create-document-from-pages/)
+
+Adds button in the More menu of Page Overview (Notebook, PDF, EPUB) to create a new document from the selected pages. EPUB pages will be exported as PDF, annotations are preserved.
+
+Requires:
+- [librarian](https://github.com/rmitchellscott/rm-librarian)
+- [qt-command-executor](https://github.com/asivery/rm-xovi-extensions)
+- [xovi-message-broker](https://github.com/asivery/rm-xovi-extensions)
+
+<img src="assets/createDocumentFromPages.png" height="400"/>
+
 ### createPagesPaperProSize
 [![vellum](https://img.shields.io/badge/vellum-createpages--paperpro-purple)](https://vellum.delivery/#/package/createpages-paperpro/) 
 
