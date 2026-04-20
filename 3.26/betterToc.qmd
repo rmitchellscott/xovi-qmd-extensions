@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: GPL-3.0-only
-; Modified: 2026-04-19T16:37:34Z
+; Modified: 2026-04-20T17:20:05Z
 
 AFFECT [[1658694193319203921]]
     TRAVERSE [[6502786168]]
@@ -39,6 +39,82 @@ AFFECT [[1658694193319203921]]
                 ~&214622607920&~ req =  new  XMLHttpRequest();
                 req.~&6504147419&~("PUT", tocFilePath.~&197080195&~(~&8399386052748489877&~));
                 req.~&6504279475&~(tocRmHeader + "[cleared:" + ~&8399386052748489877&~ + ~&"180966&~);
+            }
+
+            readonly property ~&7083178290016&~ tocContentFilePath: "file:///home/root/.local/share/remarkable/xochitl/%1.content"
+
+            function tocReadContentPages(~&8399386052748489877&~, ~&7712874493159382&~) {
+                ~&214622607920&~ req =  new  XMLHttpRequest();
+                req.~&6504147419&~("GET", tocContentFilePath.~&197080195&~(~&8399386052748489877&~));
+                req.onreadystatechange = () => {
+                    ~&5972376&~ (req.readyState === XMLHttpRequest.DONE) {
+                        try {
+                            ~&214622607920&~ ~&233724020048228&~ = ~&6502785411&~.parse(req.responseText);
+                            ~&5972376&~ (~&233724020048228&~.cPages && ~&233724020048228&~.cPages.~&214637513689&~) {
+                                ~&214622607920&~ live = ~&233724020048228&~.cPages.~&214637513689&~.~&7082656280847&~(~&180985&~ => !(~&180985&~.deleted && ~&180985&~.deleted.~&214644635174&~ === 1));
+                                ~&7712874493159382&~(live.~&197092711&~(~&180985&~ => ~&180985&~.~&5972374&~));
+                            } ~&6503784146&~ ~&5972376&~ (~&214582398184&~.~&233731871973028&~(~&233724020048228&~.~&214637513689&~)) {
+                                ~&7712874493159382&~(~&233724020048228&~.~&214637513689&~);
+                            } ~&6503784146&~ {
+                                ~&7712874493159382&~(~&6504117156&~);
+                            }
+                        } catch (~&180974&~) {
+                            ~&7712874493159382&~(~&6504117156&~);
+                        }
+                    }
+                };
+                req.~&6504279475&~();
+            }
+
+            function tocCopyForDuplicate(sourceDocId, newDocId) {
+                tocReadEntries(sourceDocId, (entries) => {
+                    ~&5972376&~ (!entries || ~&7081747777088&~.~&6503992357&~(entries).~&7082886407723&~ === 0) ~&7083121450889&~;
+
+                    tocReadContentPages(sourceDocId, (sourcePages) => {
+                        ~&5972376&~ (!sourcePages) ~&7083121450889&~;
+
+                        tocReadContentPages(newDocId, (newPages) => {
+                            ~&5972376&~ (!newPages) ~&7083121450889&~;
+
+                            ~&214622607920&~ uuidMap = {};
+                            ~&214622607920&~ limit = ~&6502909715&~.~&197092973&~(sourcePages.~&7082886407723&~, newPages.~&7082886407723&~);
+                            ~&197085552&~ (~&197091758&~ ~&180978&~ = 0; ~&180978&~ < limit; ~&180978&~++) {
+                                uuidMap[sourcePages[~&180978&~]] = newPages[~&180978&~];
+                            }
+
+                            ~&214622607920&~ remapped = {};
+                            ~&197085552&~ (~&214622607920&~ [~&197090674&~, ~&197102508&~] ~&5972574&~ ~&7081747777088&~.entries(entries)) {
+                                ~&5972376&~ (~&197090674&~ === "_numberStyle" || ~&197090674&~ === "_autoNumber") {
+                                    remapped[~&197090674&~] = ~&197102508&~;
+                                    ~&7712892661735406&~;
+                                }
+
+                                ~&197091758&~ newVal = ~&197102508&~;
+                                ~&5972376&~ (~&7083223278816&~ ~&197102508&~ === "object" && ~&197102508&~ !== ~&6504117156&~) {
+                                    newVal = ~&7081747777088&~.~&7082472702734&~({}, ~&197102508&~);
+                                    ~&5972376&~ (newVal.afterEntry && uuidMap[newVal.afterEntry]) {
+                                        newVal.afterEntry = uuidMap[newVal.afterEntry];
+                                    }
+                                    ~&5972376&~ (newVal.targetPageId && uuidMap[newVal.targetPageId]) {
+                                        newVal.targetPageId = uuidMap[newVal.targetPageId];
+                                    }
+                                }
+
+                                ~&5972376&~ (~&197090674&~.~&8400089168236034054&~("xref:") || ~&197090674&~.~&8400089168236034054&~("p:")) {
+                                    remapped[~&197090674&~] = newVal;
+                                } ~&6503784146&~ ~&5972376&~ (~&197090674&~.~&8400089168236034054&~("toc:")) {
+                                    remapped[~&197090674&~] = newVal;
+                                } ~&6503784146&~ ~&5972376&~ (uuidMap[~&197090674&~]) {
+                                    remapped[uuidMap[~&197090674&~]] = newVal;
+                                } ~&6503784146&~ {
+                                    remapped[~&197090674&~] = newVal;
+                                }
+                            }
+
+                            tocWriteEntries(newDocId, remapped);
+                        });
+                    });
+                });
             }
         }
     END TRAVERSE
@@ -2196,5 +2272,52 @@ AFFECT [[1051864309931719348]]
                 ~&233748328658231&~: !!~&6504254477&~.~&16299287846731412336&~?.~&233736549263054&~
             }
         }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[5376273845699449139]]
+    TRAVERSE [[4656948266548654837]]
+        LOCATE BEFORE ALL
+        INSERT {
+            property ~&7083178290016&~ _tocDupSourceId: ""
+            property ~&6503679477&~ _tocDupListening: ~&214625660372&~
+
+            function _tocDupStart() {
+                ~&197102514&~ sel = ~&7712989590835962&~.~&254547531013851119&~;
+                _tocDupSourceId = sel.~&6504284228&~ === 1 ? String(sel.selectedId()) : "";
+                _tocDupListening = _tocDupSourceId !== "";
+            }
+
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: ~&7712989590835962&~.~&5194919649702242259&~
+                ~&233726547792244&~: ~&15623861903200516464&~._tocDupListening
+
+                function ~&480458259717938639&~(~&7083038346995&~, ~&214625954417&~, last) {
+                    ~&15623861903200516464&~._tocDupListening = ~&214625660372&~;
+                    ~&197102514&~ newDocId = ~&7712989590835962&~.~&5194919649702242259&~.~&6503736259&~(
+                        ~&7712989590835962&~.~&5194919649702242259&~.~&214629676161&~(~&214625954417&~, 0), 256);
+                    ~&5972376&~ (newDocId && ~&15623861903200516464&~._tocDupSourceId) {
+                        ~&7082020628281&~.tocCopyForDuplicate(~&15623861903200516464&~._tocDupSourceId, String(newDocId));
+                    }
+                }
+            }
+        }
+
+        REBUILD [[16308002954280469148]]
+            LOCATE BEFORE ALL
+            INSERT { ~&15623861903200516464&~._tocDupStart(); }
+        END REBUILD
+
+        TRAVERSE [[254480451320573660]]#[[10067267097605298081]]
+            TRAVERSE [[919855502196284289]]
+                REBUILD [[254542236275632405]]
+                    LOCATE BEFORE { ~&15623861903200516464&~.~&14825814810595278773&~ }
+                    INSERT {
+                        ~&5972376&~ (~&7082453764199&~ !== ~&"6503715460&~) ~&15623861903200516464&~._tocDupListening = ~&214625660372&~;
+                    }
+                END REBUILD
+            END TRAVERSE
+        END TRAVERSE
+
     END TRAVERSE
 END AFFECT
