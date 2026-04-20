@@ -141,6 +141,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-04-20T17:20:05Z
+- bettertoc: copy toc.rm when duplicating with edits
 #### 2026-04-19T16:37:34Z
 - betterToc: add auto-number feature
 #### 2026-04-16T17:14:04Z
