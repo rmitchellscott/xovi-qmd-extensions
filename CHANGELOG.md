@@ -41,6 +41,8 @@
 - add ghostbuster
 
 ## touchLock.qmd
+#### 2026-04-21T01:47:34Z
+- touchlock: menu cleanup
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
