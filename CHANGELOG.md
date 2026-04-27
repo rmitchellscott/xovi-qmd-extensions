@@ -43,6 +43,8 @@
 - add ghostbuster
 
 ## touchLock.qmd
+#### 2026-04-27T18:58:37Z
+- bettertoc, touchlock: update toolbar item count
 #### 2026-04-21T01:47:34Z
 - touchlock: menu cleanup
 #### 2026-04-09T02:48:27Z
@@ -149,6 +151,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-04-27T18:58:37Z
+- bettertoc, touchlock: update toolbar item count
 #### 2026-04-20T17:20:05Z
 - bettertoc: copy toc.rm when duplicating with edits
 #### 2026-04-19T16:37:34Z
