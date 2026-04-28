@@ -151,6 +151,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-04-28T01:03:00Z
+- fix: non-deterministic sort for same-page native entries
 #### 2026-04-27T18:58:37Z
 - bettertoc, touchlock: update toolbar item count
 #### 2026-04-20T17:20:05Z
