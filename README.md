@@ -132,6 +132,10 @@ Requires:
 
 <img src="assets/duplicateAnnotations.png" height="400"/>
 
+### enableTypingOnDocuments.qmd
+[![vellum](https://img.shields.io/badge/vellum-enable--typing--on--documents-purple)](https://vellum.delivery/#/package/enable-typing-on-documents/)
+
+Enables the text typing feature on PDF and ePUB pages.
 
 ### extendListTitleWidth
 [![vellum](https://img.shields.io/badge/vellum-extend--list--title--width-purple)](https://vellum.delivery/#/package/extend-list-title-width/)
