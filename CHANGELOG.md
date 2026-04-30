@@ -1,5 +1,9 @@
 # Changelog
 
+## enableTypingOnDocuments.qmd
+#### 2026-04-30T21:10:16Z
+- add enableTypingOnDocuments
+
 ## createDocumentFromPages.qmd
 #### 2026-04-20T22:42:18Z
 - add createDocumentFromPages
