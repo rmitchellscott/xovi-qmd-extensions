@@ -5,6 +5,8 @@
 - add enableTypingOnDocuments
 
 ## createDocumentFromPages.qmd
+#### 2026-04-30T22:07:19Z
+- republish: createDocumentFromPages, duplicateAnnotatedPages
 #### 2026-04-20T22:42:18Z
 - add createDocumentFromPages
 
@@ -21,6 +23,8 @@
 - add penLayerMemory
 
 ## duplicateAnnotatedPages.qmd
+#### 2026-04-30T22:07:19Z
+- republish: createDocumentFromPages, duplicateAnnotatedPages
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 
