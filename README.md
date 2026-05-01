@@ -26,7 +26,6 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
 | ---- | :----------: | :----------: | :-------: | :------------: |
 | **betterToc.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **betterTocCollapse.qmd** | ❌ | ❌ | ❌ | ❌ |
 | **createDocumentFromPages.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
@@ -83,6 +82,13 @@ EPUB reflows can result in small amounts of drift due to limitations in progress
 *Editing and deleting are limited to user-created ToC entries only
 
 **rmhacks users can use the `migrate-bookmarks-to-toc.sh` script located in this repo's scripts directory to migrate from `.bookm` to `toc.rm` format. `.bookm` files are retained. The script should be executed from the reMarkable tablet, and `chmod +x migrate-bookmarks-to-toc.sh` may be required.
+
+### betterTocCollapse
+[![vellum](https://img.shields.io/badge/vellum-bettertoc--collapse-purple)](https://vellum.delivery/#/package/bettertoc-collapse/)
+
+
+Adds chevrons to collapse / expand ToC entries based on indent.  
+Requires betterToc
 
 ### createDocumentFromPages
 [![vellum](https://img.shields.io/badge/vellum-create--document--from--pages-purple)](https://vellum.delivery/#/package/create-document-from-pages/)

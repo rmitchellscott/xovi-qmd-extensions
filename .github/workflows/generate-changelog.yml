@@ -105,10 +105,15 @@ jobs:
 
           version = os.getenv('VERSION')
 
+          ignored = set()
+          if os.path.exists('.verifyignore'):
+              with open('.verifyignore') as f:
+                  ignored = {line.strip() for line in f if line.strip() and not line.startswith('#')}
+
           qmd_files = [
               os.path.join(version, file)
               for file in os.listdir(version)
-              if file.endswith(".qmd")
+              if file.endswith(".qmd") and file not in ignored
           ]
 
           if len(qmd_files) == 0:
