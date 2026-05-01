@@ -1,5 +1,9 @@
 # Changelog
 
+## betterTocCollapse.qmd
+#### 2026-05-01T15:48:43Z
+- add betterTocCollapse
+
 ## enableTypingOnDocuments.qmd
 #### 2026-04-30T21:10:16Z
 - add enableTypingOnDocuments
