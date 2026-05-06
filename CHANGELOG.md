@@ -1,28 +1,40 @@
 # Changelog
 
 ## bluetoothSettings.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-05-01T21:41:23Z
 - add bluetoothSettings
 
 ## betterTocCollapse.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-05-01T15:48:43Z
 - add betterTocCollapse
 
 ## enableTypingOnDocuments.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-30T21:10:16Z
 - add enableTypingOnDocuments
 
 ## createDocumentFromPages.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-30T22:07:19Z
 - republish: createDocumentFromPages, duplicateAnnotatedPages
 #### 2026-04-20T22:42:18Z
 - add createDocumentFromPages
 
 ## hideHyperlinkBackButton.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-17T17:47:44Z
 - add hideHyperlinkBackButton
 
 ## penLayerMemory.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-27T17:52:05Z
 - penLayerMemory: republish
 #### 2026-04-18T19:02:57Z
@@ -31,12 +43,16 @@
 - add penLayerMemory
 
 ## duplicateAnnotatedPages.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-30T22:07:19Z
 - republish: createDocumentFromPages, duplicateAnnotatedPages
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 
 ## disableInfiniteScroll.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-11T17:42:15Z
 - disableInfiniteScroll: fixes for landscape, adds settings
 #### 2026-04-09T02:49:16Z
@@ -45,12 +61,16 @@
 - add disableInfiniteScroll
 
 ## filterAnnotatedPages.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-04-06T16:31:23Z
 - add filterAnnotatedPages
 
 ## ghostbuster.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-24T23:00:59Z
@@ -59,6 +79,8 @@
 - add ghostbuster
 
 ## touchLock.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-27T18:58:37Z
 - bettertoc, touchlock: update toolbar item count
 #### 2026-04-21T01:47:34Z
@@ -73,6 +95,8 @@
 - add touchLock
 
 ## quicksheetUseTemplate.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -81,6 +105,8 @@
 - quicksheetUseTemplate
 
 ## tocFromSelection.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -91,6 +117,8 @@
 - add tocFromSelection
 
 ## stylusButtonUndoRedo.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -99,6 +127,8 @@
 - add stylusButtonUndoRedo
 
 ## settingsRmSyncRestart.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -107,6 +137,8 @@
 - add settingsRmSyncRestart
 
 ## stylusButtonEraser.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -167,6 +199,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-28T01:03:00Z
 - fix: non-deterministic sort for same-page native entries
 #### 2026-04-27T18:58:37Z
@@ -208,6 +242,8 @@
 - add betterToc.qmd
 
 ## createPagesPaperProSize.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -228,6 +264,8 @@
 
 
 ## createPagesRM2Size.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -248,6 +286,8 @@
 
 
 ## disableSelectionAutoScroll.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -262,6 +302,8 @@
 
 
 ## extendListTitleWidth.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -276,6 +318,8 @@
 
 
 ## fixBatteryIndicator.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -292,6 +336,8 @@
 
 
 ## fixLightIndicatorGap.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -306,6 +352,8 @@
 
 
 ## fixPageNumberOnSlider.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -328,6 +376,8 @@
 - add fixPageNumberOnSlider
 
 ## hideDevModeIcon.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -358,6 +408,8 @@
 
 
 ## hideZoomIndicator.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -382,6 +434,8 @@
 
 
 ## miniLightSleep.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -404,6 +458,8 @@
 
 
 ## preventNotebookZoomOut.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -427,6 +483,8 @@
 
 
 ## quickSettingsClockSerif.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
@@ -446,6 +504,8 @@
 
 
 ## quickSettingsScreenshot.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-23T20:35:10Z
@@ -474,6 +534,8 @@
 - add quickSettingsScreenshot
 
 ## unlockMethodsContent.qmd
+#### 2026-05-06T23:17:34Z
+- update for 3.27
 #### 2026-04-09T02:48:27Z
 - add duplicateAnnotatedPages
 #### 2026-03-20T02:00:38Z
