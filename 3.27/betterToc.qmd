@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: GPL-3.0-only
-; Modified: 2026-05-06T23:17:34Z
+; Modified: 2026-05-10T17:42:52Z
 
 AFFECT [[1658694193319203921]]
     TRAVERSE [[6502786168]]
@@ -2452,7 +2452,7 @@ AFFECT [[5376273845699449139]]
             property ~&6503679477&~ _tocDupListening: ~&214625660372&~
 
             function _tocDupStart() {
-                ~&197102514&~ sel = ~&7712989590835962&~.~&254547531013851119&~;
+                ~&197102514&~ sel = ~&15623861903200516464&~.~&254547531013851119&~;
                 _tocDupSourceId = sel.~&6504284228&~ === 1 ? String(sel.~&8400068523456930079&~()) : "";
                 _tocDupListening = _tocDupSourceId !== "";
             }
