@@ -199,6 +199,8 @@
 - break up gestures
 
 ## betterToc.qmd
+#### 2026-05-10T17:42:52Z
+- fix: duplicate affect on 3.27
 #### 2026-05-06T23:17:34Z
 - update for 3.27
 #### 2026-04-28T01:03:00Z

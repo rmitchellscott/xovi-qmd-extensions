@@ -25,35 +25,35 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 <!-- compat:begin -->
 | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
 | ---- | :----------: | :----------: | :-------: | :------------: |
-| **betterToc.qmd** | - | - | - | - |
-| **bluetoothSettings.qmd** | - | - | - | - |
-| **createDocumentFromPages.qmd** | - | - | - | - |
-| **createPagesPaperProSize.qmd** | - | - | - | - |
-| **createPagesRM2Size.qmd** | - | - | - | - |
-| **disableInfiniteScroll.qmd** | - | - | - | - |
-| **disableSelectionAutoScroll.qmd** | - | - | - | - |
-| **duplicateAnnotatedPages.qmd** | - | - | - | - |
-| **extendListTitleWidth.qmd** | - | - | - | - |
-| **filterAnnotatedPages.qmd** | - | - | - | - |
-| **fixBatteryIndicator.qmd** | - | - | - | - |
-| **fixLightIndicatorGap.qmd** | - | - | - | - |
-| **fixPageNumberOnSlider.qmd** | - | - | - | - |
-| **ghostbuster.qmd** | - | - | - | - |
-| **hideDevModeIcon.qmd** | - | - | - | - |
-| **hideHyperlinkBackButton.qmd** | - | - | - | - |
-| **hideZoomIndicator.qmd** | - | - | - | - |
-| **miniLightSleep.qmd** | - | - | - | - |
-| **penLayerMemory.qmd** | - | - | - | - |
-| **preventNotebookZoomOut.qmd** | - | - | - | - |
-| **quickSettingsClockSerif.qmd** | - | - | - | - |
-| **quickSettingsScreenshot.qmd** | - | - | - | - |
-| **quicksheetUseTemplate.qmd** | - | - | - | - |
-| **settingsRmSyncRestart.qmd** | - | - | - | - |
-| **stylusButtonEraser.qmd** | - | - | - | - |
-| **stylusButtonUndoRedo.qmd** | - | - | - | - |
-| **tocFromSelection.qmd** | - | - | - | - |
-| **touchLock.qmd** | - | - | - | - |
-| **unlockMethodsContent.qmd** | - | - | - | - |
+| **betterToc.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **bluetoothSettings.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **createDocumentFromPages.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **disableInfiniteScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **duplicateAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **extendListTitleWidth.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **filterAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **fixLightIndicatorGap.qmd** | ❌ | ❌ | ✅ | ✅ |
+| **fixPageNumberOnSlider.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **ghostbuster.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **hideHyperlinkBackButton.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **penLayerMemory.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **quickSettingsClockSerif.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **quicksheetUseTemplate.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **settingsRmSyncRestart.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **stylusButtonEraser.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **stylusButtonUndoRedo.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **tocFromSelection.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **touchLock.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **unlockMethodsContent.qmd** | ✅ | ✅ | ✅ | ✅ |
 <!-- compat:end -->
 
 ## Extensions
