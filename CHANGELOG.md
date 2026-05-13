@@ -1,6 +1,8 @@
 # Changelog
 
 ## bluetoothSettings.qmd
+#### 2026-05-13T21:11:00Z
+- bluetoothsettings: add UserspaceHID=true
 #### 2026-05-06T23:17:34Z
 - update for 3.27
 #### 2026-05-01T21:41:23Z
