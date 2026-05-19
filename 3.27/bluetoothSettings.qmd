@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: GPL-3.0-only
-; Modified: 2026-05-13T21:11:00Z
+; Modified: 2026-05-19T01:08:04Z
 ; Requires qt-command-executor
 
 AFFECT [[12599552112012170435]]
@@ -136,6 +136,7 @@ AFFECT [[12599552112012170435]]
                         }
 
                         function writeUdevRules() {
+                            ~&5972376&~ (pairedDevices.~&7082886407723&~ === 0) ~&7083121450889&~;
                             ~&197102514&~ cmd = "printf '";
                             ~&197085552&~ (~&197102514&~ ~&180978&~ = 0; ~&180978&~ < pairedDevices.~&7082886407723&~; ~&180978&~++) {
                                 ~&197102514&~ n = pairedDevices[~&180978&~].~&6504095402&~;
