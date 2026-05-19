@@ -1,6 +1,8 @@
 # Changelog
 
 ## bluetoothSettings.qmd
+#### 2026-05-19T01:08:04Z
+- bluetoothsettings: retain udev rules
 #### 2026-05-13T21:11:00Z
 - bluetoothsettings: add UserspaceHID=true
 #### 2026-05-06T23:17:34Z
