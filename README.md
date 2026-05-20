@@ -25,7 +25,6 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 <!-- compat:begin -->
 | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
 | ---- | :----------: | :----------: | :-------: | :------------: |
-| **bluetoothSettings.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createDocumentFromPages.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ |
 | **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
