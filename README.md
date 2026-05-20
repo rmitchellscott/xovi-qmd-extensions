@@ -25,63 +25,41 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 <!-- compat:begin -->
 | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
 | ---- | :----------: | :----------: | :-------: | :------------: |
-| **betterToc.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **bluetoothSettings.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **createDocumentFromPages.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **disableInfiniteScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **duplicateAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **extendListTitleWidth.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **filterAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **fixLightIndicatorGap.qmd** | ❌ | ❌ | ✅ | ✅ |
-| **fixPageNumberOnSlider.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **ghostbuster.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **hideHyperlinkBackButton.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **penLayerMemory.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **quickSettingsClockSerif.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **quicksheetUseTemplate.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **settingsRmSyncRestart.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **stylusButtonEraser.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **stylusButtonUndoRedo.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **tocFromSelection.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **touchLock.qmd** | ✅ | ✅ | ✅ | ✅ |
-| **unlockMethodsContent.qmd** | ✅ | ✅ | ✅ | ✅ |
+| **bluetoothSettings.qmd** | - | - | - | - |
+| **createDocumentFromPages.qmd** | - | - | - | - |
+| **createPagesPaperProSize.qmd** | - | - | - | - |
+| **createPagesRM2Size.qmd** | - | - | - | - |
+| **disableInfiniteScroll.qmd** | - | - | - | - |
+| **disableSelectionAutoScroll.qmd** | - | - | - | - |
+| **duplicateAnnotatedPages.qmd** | - | - | - | - |
+| **enableTypingOnDocuments.qmd** | - | - | - | - |
+| **extendListTitleWidth.qmd** | - | - | - | - |
+| **filterAnnotatedPages.qmd** | - | - | - | - |
+| **fixBatteryIndicator.qmd** | - | - | - | - |
+| **fixLightIndicatorGap.qmd** | - | - | - | - |
+| **fixPageNumberOnSlider.qmd** | - | - | - | - |
+| **ghostbuster.qmd** | - | - | - | - |
+| **hideDevModeIcon.qmd** | - | - | - | - |
+| **hideHyperlinkBackButton.qmd** | - | - | - | - |
+| **hideZoomIndicator.qmd** | - | - | - | - |
+| **miniLightSleep.qmd** | - | - | - | - |
+| **penLayerMemory.qmd** | - | - | - | - |
+| **preventNotebookZoomOut.qmd** | - | - | - | - |
+| **quickSettingsClockSerif.qmd** | - | - | - | - |
+| **quickSettingsScreenshot.qmd** | - | - | - | - |
+| **quicksheetUseTemplate.qmd** | - | - | - | - |
+| **settingsRmSyncRestart.qmd** | - | - | - | - |
+| **stylusButtonEraser.qmd** | - | - | - | - |
+| **stylusButtonUndoRedo.qmd** | - | - | - | - |
+| **tocFromSelection.qmd** | - | - | - | - |
+| **touchLock.qmd** | - | - | - | - |
+| **unlockMethodsContent.qmd** | - | - | - | - |
 <!-- compat:end -->
 
 ## Extensions
 
 ### betterToc
-[![vellum](https://img.shields.io/badge/vellum-bettertoc-purple)](https://vellum.delivery/#/package/bettertoc/)
-
-[Video Walkthrough](https://www.youtube.com/watch?v=WlVVxxCql80)
-
-Adds the ability to add, delete*, and edit* Table of Contents entries in notebooks, PDFs, and EPUBs.  
-Supports cross-document linking.  
-On-disk, ToC data is stored inside the UUID directory for the document in a toc.rm file.  
-This syncs between devices via cloud sync.  
-EPUB reflows can result in small amounts of drift due to limitations in progress calculation.
-
-<table>
-  <tr>
-    <td><img src="assets/betterToc-pro.png" height="400"/></td>
-    <td><img src="assets/betterToc-move.png" height="400"/></td>
-    <td><img src="assets/betterToc-notebook.png" height="400"/></td>
-    <td><img src="assets/betterToc-edit.png" height="400"/></td>
-    <td><img src="assets/betterToc-ebook.png" height="400"/></td>
-  </tr>
-</table>
-
-*Editing and deleting are limited to user-created ToC entries only
-
-**rmhacks users can use the `migrate-bookmarks-to-toc.sh` script located in this repo's scripts directory to migrate from `.bookm` to `toc.rm` format. `.bookm` files are retained. The script should be executed from the reMarkable tablet, and `chmod +x migrate-bookmarks-to-toc.sh` may be required.
+Moved to https://github.com/rmitchellscott/xovi-bettertoc
 
 ### betterTocCollapse
 [![vellum](https://img.shields.io/badge/vellum-bettertoc--collapse-purple)](https://vellum.delivery/#/package/bettertoc-collapse/)
