@@ -186,7 +186,7 @@ Remembers which layer each pen tool was last used on, and switches to that layer
 ### preventNotebookZoomOut
 [![vellum](https://img.shields.io/badge/vellum-prevent--notebook--zoom--out-purple)](https://vellum.delivery/#/package/prevent-notebook-zoomout/)
 
-Forces all notebook pages to start at 1x zoom with optional horizontal offset. Only affects notebooks, only affects portrait orientation. Designed for the Paper Pro Move.
+Forces all notebook pages to start at 1x zoom with optional horizontal offset in Settings > Display. Only affects notebooks, only affects portrait orientation.
 
 ### quickSettingsClockSerif
 [![vellum](https://img.shields.io/badge/vellum-quicksettings--clock--serif-purple)](https://vellum.delivery/#/package/quicksettings-clock-serif/)
