@@ -1,13 +1,70 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: GPL-3.0-only
-; Modified: 2026-05-06T23:17:34Z
+; Modified: 2026-05-27T20:20:47Z
+
+AFFECT [[1658694193319203921]]
+    IMPORT [[7081846004279]] [[180927.180926]]
+
+    TRAVERSE [[6502786168]]
+        LOCATE AFTER ALL INSERT {
+            property ~&214620122227&~ notebookHorizontalOffset: _preventNotebookZoomOutSettings.horizontalOffset
+
+            ~&6502786168&~ {
+                ~&5972374&~: _preventNotebookZoomOutSettings
+                property ~&197088788&~ horizontalOffset: -300
+
+                ~&7712198086779994&~ {
+                    ~&7712874798136519&~: "rmitchellscott.preventNotebookZoomOut"
+                    property ~&214620122227&~ horizontalOffset: _preventNotebookZoomOutSettings.horizontalOffset
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[12656844379588783144]]
+    TRAVERSE [[3819512207256720568]]#[[6504254477]] > [[8398580812105622257]]#[[254529542087036966]] > [[6502786168]]#[[486471031355863065]] > [[14125623155555875541]]#[[7082545991543]]
+        LOCATE BEFORE [[7712155293725601]]
+        INSERT {
+            ~&425121728314878811&~.~&214599571833&~ {
+                ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+                ~&214632764553&~: ~&6504222003&~("Notebook horizontal offset")
+                ~&15814908402952843900&~: ~&254501558939456351&~ {
+                    ~&425121728314878811&~.~&233682147553943&~ {
+                        ~&6504315758&~: ~&6504222003&~("Shifts the default view in portrait. Negative = left, positive = right.")
+                        ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+                        ~&7713748390489352&~: ~&6503165774&~.~&7712381377343359&~
+                        ~&7081629735527&~.~&499747351624466981&~: ~&425121728314878811&~.~&7082020628281&~.~&233744706647566&~.~&7083363878252&~
+                    }
+                    ~&425121728314878811&~.~&7081261925573&~ {
+                        ~&6504337259&~: ~&254477762679831355&~.~&7081261925573&~.~&254547519794454865&~
+                        ~&6504315758&~: "−"
+                        ~&254542236275632405&~: ~&7082020628281&~.notebookHorizontalOffset = ~&6502909715&~.~&197092719&~(-600, ~&7082020628281&~.notebookHorizontalOffset - 10)
+                    }
+                    ~&6502786168&~ {
+                        ~&214646099849&~: 80
+                        ~&7082729686082&~: ~&7083038346995&~.~&7082729686082&~
+                        ~&425121728314878811&~.~&214594815081&~ {
+                            ~&6504315758&~: ~&7082020628281&~.notebookHorizontalOffset.~&7713616118928163&~()
+                            ~&233721384511543&~.~&7712879746914881&~: ~&7083038346995&~
+                        }
+                    }
+                    ~&425121728314878811&~.~&7081261925573&~ {
+                        ~&6504337259&~: ~&254477762679831355&~.~&7081261925573&~.~&254547519794454865&~
+                        ~&6504315758&~: ~&"180916&~
+                        ~&254542236275632405&~: ~&7082020628281&~.notebookHorizontalOffset = ~&6502909715&~.~&197092973&~(600, ~&7082020628281&~.notebookHorizontalOffset + 10)
+                    }
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT
 
 AFFECT [[11806562588218124596]]
     TRAVERSE [[8397993708429497603]]#[[6504254477]] > [[254480451320573660]]#[[18007182163571081861]] > [[254502432014417618]]#[[6504391364]]
         LOCATE AFTER ALL
         INSERT {
-            /* Change the numerical value below to adjust horizontal offset. Negative = left, positive = right.*/
-            readonly property ~&197088788&~ horizontalOffset: -300
+            readonly property ~&197088788&~ horizontalOffset: ~&7082020628281&~.notebookHorizontalOffset
 
             /* Handles initial page load and non-preloaded page turns (fires when view becomes Active)*/
             ~&17742136325200165396&~: {
