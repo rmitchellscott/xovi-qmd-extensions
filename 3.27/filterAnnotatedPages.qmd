@@ -1,6 +1,29 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: GPL-3.0-only
-; Modified: 2026-05-06T23:17:34Z
+; Modified: 2026-06-21T00:00:00Z
+;
+; Empty-page fix (Alessio Faraci, 2026-06-21)
+; ------------------------------------------
+; ISSUE: the original detected annotations by .rm file existance. But deleting all strokes from a page does
+; not remove the .rm file.
+; FIX: read the .rm as an ArrayBuffer and walk its block list, marking a page annotated
+; only if it holds >=1 LIVE (value-carrying) line/glyph/text scene item, or typed text (RootText).
+; SAFE DEFAULT: on any uncertainty (null/short buffer, non-v6 header, truncated/odd block, unexpected
+; item layout) it returns annotated.
+;
+; Live current-page fix (Alessio Faraci, 2026-06-21)
+; -------------------------------------------------
+; ISSUE: The .rm disk scan reads a snapshot, but xochitl flushes a page's strokes to disk only when
+; navigating away from it (or after an on-canvas autosave debounce), not when the Overview opens.
+; When drawing on (or erase) the current page and open the Overview without first leaving the page,
+; that page's .rm is stale and the filter was wrong until you returned to the canvas and reopened.
+; FIX: the only page that can be stale is the current one, so the model .filter() resolves the current
+; page from the live scene via documentView.hasEmptyScene() and uses the disk-walk cache for every other page
+; The filter re-runs on Overview open and on each "Annotated" tap, so the current page is correct immediately
+; with no navigation.
+;
+; Verified against the entire on-device .rm corpus (xochitl 3.27.2.2, 51 files / 22 docs).
+
 
 AFFECT [[13984630014232179591]]
     TRAVERSE [[3819512207256720568]]#[[6504254477]]
@@ -19,12 +42,13 @@ AFFECT [[13984630014232179591]]
                 ~&197085552&~ (~&197091758&~ ~&180978&~ = 0; ~&180978&~ < ~&7712934851008712&~.~&254543134818768527&~; ~&180978&~++) {
                     (function(~&254543134825829310&~) {
                         ~&214622607920&~ ~&7083037950451&~ = ~&7712934851008712&~.~&254533375641282938&~(~&254543134825829310&~);
-                        ~&214622607920&~ req =  new  XMLHttpRequest();
+                        ~&214622607920&~ req =   new   XMLHttpRequest();
                         req.~&6504147419&~("GET", ~&6504254477&~._rmBasePath + ~&214623780460&~ + ~&"180920&~ + ~&7083037950451&~ + ".rm");
+                        req.responseType = "arraybuffer";
                         req.onreadystatechange = function() {
                             ~&5972376&~ (req.readyState === XMLHttpRequest.DONE) {
-                                ~&5972376&~ (req.~&7083177691309&~ === 200) {
-                                    ~&7083121414760&~[~&254543134825829310&~] = ~&6504329801&~;
+                                ~&5972376&~ (req.~&7083177691309&~ === 200 || (req.~&7713519214849208&~ && req.~&7713519214849208&~.byteLength > 0)) {
+                                    ~&7083121414760&~[~&254543134825829310&~] = ~&6504254477&~._rmHasContent(req.~&7713519214849208&~);
                                 }
                                 ~&233740417207246&~--;
                                 ~&5972376&~ (~&233740417207246&~ === 0) {
@@ -35,6 +59,66 @@ AFFECT [[13984630014232179591]]
                         req.~&6504279475&~();
                     })(~&180978&~);
                 }
+            }
+
+            function _rmVaruint(dv, ~&180985&~, end) {
+                ~&197102514&~ ~&7083121414760&~ = 0, ~&214641325223&~ = 0, ~&180971&~;
+                ~&5972220&~ {
+                    ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ ~&6504117156&~;
+                    ~&180971&~ = dv.getUint8(~&180985&~); ~&180985&~ += 1;
+                    ~&7083121414760&~ += (~&180971&~ & 0x7~&180943&~) * ~&6502909715&~.~&197096447&~(2, ~&214641325223&~);
+                    ~&214641325223&~ += 7;
+                } ~&214646069090&~ (~&180971&~ & 0x80);
+                ~&7083121450889&~ { ~&180991&~: ~&7083121414760&~, ~&180985&~: ~&180985&~ };
+            }
+
+            function _rmItemState(dv, ~&214641748151&~, end) {
+                ~&197102514&~ ~&180985&~ = ~&214641748151&~, ~&197088462&~, tt, ~&197100325&~, pv;
+                ~&197085552&~ (~&197102514&~ want = 1; want <= 4; want++) {
+                    ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ 2;
+                    ~&197100325&~ = _rmVaruint(dv, ~&180985&~, end); ~&5972376&~ (!~&197100325&~) ~&7083121450889&~ 2; ~&180985&~ = ~&197100325&~.~&180985&~;
+                    ~&197088462&~ = ~&197100325&~.~&180991&~ >>> 4; tt = ~&197100325&~.~&180991&~ & 0x~&180943&~;
+                    ~&5972376&~ (~&197088462&~ !== want || tt !== 0x~&180943&~) ~&7083121450889&~ 2;
+                    ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ 2;
+                    ~&180985&~ += 1;
+                    pv = _rmVaruint(dv, ~&180985&~, end); ~&5972376&~ (!pv) ~&7083121450889&~ 2; ~&180985&~ = pv.~&180985&~;
+                }
+                ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ 0;
+                ~&197100325&~ = _rmVaruint(dv, ~&180985&~, end); ~&5972376&~ (!~&197100325&~) ~&7083121450889&~ 2; ~&180985&~ = ~&197100325&~.~&180985&~;
+                ~&197088462&~ = ~&197100325&~.~&180991&~ >>> 4; tt = ~&197100325&~.~&180991&~ & 0x~&180943&~;
+                ~&5972376&~ (~&197088462&~ === 5 && tt === 0x4) {
+                    ~&180985&~ += 4;
+                    ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ 0;
+                    ~&197100325&~ = _rmVaruint(dv, ~&180985&~, end); ~&5972376&~ (!~&197100325&~) ~&7083121450889&~ 2; ~&180985&~ = ~&197100325&~.~&180985&~;
+                    ~&197088462&~ = ~&197100325&~.~&180991&~ >>> 4; tt = ~&197100325&~.~&180991&~ & 0x~&180943&~;
+                }
+                ~&5972376&~ (~&197088462&~ === 6 && tt === 0x~&180940&~) ~&7083121450889&~ 1;
+                ~&7083121450889&~ 0;
+            }
+
+            function _rmHasContent(buf) {
+                ~&5972376&~ (!buf || buf.byteLength < 43) ~&7083121450889&~ ~&6504329801&~;
+                ~&197102514&~ dv =  new  DataView(buf);
+                ~&197102514&~ n = buf.byteLength;
+                ~&197102514&~ HDR = "reMarkable .lines file, version=6";
+                ~&197085552&~ (~&197102514&~ ~&180977&~ = 0; ~&180977&~ < HDR.~&7082886407723&~; ~&180977&~++) {
+                    ~&5972376&~ (dv.getUint8(~&180977&~) !== HDR.charCodeAt(~&180977&~)) ~&7083121450889&~ ~&6504329801&~;
+                }
+                ~&197102514&~ ~&180985&~ = 43;
+                ~&214646069090&~ (~&180985&~ + 8 <= n) {
+                    ~&197102514&~ len = dv.getUint32(~&180985&~, ~&6504329801&~);
+                    ~&197102514&~ btype = dv.getUint8(~&180985&~ + 7);
+                    ~&197102514&~ payloadStart = ~&180985&~ + 8;
+                    ~&197102514&~ payloadEnd = payloadStart + len;
+                    ~&5972376&~ (payloadEnd > n) ~&7083121450889&~ ~&6504329801&~;
+                    ~&5972376&~ (btype === 0x03 || btype === 0x05 || btype === 0x06) {
+                        ~&5972376&~ (_rmItemState(dv, payloadStart, payloadEnd) !== 0) ~&7083121450889&~ ~&6504329801&~;
+                    } ~&6503784146&~ ~&5972376&~ (btype === 0x07) {
+                        ~&7083121450889&~ ~&6504329801&~;
+                    }
+                    ~&180985&~ = payloadEnd;
+                }
+                ~&7083121450889&~ ~&214625660372&~;
             }
 
             ~&13184053911240945935&~: {
@@ -55,7 +139,14 @@ AFFECT [[13984630014232179591]]
         REBUILD [[214634455770]]
             LOCATE AFTER ALL
             INSERT {
-                .~&7082656280847&~(function(~&180978&~) { ~&7083121450889&~ !~&6504254477&~.filterAnnotated || !!~&6504254477&~.annotatedPages[~&180978&~]; })
+                .~&7082656280847&~(function(~&180978&~) {
+                    ~&7083121450889&~ !~&6504254477&~.filterAnnotated
+                        || ((~&180978&~ === ~&6504254477&~.~&477346483278306569&~
+                                && ~&6504254477&~.~&15793094956877902211&~
+                                && ~&7083223278816&~ ~&6504254477&~.~&15793094956877902211&~.~&10649546070979613506&~ === ~&"7713028246101167&~)
+                            ? !~&6504254477&~.~&15793094956877902211&~.~&10649546070979613506&~()
+                            : !!~&6504254477&~.annotatedPages[~&180978&~]);
+                })
             }
         END REBUILD
 
