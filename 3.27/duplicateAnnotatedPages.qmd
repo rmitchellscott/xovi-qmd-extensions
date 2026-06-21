@@ -1,11 +1,22 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: GPL-3.0-only
-; Modified: 2026-05-06T23:17:34Z
+; Modified: 2026-06-21T00:00:00Z
 ;
 ; Requires: https://github.com/rmitchellscott/rm-librarian
 ;           https://github.com/rmitchellscott/rm-pdfium
 ;           https://github.com/asivery/rm-xovi-extensions/xovi-message-broker
 ;           https://github.com/asivery/rm-xovi-extensions/qt-command-executor
+;
+; Empty-page fix (Alessio Faraci, 2026-06-21) — same bug fixed in filterAnnotatedPages.qmd
+; ---------------------------------------------------------------------------------------
+; ISSUE: "Annotated only" duplicated every page that merely had a .rm file. Erasing all strokes from a
+; page does not delete its .rm, so the file persists and the page was wrongly duplicated.
+; FIX: _duplicateAnnotatedEntry now gates rmSet on actual content: _rmFileHasContent() reads the .rm
+; bytes (dd | xxd, or od fallback, via the command executor) and walks the v6 block list, counting the
+; page only if it holds >=1 LIVE line/glyph/text item or typed text (RootText).
+; Read is bounded to 256 KB; any unreadable/odd/truncated case is treated as annotated.
+;
+; Verified on the full on-device .rm corpus (xochitl 3.27.2.2, 51 files).
 
 AFFECT [[14191585701734006116]]
     TRAVERSE [[15740235823693067624]]#[[6504254477]]
@@ -65,6 +76,86 @@ AFFECT [[5376273845699449139]]
                 ~&7083121450889&~ ~&6502785411&~.parse(_annotatedCmdExecutor.executeCommand(cmd, ~&6503646550&~));
             }
 
+            function _hexToBytes(hex) {
+                ~&197102514&~ ~&214622489708&~ = hex.replace(/[^0-9~&180970&~-fA-~&180943&~]/g, "");
+                ~&197102514&~ len = ~&214622489708&~.~&7082886407723&~ >> 1;
+                ~&197102514&~ u8 =  new  Uint8Array(len);
+                ~&197085552&~ (~&197102514&~ ~&180978&~ = 0; ~&180978&~ < len; ~&180978&~++)
+                    u8[~&180978&~] = ~&7713428776113935&~(~&214622489708&~.substr(~&180978&~ * 2, 2), 16);
+                ~&7083121450889&~ u8;
+            }
+
+            function _rmVaruint(dv, ~&180985&~, end) {
+                ~&197102514&~ ~&7083121414760&~ = 0, ~&214641325223&~ = 0, ~&180971&~;
+                ~&5972220&~ {
+                    ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ ~&6504117156&~;
+                    ~&180971&~ = dv.getUint8(~&180985&~); ~&180985&~ += 1;
+                    ~&7083121414760&~ += (~&180971&~ & 0x7~&180943&~) * ~&6502909715&~.~&197096447&~(2, ~&214641325223&~);
+                    ~&214641325223&~ += 7;
+                } ~&214646069090&~ (~&180971&~ & 0x80);
+                ~&7083121450889&~ { ~&180991&~: ~&7083121414760&~, ~&180985&~: ~&180985&~ };
+            }
+
+            function _rmItemState(dv, ~&214641748151&~, end) {
+                ~&197102514&~ ~&180985&~ = ~&214641748151&~, ~&197088462&~, tt, ~&197100325&~, pv;
+                ~&197085552&~ (~&197102514&~ want = 1; want <= 4; want++) {
+                    ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ 2;
+                    ~&197100325&~ = _rmVaruint(dv, ~&180985&~, end); ~&5972376&~ (!~&197100325&~) ~&7083121450889&~ 2; ~&180985&~ = ~&197100325&~.~&180985&~;
+                    ~&197088462&~ = ~&197100325&~.~&180991&~ >>> 4; tt = ~&197100325&~.~&180991&~ & 0x~&180943&~;
+                    ~&5972376&~ (~&197088462&~ !== want || tt !== 0x~&180943&~) ~&7083121450889&~ 2;
+                    ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ 2;
+                    ~&180985&~ += 1;
+                    pv = _rmVaruint(dv, ~&180985&~, end); ~&5972376&~ (!pv) ~&7083121450889&~ 2; ~&180985&~ = pv.~&180985&~;
+                }
+                ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ 0;
+                ~&197100325&~ = _rmVaruint(dv, ~&180985&~, end); ~&5972376&~ (!~&197100325&~) ~&7083121450889&~ 2; ~&180985&~ = ~&197100325&~.~&180985&~;
+                ~&197088462&~ = ~&197100325&~.~&180991&~ >>> 4; tt = ~&197100325&~.~&180991&~ & 0x~&180943&~;
+                ~&5972376&~ (~&197088462&~ === 5 && tt === 0x4) {
+                    ~&180985&~ += 4;
+                    ~&5972376&~ (~&180985&~ >= end) ~&7083121450889&~ 0;
+                    ~&197100325&~ = _rmVaruint(dv, ~&180985&~, end); ~&5972376&~ (!~&197100325&~) ~&7083121450889&~ 2; ~&180985&~ = ~&197100325&~.~&180985&~;
+                    ~&197088462&~ = ~&197100325&~.~&180991&~ >>> 4; tt = ~&197100325&~.~&180991&~ & 0x~&180943&~;
+                }
+                ~&5972376&~ (~&197088462&~ === 6 && tt === 0x~&180940&~) ~&7083121450889&~ 1;
+                ~&7083121450889&~ 0;
+            }
+
+            function _rmHasContent(buf) {
+                ~&5972376&~ (!buf || buf.byteLength < 43) ~&7083121450889&~ ~&6504329801&~;
+                ~&197102514&~ dv =  new  DataView(buf);
+                ~&197102514&~ n = buf.byteLength;
+                ~&197102514&~ HDR = "reMarkable .lines file, version=6";
+                ~&197085552&~ (~&197102514&~ ~&180977&~ = 0; ~&180977&~ < HDR.~&7082886407723&~; ~&180977&~++) {
+                    ~&5972376&~ (dv.getUint8(~&180977&~) !== HDR.charCodeAt(~&180977&~)) ~&7083121450889&~ ~&6504329801&~;
+                }
+                ~&197102514&~ ~&180985&~ = 43;
+                ~&214646069090&~ (~&180985&~ + 8 <= n) {
+                    ~&197102514&~ len = dv.getUint32(~&180985&~, ~&6504329801&~);
+                    ~&197102514&~ btype = dv.getUint8(~&180985&~ + 7);
+                    ~&197102514&~ payloadStart = ~&180985&~ + 8;
+                    ~&197102514&~ payloadEnd = payloadStart + len;
+                    ~&5972376&~ (payloadEnd > n) ~&7083121450889&~ ~&6504329801&~;
+                    ~&5972376&~ (btype === 0x03 || btype === 0x05 || btype === 0x06) {
+                        ~&5972376&~ (_rmItemState(dv, payloadStart, payloadEnd) !== 0) ~&7083121450889&~ ~&6504329801&~;
+                    } ~&6503784146&~ ~&5972376&~ (btype === 0x07) {
+                        ~&7083121450889&~ ~&6504329801&~;
+                    }
+                    ~&180985&~ = payloadEnd;
+                }
+                ~&7083121450889&~ ~&214625660372&~;
+            }
+
+            function _rmFileHasContent(~&6504167510&~) {
+                try {
+                    ~&197102514&~ dump = "dd if='" + ~&6504167510&~ + "' bs=4096 count=64 2>/dev/null | ";
+                    ~&197102514&~ hex = _runCmd("sh", ["-c", "if command -v xxd >/dev/null 2>&1; then " + dump + "xxd -p; else " + dump + "od -An -v -tx1; fi"]).stdout;
+                    ~&5972376&~ (!hex) ~&7083121450889&~ ~&6504329801&~;
+                    ~&7083121450889&~ _rmHasContent(_hexToBytes(hex).buffer);
+                } catch (~&180974&~) {
+                    ~&7083121450889&~ ~&6504329801&~;
+                }
+            }
+
             function _getSelectedIds() {
                 ~&197102514&~ sel = ~&15623861903200516464&~.~&254547531013851119&~;
                 ~&197102514&~ ~&6504284228&~ = sel.~&6504284228&~;
@@ -121,7 +212,8 @@ AFFECT [[5376273845699449139]]
                 ~&5972376&~ (rmList) {
                     ~&197102514&~ rmFiles = rmList.~&214641616085&~("\n");
                     ~&197085552&~ (~&197102514&~ ~&180987&~ = 0; ~&180987&~ < rmFiles.~&7082886407723&~; ~&180987&~++) {
-                        rmSet[rmFiles[~&180987&~]] = ~&6504329801&~;
+                        ~&5972376&~ (rmFiles[~&180987&~] && _rmFileHasContent(docDir + rmFiles[~&180987&~] + ".rm"))
+                            rmSet[rmFiles[~&180987&~]] = ~&6504329801&~;
                     }
                 }
 
