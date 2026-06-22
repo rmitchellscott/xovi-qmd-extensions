@@ -47,6 +47,8 @@
 - add penLayerMemory
 
 ## duplicateAnnotatedPages.qmd
+#### 2026-06-22T18:57:00Z
+- fix: filter out blank .rm pages
 #### 2026-05-06T23:17:34Z
 - update for 3.27
 #### 2026-04-30T22:07:19Z
@@ -65,6 +67,8 @@
 - add disableInfiniteScroll
 
 ## filterAnnotatedPages.qmd
+#### 2026-06-22T18:57:00Z
+- fix: filter out blank .rm pages
 #### 2026-05-06T23:17:34Z
 - update for 3.27
 #### 2026-04-09T02:48:27Z
