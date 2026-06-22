@@ -153,8 +153,8 @@ jobs:
           print('Rendering the table...')
 
           table = '''
-          | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move |
-          | ---- | :----------: | :----------: | :-------: | :------------: |
+          | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move | Paper Pure |
+          | ---- | :----------: | :----------: | :-------: | :------------: | :--------: |
           '''
 
           for file, result in results.items():
@@ -162,7 +162,8 @@ jobs:
                   'rm1': Status.NONE,
                   'rm2': Status.NONE,
                   'rmpp': Status.NONE,
-                  'rmppm': Status.NONE
+                  'rmppm': Status.NONE,
+                  'rmppure': Status.NONE
               }
 
               for hashtable in result['compatible']:
