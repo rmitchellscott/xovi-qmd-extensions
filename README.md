@@ -191,7 +191,7 @@ Forces all notebook pages to start at 1x zoom with optional horizontal offset in
 ### quickSettingsClockSerif
 [![vellum](https://img.shields.io/badge/vellum-quicksettings--clock--serif-purple)](https://vellum.delivery/#/package/quicksettings-clock-serif/)
 
-Adds a clock to the quick settings menu in serif font.
+Adds a clock to the quick settings menu. 24h/12h format and font style can be adjusted via `Settings > Help > System time`
 
 <img src="assets/quicksettingsClockSerif.png" height="150"/>
 
