@@ -47,6 +47,8 @@
 - add penLayerMemory
 
 ## duplicateAnnotatedPages.qmd
+#### 2026-06-22T19:46:27Z
+- fix: handle images
 #### 2026-06-22T18:57:00Z
 - fix: filter out blank .rm pages
 #### 2026-05-06T23:17:34Z
