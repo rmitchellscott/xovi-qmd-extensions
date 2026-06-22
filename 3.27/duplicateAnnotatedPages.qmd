@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: GPL-3.0-only
-; Modified: 2026-06-22T18:57:00Z
+; Modified: 2026-06-22T19:46:27Z
 ;
 ; Requires: https://github.com/rmitchellscott/rm-librarian
 ;           https://github.com/rmitchellscott/rm-pdfium
@@ -194,6 +194,7 @@ AFFECT [[5376273845699449139]]
                     ~&197102514&~ apId = _pageId(annotatedPages[~&180970&~]);
                     cpCmd += "; cp '" + docDir + apId + ".rm' '" + newBase + ~&"180920&~ + apId + ".rm' 2>/dev/null";
                     cpCmd += "; cp '" + docDir + apId + "-metadata.json' '" + newBase + ~&"180920&~ + apId + "-metadata.json' 2>/dev/null";
+                    cpCmd += "; cp -r '" + docDir + apId + "' '" + newBase + ~&"180920&~ + apId + "' 2>/dev/null";
                 }
                 _runCmd("sh", ["-c", cpCmd + "; true"]);
 
