@@ -1,6 +1,6 @@
 ; Mitchell Scott (https://github.com/rmitchellscott)
 ; SPDX-License-Identifier: GPL-3.0-only
-; Modified: 2026-05-06T23:17:34Z
+; Modified: 2026-06-22T18:57:00Z
 ;
 ; Requires: https://github.com/rmitchellscott/rm-librarian
 ;           https://github.com/rmitchellscott/rm-pdfium
@@ -116,12 +116,13 @@ AFFECT [[5376273845699449139]]
                 ~&5972376&~ (!useCPages && !useFlat) ~&7083121450889&~ ~&214625660372&~;
 
                 ~&197102514&~ docDir = ~&6503664356&~ + ~&214623780460&~ + ~&"180920&~;
-                ~&197102514&~ rmList = _runCmd("sh", ["-c", "ls '" + docDir + "'*.rm 2>/dev/null | sed 's|.*/||;s|\\.rm$||'"]).stdout.~&6504329413&~();
+                ~&197102514&~ contentOut = _runCmd("sh", ["-c", "echo '>egetContentPages:" + ~&214623780460&~ + "' > /run/xovi-mb; cat /run/xovi-mb-out"]).stdout;
                 ~&197102514&~ rmSet = {};
-                ~&5972376&~ (rmList) {
-                    ~&197102514&~ rmFiles = rmList.~&214641616085&~("\n");
-                    ~&197085552&~ (~&197102514&~ ~&180987&~ = 0; ~&180987&~ < rmFiles.~&7082886407723&~; ~&180987&~++) {
-                        rmSet[rmFiles[~&180987&~]] = ~&6504329801&~;
+                ~&5972376&~ (contentOut) {
+                    ~&197102514&~ contentIds = contentOut.~&214641616085&~("\n");
+                    ~&197085552&~ (~&197102514&~ ~&180987&~ = 0; ~&180987&~ < contentIds.~&7082886407723&~; ~&180987&~++) {
+                        ~&197102514&~ pid = contentIds[~&180987&~].~&6504329413&~();
+                        ~&5972376&~ (pid && pid.~&233731717342038&~("ERROR:") !== 0) rmSet[pid] = ~&6504329801&~;
                     }
                 }
 
