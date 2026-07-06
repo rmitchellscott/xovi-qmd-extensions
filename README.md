@@ -189,6 +189,14 @@ Remembers which layer each pen tool was last used on, and switches to that layer
 
 Forces all notebook pages to start at 1x zoom with optional horizontal offset in Settings > Display. Only affects notebooks, only affects portrait orientation.
 
+### quickSettingsBluetooth
+[![vellum](https://img.shields.io/badge/vellum-quicksettings--bluetooth-purple)](https://vellum.delivery/#/package/quicksettings-bluetooth/)
+
+Adds a toggle to enable/disable Bluetooth to the quick settings menu.
+
+- [xovi-bluetoothsettings](https://github.com/rmitchellscott/xovi-bluetoothsettings) 0.2.0 or higher
+- [qt-command-executor](https://github.com/asivery/rm-xovi-extensions)
+
 ### quickSettingsClockSerif
 [![vellum](https://img.shields.io/badge/vellum-quicksettings--clock--serif-purple)](https://vellum.delivery/#/package/quicksettings-clock-serif/)
 
