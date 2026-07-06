@@ -43,6 +43,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **penLayerMemory.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **quickSettingsBluetooth.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsClockSerif.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **quicksheetUseTemplate.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |

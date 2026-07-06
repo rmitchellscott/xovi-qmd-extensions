@@ -1,5 +1,9 @@
 # Changelog
 
+## quickSettingsBluetooth.qmd
+#### 2026-07-06T20:09:58Z
+- add quicksettingsbluetooth
+
 ## bluetoothSettings.qmd
 #### 2026-05-19T01:08:04Z
 - bluetoothsettings: retain udev rules
