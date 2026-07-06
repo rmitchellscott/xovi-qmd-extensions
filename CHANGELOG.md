@@ -11,6 +11,8 @@
 - add bluetoothSettings
 
 ## betterTocCollapse.qmd
+#### 2026-07-06T18:58:23Z
+- bettertoccollapse: add collapse all button
 #### 2026-05-06T23:17:34Z
 - update for 3.27
 #### 2026-05-01T15:48:43Z
