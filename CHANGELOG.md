@@ -1,5 +1,13 @@
 # Changelog
 
+## sortTemplatesRecent.qmd
+#### 2026-07-07T19:44:00Z
+- add defaultTemplate, sortTemplatesRecent
+
+## defaultTemplate.qmd
+#### 2026-07-07T19:44:00Z
+- add defaultTemplate, sortTemplatesRecent
+
 ## quickSettingsBluetooth.qmd
 #### 2026-07-06T20:09:58Z
 - add quicksettingsbluetooth

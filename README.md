@@ -28,6 +28,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **createDocumentFromPages.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **defaultTemplate.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **disableInfiniteScroll.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **duplicateAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -48,6 +49,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **quicksheetUseTemplate.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **settingsRmSyncRestart.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **sortTemplatesRecent.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **stylusButtonEraser.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **stylusButtonUndoRedo.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **tocFromSelection.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
