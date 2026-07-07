@@ -93,6 +93,15 @@ Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 Overrides new page creation to use reMarkable 2 dimensions. Designed to allow better interoperability between Move and reMarkable 2.  
 Designed for use alongside preventNotebookZoomOut.qmd on the Move.
 
+### defaultTemplate
+[![vellum](https://img.shields.io/badge/vellum-default--template-purple)](https://vellum.delivery/#/package/default-template/)
+
+Long-press a template to set it as the default, used when creating new notebooks, adding pages to notebooks/PDFs/ePUBs, and creating quicksheets.
+Does not work with Meeting Notes.    
+Conflicts with quicksheetUseTemplate.
+
+<img src="assets/defaultTemplate.png" height="400"/>
+
 ### disableInfiniteScroll
 [![vellum](https://img.shields.io/badge/vellum-disable--infinite--scroll-purple)](https://vellum.delivery/#/package/disable-infinite-scroll/)
 
@@ -235,6 +244,13 @@ Adds a button to the Settings > Cloud page to restart the sync service.
 Requires qt-command-executor.
 
 <img src="assets/settingsRmsyncRestart.png" height="200"/>
+
+### sortTemplatesRecent
+[![vellum](https://img.shields.io/badge/vellum-sort--templates--recent-purple)](https://vellum.delivery/#/package/sort-templates-recent/)
+
+Sorts the template selector by most recently used.
+
+<img src="assets/sortTemplatesRecent.png" height="400"/>
 
 ### stylusButtonEraser
 [![vellum](https://img.shields.io/badge/vellum-stylus--button--eraser-purple)](https://vellum.delivery/#/package/stylus-button-eraser/)
