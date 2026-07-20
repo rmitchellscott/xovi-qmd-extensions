@@ -486,6 +486,8 @@
 
 
 ## preventNotebookZoomOut.qmd
+#### 2026-07-20T03:01:10Z
+- fix: off-by-one on viewIsNotePage
 #### 2026-05-06T23:17:34Z
 - update for 3.27
 #### 2026-04-09T02:48:27Z
