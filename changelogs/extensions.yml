@@ -1,0 +1,93 @@
+bettertoc-collapse:
+  file: betterTocCollapse
+  version: 1.1.0
+create-document-from-pages:
+  file: createDocumentFromPages
+  version: 2.0.1
+createpages-paperpro:
+  file: createPagesPaperProSize
+  version: 1.0.4
+createpages-rm2:
+  file: createPagesRM2Size
+  version: 1.0.4
+default-template:
+  file: defaultTemplate
+  version: 1.0.0
+disable-infinite-scroll:
+  file: disableInfiniteScroll
+  version: 1.1.0
+disable-selection-autoscroll:
+  file: disableSelectionAutoScroll
+  version: 1.0.0
+duplicate-annotated-pages:
+  file: duplicateAnnotatedPages
+  version: 2.1.0
+extend-list-title-width:
+  file: extendListTitleWidth
+  version: 1.0.0
+filter-annotated-pages:
+  file: filterAnnotatedPages
+  version: 1.1.0
+fix-battery-indicator:
+  file: fixBatteryIndicator
+  version: 1.0.1
+fix-light-indicator-gap:
+  file: fixLightIndicatorGap
+  version: 1.0.0
+fix-page-number-on-slider:
+  file: fixPageNumberOnSlider
+  version: 1.0.1
+ghostbuster:
+  file: ghostbuster
+  version: 1.0.0
+hide-dev-mode-icon:
+  file: hideDevModeIcon
+  version: 1.0.2
+hide-hyperlink-back-button:
+  file: hideHyperlinkBackButton
+  version: 1.0.0
+hide-zoom-indicator:
+  file: hideZoomIndicator
+  version: 1.0.3
+mini-light-sleep:
+  file: miniLightSleep
+  version: 1.0.5
+pen-layer-memory:
+  file: penLayerMemory
+  version: 1.0.2
+prevent-notebook-zoomout:
+  file: preventNotebookZoomOut
+  version: 1.1.1
+quicksettings-bluetooth:
+  file: quickSettingsBluetooth
+  version: 1.0.0
+quicksettings-clock-serif:
+  file: quickSettingsClockSerif
+  version: 1.1.0
+quicksettings-screenshot:
+  file: quickSettingsScreenshot
+  version: 2.0.0
+quicksheet-use-template:
+  file: quicksheetUseTemplate
+  version: 1.0.1
+settings-rmsync-restart:
+  file: settingsRmSyncRestart
+  version: 1.0.0
+sort-templates-recent:
+  file: sortTemplatesRecent
+  version: 1.0.0
+stylus-button-eraser:
+  file: stylusButtonEraser
+  version: 2.0.0
+stylus-button-undo-redo:
+  file: stylusButtonUndoRedo
+  version: 1.0.0
+toc-from-selection:
+  file: tocFromSelection
+  version: 1.0.0
+touch-lock:
+  file: touchLock
+  version: 1.0.2
+unlock-methods-content:
+  file: unlockMethodsContent
+  version: 1.0.2
