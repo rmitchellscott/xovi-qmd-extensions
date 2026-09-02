@@ -130,11 +130,6 @@ Requires:
 
 Enables the text typing feature on PDF and ePUB pages.
 
-### extendListTitleWidth
-[![vellum](https://img.shields.io/badge/vellum-extend--list--title--width-purple)](https://vellum.delivery/#/package/extend-list-title-width/)
-
-Removes extra right margin for titles in list view to fill more of the available space.
-
 ### filterAnnotatedPages
 [![vellum](https://img.shields.io/badge/vellum-filter--annotated--pages-purple)](https://vellum.delivery/#/package/filter-annotated-pages/)
 
@@ -156,12 +151,6 @@ Fixes a bug in 3.24+ with the main navigator battery icon not updating in certai
 [![vellum](https://img.shields.io/badge/vellum-fix--light--indicator--gap-purple)](https://vellum.delivery/#/package/fix-light-indicator-gap/)
 
 Removes the gap reserved for the frontlight icon when the light is off on Paper Pro and Paper Pro Move.
-
-### fixPageNumberOnSlider
-[![vellum](https://img.shields.io/badge/vellum-fix--page--number--on--slider-purple)](https://vellum.delivery/#/package/fix-page-number-on-slider/)
-
-3.23+  
-Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.
 
 ### ghostbuster
 [![vellum](https://img.shields.io/badge/vellum-ghostbuster-purple)](https://vellum.delivery/#/package/ghostbuster/)
@@ -277,6 +266,14 @@ Adds a button to the toolbar to lock out touch input in documents. Toolbar remai
 Bypasses subscription check for using on-device Methods templates and documents.
 
 ## Deprecated Extensions
+
+### extendListTitleWidth
+Removes extra right margin for titles in list view to fill more of the available space.  
+Fixed in 3.28.
+
+### fixPageNumberOnSlider
+Restores the z-index for the pageLabel element so it appears on top of the page slider like in previous versions.  
+Fixed in 3.28.
 
 ### fixQuickSettingsTempSeparator
 Removes the duplicate horizontal separator in quick settings when high temp warnings are present on Paper Pro family devices.  

@@ -1,0 +1,139 @@
+name: Update Package Changelogs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'changelogs/extensions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Prepend sections for bumped versions
+        run: |
+          cat > changelog.py << 'SCRIPT'
+          import re
+          import subprocess
+
+          MAPPING = 'changelogs/extensions.yml'
+
+
+          def git(*args):
+              return subprocess.run(['git'] + list(args), capture_output=True, text=True).stdout
+
+
+          def parse_mapping(text):
+              packages = {}
+              package = None
+              for line in text.splitlines():
+                  if re.match(r'^\S.*:$', line):
+                      package = line[:-1]
+                      packages[package] = {}
+                  elif package and ':' in line:
+                      key, value = line.strip().split(':', 1)
+                      packages[package][key] = value.strip()
+              return packages
+
+
+          def mapping_at(commit):
+              return parse_mapping(git('show', f'{commit}:{MAPPING}'))
+
+
+          def previous_release(package, version):
+              for commit in git('log', '--format=%H', 'HEAD~1', '--', MAPPING).split():
+                  entry = mapping_at(commit).get(package)
+                  if entry and entry.get('version') != version:
+                      return commit
+              return None
+
+
+          def entry_text(subject, filename):
+              subject = re.sub(r' \[[^\]]*\]$', '', subject)
+              subject = re.sub(r' \(#[0-9]+\)$', '', subject).strip()
+              match = re.match(r'^([a-z]+)(?:\(([^)]*)\))?!?: *(.+)$', subject)
+              if not match:
+                  return subject
+              kind, scope, text = match.groups()
+              if kind == 'docs':
+                  return None
+              if scope:
+                  names = [name.strip().lower() for name in scope.split(',')]
+                  if filename.lower() not in names:
+                      return None
+              text = text[0].upper() + text[1:]
+              return text if text.endswith('.') else text + '.'
+
+
+          def section(package, filename, version, since):
+              revisions = f'{since}..HEAD' if since else 'HEAD'
+              log = git('log', '--format=%s', revisions, '--', f'*/{filename}.qmd')
+              entries = []
+              for subject in log.splitlines():
+                  text = entry_text(subject, filename)
+                  if text and text not in entries:
+                      entries.append(text)
+              if not entries:
+                  return None
+              return f'## {version}\n' + ''.join(f'- {entry}\n' for entry in entries) + '\n'
+
+
+          current = parse_mapping(open(MAPPING).read())
+          previous = mapping_at('HEAD~1')
+
+          for package, entry in current.items():
+              version = entry['version']
+              was = previous.get(package, {}).get('version')
+              if was == version:
+                  continue
+
+              filename = entry['file']
+              since = previous_release(package, version)
+              new_section = section(package, filename, version, since)
+              if not new_section:
+                  print(f'{package}: no source changes since {was}, nothing to add')
+                  continue
+
+              path = f'changelogs/{package}.md'
+              try:
+                  existing = open(path).read()
+              except FileNotFoundError:
+                  existing = f'# {package}\n'
+
+              head, _, tail = existing.partition('\n')
+              open(path, 'w').write(f'{head}\n\n{new_section}{tail.lstrip()}')
+              print(f'{package}: added {version}')
+          SCRIPT
+
+          python changelog.py
+          rm changelog.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add changelogs
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update package changelogs"
+            git push
+          fi
