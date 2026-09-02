@@ -1,6 +1,6 @@
 bettertoc-collapse:
   file: betterTocCollapse
-  version: 1.1.0
+  version: 1.1.1
 create-document-from-pages:
   file: createDocumentFromPages
   version: 2.0.1
@@ -15,28 +15,22 @@ default-template:
   version: 1.0.0
 disable-infinite-scroll:
   file: disableInfiniteScroll
-  version: 1.1.0
+  version: 1.1.1
 disable-selection-autoscroll:
   file: disableSelectionAutoScroll
   version: 1.0.0
 duplicate-annotated-pages:
   file: duplicateAnnotatedPages
-  version: 2.1.0
-extend-list-title-width:
-  file: extendListTitleWidth
-  version: 1.0.0
+  version: 2.1.1
 filter-annotated-pages:
   file: filterAnnotatedPages
   version: 1.1.0
 fix-battery-indicator:
   file: fixBatteryIndicator
-  version: 1.0.1
+  version: 1.0.2
 fix-light-indicator-gap:
   file: fixLightIndicatorGap
   version: 1.0.0
-fix-page-number-on-slider:
-  file: fixPageNumberOnSlider
-  version: 1.0.1
 ghostbuster:
   file: ghostbuster
   version: 1.0.0
@@ -54,13 +48,13 @@ mini-light-sleep:
   version: 1.0.5
 pen-layer-memory:
   file: penLayerMemory
-  version: 1.0.2
+  version: 1.0.3
 prevent-notebook-zoomout:
   file: preventNotebookZoomOut
-  version: 1.1.1
+  version: 1.1.2
 quicksettings-bluetooth:
   file: quickSettingsBluetooth
-  version: 1.0.0
+  version: 1.0.1
 quicksettings-clock-serif:
   file: quickSettingsClockSerif
   version: 1.1.0
@@ -87,7 +81,7 @@ toc-from-selection:
   version: 1.0.0
 touch-lock:
   file: touchLock
-  version: 1.0.2
+  version: 1.0.3
 unlock-methods-content:
   file: unlockMethodsContent
   version: 1.0.2
