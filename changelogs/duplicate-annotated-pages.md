@@ -1,5 +1,8 @@
 # duplicate-annotated-pages
 
+## 2.1.1
+- Support for reMarkable OS 3.28.
+
 ## 2.1.0
 - Fixed handling of images when duplicating pages.
 - Fixed blank .rm pages being included.

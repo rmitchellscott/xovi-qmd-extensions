@@ -1,5 +1,8 @@
 # touch-lock
 
+## 1.0.3
+- Support for reMarkable OS 3.28.
+
 ## 1.0.2
 - Cleaned up the menu.
 - Support for reMarkable OS 3.26.

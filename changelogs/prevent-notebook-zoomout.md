@@ -1,5 +1,8 @@
 # prevent-notebook-zoomout
 
+## 1.1.2
+- Support for reMarkable OS 3.28.
+
 ## 1.1.1
 - Fixed an off-by-one error detecting the note page view.
 

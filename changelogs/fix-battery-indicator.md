@@ -1,5 +1,8 @@
 # fix-battery-indicator
 
+## 1.0.2
+- Support for reMarkable OS 3.28.
+
 ## 1.0.1
 - Support for reMarkable OS 3.27.
 - Relicensed from MIT to GPL-3.0-only.
