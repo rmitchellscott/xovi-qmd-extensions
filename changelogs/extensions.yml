@@ -85,3 +85,6 @@ touch-lock:
 unlock-methods-content:
   file: unlockMethodsContent
   version: 1.0.2
+white-ebook-margins:
+  file: white-ebook-margins
+  version: 1.0.0

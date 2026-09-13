@@ -1,5 +1,9 @@
 # Changelog
 
+## white-ebook-margins.qmd
+#### 2026-09-13T23:39:51Z
+- white-ebook-margins: initial release
+
 ## sortTemplatesRecent.qmd
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support

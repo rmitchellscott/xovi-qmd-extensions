@@ -25,34 +25,35 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 <!-- compat:begin -->
 | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move | Paper Pure |
 | ---- | :----------: | :----------: | :-------: | :------------: | :--------: |
-| **createDocumentFromPages.qmd** | - | - | - | - | - |
-| **createPagesPaperProSize.qmd** | - | - | - | - | - |
-| **createPagesRM2Size.qmd** | - | - | - | - | - |
-| **defaultTemplate.qmd** | - | - | - | - | - |
-| **disableInfiniteScroll.qmd** | - | - | - | - | - |
-| **disableSelectionAutoScroll.qmd** | - | - | - | - | - |
-| **duplicateAnnotatedPages.qmd** | - | - | - | - | - |
-| **filterAnnotatedPages.qmd** | - | - | - | - | - |
-| **fixBatteryIndicator.qmd** | - | - | - | - | - |
-| **fixLightIndicatorGap.qmd** | - | - | - | - | - |
-| **ghostbuster.qmd** | - | - | - | - | - |
-| **hideDevModeIcon.qmd** | - | - | - | - | - |
-| **hideHyperlinkBackButton.qmd** | - | - | - | - | - |
-| **hideZoomIndicator.qmd** | - | - | - | - | - |
-| **miniLightSleep.qmd** | - | - | - | - | - |
-| **penLayerMemory.qmd** | - | - | - | - | - |
-| **preventNotebookZoomOut.qmd** | - | - | - | - | - |
-| **quickSettingsBluetooth.qmd** | - | - | - | - | - |
-| **quickSettingsClockSerif.qmd** | - | - | - | - | - |
-| **quickSettingsScreenshot.qmd** | - | - | - | - | - |
-| **quicksheetUseTemplate.qmd** | - | - | - | - | - |
-| **settingsRmSyncRestart.qmd** | - | - | - | - | - |
-| **sortTemplatesRecent.qmd** | - | - | - | - | - |
-| **stylusButtonEraser.qmd** | - | - | - | - | - |
-| **stylusButtonUndoRedo.qmd** | - | - | - | - | - |
-| **tocFromSelection.qmd** | - | - | - | - | - |
-| **touchLock.qmd** | - | - | - | - | - |
-| **unlockMethodsContent.qmd** | - | - | - | - | - |
+| **createDocumentFromPages.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **createPagesPaperProSize.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **createPagesRM2Size.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **defaultTemplate.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **disableInfiniteScroll.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **duplicateAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **filterAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **fixLightIndicatorGap.qmd** | ❌ | ❌ | ✅ | ✅ | ❌ |
+| **ghostbuster.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **hideDevModeIcon.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **hideHyperlinkBackButton.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **penLayerMemory.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **quickSettingsBluetooth.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **quickSettingsClockSerif.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **quicksheetUseTemplate.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **settingsRmSyncRestart.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **sortTemplatesRecent.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **stylusButtonEraser.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **stylusButtonUndoRedo.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **tocFromSelection.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **touchLock.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **unlockMethodsContent.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **white-ebook-margins.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 <!-- compat:end -->
 
 ## Extensions
@@ -264,6 +265,11 @@ Adds a button to the toolbar to lock out touch input in documents. Toolbar remai
 [![vellum](https://img.shields.io/badge/vellum-unlock--methods--content-purple)](https://vellum.delivery/#/package/unlock-methods-content/)
 
 Bypasses subscription check for using on-device Methods templates and documents.
+
+### white-ebook-margins
+[![vellum](https://img.shields.io/badge/vellum-white--ebook--margins-purple)](https://vellum.delivery/#/package/white-ebook-margins/)
+
+Removes the dithered margin overlays when reading ebooks, leaving plain white margins.
 
 ## Deprecated Extensions
 
