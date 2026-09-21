@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -19,7 +23,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          ref: main
+          fetch-depth: 0
 
       - name: Find highest version
         id: find-version
@@ -35,20 +40,21 @@ jobs:
       - name: Update changelog
         env:
           VERSION: ${{ steps.find-version.outputs.version }}
+          COMMIT: ${{ github.sha }}
         run: |
           CHANGELOG="CHANGELOG.md"
           if [ ! -f "$CHANGELOG" ]; then
             printf "# Changelog\n\n" > "$CHANGELOG"
           fi
 
-          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep "^$VERSION/.*\.qmd$" || true)
+          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r "$COMMIT" | grep "^$VERSION/.*\.qmd$" || true)
 
           if [ -z "$CHANGED_FILES" ]; then
             echo "No .qmd files changed in $VERSION"
             exit 0
           fi
 
-          MSG=$(git log -1 --format="%s" | sed -E 's/ \[[^]]*\]$//; s/ \(#[0-9]*\)$//; s/^([a-z]*)\([^)]*\): /\1: /')
+          MSG=$(git log -1 --format="%s" "$COMMIT" | sed -E 's/ \[[^]]*\]$//; s/ \(#[0-9]*\)$//; s/^([a-z]*)\([^)]*\): /\1: /')
 
           if echo "$MSG" | grep -q "^docs:"; then
             echo "Skipping docs commit"
@@ -57,7 +63,7 @@ jobs:
 
           for file in $CHANGED_FILES; do
             FILENAME=$(basename "$file")
-            MODIFIED=$(grep -m1 "^; Modified:" "$file" 2>/dev/null | sed 's/^; Modified: //' | xargs || echo "")
+            MODIFIED=$(git show "$COMMIT:$file" 2>/dev/null | grep -m1 "^; Modified:" | sed 's/^; Modified: //' | xargs || echo "")
 
             if [ -z "$MODIFIED" ]; then
               echo "No Modified timestamp in $file, skipping"
@@ -219,5 +225,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: update changelog and compatibility table"
+            git pull --rebase
             git push
           fi

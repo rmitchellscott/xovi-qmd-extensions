@@ -235,6 +235,11 @@ Requires qt-command-executor.
 
 <img src="assets/settingsRmsyncRestart.png" height="200"/>
 
+### share-button-to-menu
+[![vellum](https://img.shields.io/badge/vellum-share--button--to--menu-purple)](https://vellum.delivery/#/package/share-button-to-menu/)
+
+Moves the Share button from the document toolbar into the ⋮ menu, where it was before 3.28.
+
 ### sortTemplatesRecent
 [![vellum](https://img.shields.io/badge/vellum-sort--templates--recent-purple)](https://vellum.delivery/#/package/sort-templates-recent/)
 
@@ -247,6 +252,11 @@ Sorts the template selector by most recently used.
 
 Erases when stylus side button is held on rM1 and rM2.  
 Requires [rm-stylus](https://github.com/rmitchellscott/rm-stylus)
+
+### tags-button-to-menu
+[![vellum](https://img.shields.io/badge/vellum-tags--button--to--menu-purple)](https://vellum.delivery/#/package/tags-button-to-menu/)
+
+Moves the Tags button from the document toolbar into the ⋮ menu.
 
 ### tocFromSelection
 [![vellum](https://img.shields.io/badge/vellum-toc--from--selection-purple)](https://vellum.delivery/#/package/toc-from-selection/)

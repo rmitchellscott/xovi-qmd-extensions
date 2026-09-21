@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -19,6 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Setup Python
@@ -27,12 +32,16 @@ jobs:
           python-version: '3.13'
 
       - name: Prepend sections for bumped versions
+        env:
+          COMMIT: ${{ github.sha }}
         run: |
           cat > changelog.py << 'SCRIPT'
+          import os
           import re
           import subprocess
 
           MAPPING = 'changelogs/extensions.yml'
+          COMMIT = os.environ['COMMIT']
 
 
           def git(*args):
@@ -57,7 +66,7 @@ jobs:
 
 
           def previous_release(package, version):
-              for commit in git('log', '--format=%H', 'HEAD~1', '--', MAPPING).split():
+              for commit in git('log', '--format=%H', f'{COMMIT}~1', '--', MAPPING).split():
                   entry = mapping_at(commit).get(package)
                   if entry and entry.get('version') != version:
                       return commit
@@ -82,7 +91,7 @@ jobs:
 
 
           def section(package, filename, version, since):
-              revisions = f'{since}..HEAD' if since else 'HEAD'
+              revisions = f'{since}..{COMMIT}' if since else COMMIT
               log = git('log', '--format=%s', revisions, '--', f'*/{filename}.qmd')
               entries = []
               for subject in log.splitlines():
@@ -94,8 +103,8 @@ jobs:
               return f'## {version}\n' + ''.join(f'- {entry}\n' for entry in entries) + '\n'
 
 
-          current = parse_mapping(open(MAPPING).read())
-          previous = mapping_at('HEAD~1')
+          current = mapping_at(COMMIT)
+          previous = mapping_at(f'{COMMIT}~1')
 
           for package, entry in current.items():
               version = entry['version']
@@ -135,5 +144,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: update package changelogs"
+            git pull --rebase
             git push
           fi

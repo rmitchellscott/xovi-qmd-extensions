@@ -67,6 +67,9 @@ quicksheet-use-template:
 settings-rmsync-restart:
   file: settingsRmSyncRestart
   version: 1.0.0
+share-button-to-menu:
+  file: share-button-to-menu
+  version: 1.0.0
 sort-templates-recent:
   file: sortTemplatesRecent
   version: 1.0.0
@@ -75,6 +78,9 @@ stylus-button-eraser:
   version: 2.0.0
 stylus-button-undo-redo:
   file: stylusButtonUndoRedo
+  version: 1.0.0
+tags-button-to-menu:
+  file: tags-button-to-menu
   version: 1.0.0
 toc-from-selection:
   file: tocFromSelection
