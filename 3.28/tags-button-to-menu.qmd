@@ -1,0 +1,10 @@
+; Mitchell Scott (https://github.com/rmitchellscott)
+; SPDX-License-Identifier: GPL-3.0-only
+; Modified: 2026-09-21T21:42:06Z
+
+AFFECT REBUILD [[15180122603616572528]]
+    LOCATE AFTER { ~&"6503160856&~ }
+    LOCATE AFTER { "placement" : }
+    REMOVE { ~&"254502514718671153&~ }
+    INSERT { ~&"233706128961085&~ }
+END REBUILD
