@@ -47,9 +47,11 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **quicksheetUseTemplate.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **settingsRmSyncRestart.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **share-button-to-menu.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **sortTemplatesRecent.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **stylusButtonEraser.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **stylusButtonUndoRedo.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **tags-button-to-menu.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **tocFromSelection.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **touchLock.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **unlockMethodsContent.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
