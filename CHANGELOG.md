@@ -1,5 +1,9 @@
 # Changelog
 
+## link-touch-targets.qmd
+#### 2026-09-24T19:56:55Z
+- link-touch-targets: initial release
+
 ## tags-button-to-menu.qmd
 #### 2026-09-21T21:42:06Z
 - feat: initial release
