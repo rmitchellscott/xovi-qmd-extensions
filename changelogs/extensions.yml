@@ -43,6 +43,9 @@ hide-hyperlink-back-button:
 hide-zoom-indicator:
   file: hideZoomIndicator
   version: 1.0.3
+link-touch-targets:
+  file: link-touch-targets
+  version: 1.0.0
 mini-light-sleep:
   file: miniLightSleep
   version: 1.0.5

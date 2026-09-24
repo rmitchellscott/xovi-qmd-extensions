@@ -176,6 +176,11 @@ Hides the "Back" button when clicking PDF hyperlinks.
 
 Auto-hides zoom indicator after 4 seconds (like the scrollbars).
 
+### link-touch-targets
+[![vellum](https://img.shields.io/badge/vellum-link--touch--targets-purple)](https://vellum.delivery/#/package/link-touch-targets/)
+
+Makes PDF and ebook hyperlinks easier to tap. A tap that just misses a link opens the nearest link within 4 mm.
+
 ### miniLightSleep
 [![vellum](https://img.shields.io/badge/vellum-mini--light--sleep-purple)](https://vellum.delivery/#/package/mini-light-sleep/)
 
