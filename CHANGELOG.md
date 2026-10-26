@@ -1,34 +1,48 @@
 # Changelog
 
 ## link-touch-targets.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-24T19:56:55Z
 - link-touch-targets: initial release
 
 ## tags-button-to-menu.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-21T21:42:06Z
 - feat: initial release
 
 ## share-button-to-menu.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-21T21:41:46Z
 - feat: initial release
 
 ## white-ebook-margins.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-13T23:39:51Z
 - white-ebook-margins: initial release
 
 ## sortTemplatesRecent.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-07-07T19:44:00Z
 - add defaultTemplate, sortTemplatesRecent
 
 ## defaultTemplate.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-07-07T19:44:00Z
 - add defaultTemplate, sortTemplatesRecent
 
 ## quickSettingsBluetooth.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-07-06T20:09:58Z
@@ -45,6 +59,8 @@
 - add bluetoothSettings
 
 ## betterTocCollapse.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-07-06T18:58:23Z
@@ -61,6 +77,8 @@
 - add enableTypingOnDocuments
 
 ## createDocumentFromPages.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -71,6 +89,8 @@
 - add createDocumentFromPages
 
 ## hideHyperlinkBackButton.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -79,6 +99,8 @@
 - add hideHyperlinkBackButton
 
 ## penLayerMemory.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -91,6 +113,8 @@
 - add penLayerMemory
 
 ## duplicateAnnotatedPages.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-06-22T19:46:27Z
@@ -105,6 +129,8 @@
 - add duplicateAnnotatedPages
 
 ## disableInfiniteScroll.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -117,6 +143,8 @@
 - add disableInfiniteScroll
 
 ## filterAnnotatedPages.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-06-22T18:57:00Z
@@ -129,6 +157,8 @@
 - add filterAnnotatedPages
 
 ## ghostbuster.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -141,6 +171,8 @@
 - add ghostbuster
 
 ## touchLock.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -159,6 +191,8 @@
 - add touchLock
 
 ## quicksheetUseTemplate.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -171,6 +205,8 @@
 - quicksheetUseTemplate
 
 ## tocFromSelection.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -185,6 +221,8 @@
 - add tocFromSelection
 
 ## stylusButtonUndoRedo.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -197,6 +235,8 @@
 - add stylusButtonUndoRedo
 
 ## settingsRmSyncRestart.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -209,6 +249,8 @@
 - add settingsRmSyncRestart
 
 ## stylusButtonEraser.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -320,6 +362,8 @@
 - add betterToc.qmd
 
 ## createPagesPaperProSize.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -344,6 +388,8 @@
 
 
 ## createPagesRM2Size.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -368,6 +414,8 @@
 
 
 ## disableSelectionAutoScroll.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -402,6 +450,8 @@
 
 
 ## fixBatteryIndicator.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -422,6 +472,8 @@
 
 
 ## fixLightIndicatorGap.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -464,6 +516,8 @@
 - add fixPageNumberOnSlider
 
 ## hideDevModeIcon.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -498,6 +552,8 @@
 
 
 ## hideZoomIndicator.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -526,6 +582,8 @@
 
 
 ## miniLightSleep.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -552,6 +610,8 @@
 
 
 ## preventNotebookZoomOut.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-07-20T03:01:10Z
@@ -581,6 +641,8 @@
 
 
 ## quickSettingsClockSerif.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -604,6 +666,8 @@
 
 
 ## quickSettingsScreenshot.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
@@ -636,6 +700,8 @@
 - add quickSettingsScreenshot
 
 ## unlockMethodsContent.qmd
+#### 2026-10-26T17:54:02Z
+- fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
 - fix: 3.28 support
 #### 2026-05-06T23:17:34Z
