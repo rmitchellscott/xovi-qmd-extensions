@@ -1,0 +1,20 @@
+; Mitchell Scott (https://github.com/rmitchellscott)
+; SPDX-License-Identifier: GPL-3.0-only
+; Modified: 2026-10-26T17:54:02Z
+
+AFFECT [[17298303916558156758]]
+TRAVERSE [[254504370080162629]]
+    LOCATE AFTER [[8520322697674622449]]#[[15919479264072650887]]
+    INSERT {
+        ~&8520322697674622449&~ {
+            ~&5972374&~: ghostbusterFilter
+            ~&8399878573055752961&~: "ghost-buster"
+            ~&233726547792244&~: !~&11206357713879652003&~.~&496507644976596653&~
+            ~&233727659172727&~: 5
+            ~&233739427250348&~: {
+                ~&482865290967253827&~.~&8021204117616398611&~("5-finger gesture");
+            }
+        }
+    }
+END TRAVERSE
+END AFFECT
