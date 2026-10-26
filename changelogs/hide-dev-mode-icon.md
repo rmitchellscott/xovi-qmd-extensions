@@ -1,5 +1,8 @@
 # hide-dev-mode-icon
 
+## 1.0.3
+- Support for reMarkable OS 3.29.
+
 ## 1.0.2
 - Support for reMarkable OS 3.25.
 

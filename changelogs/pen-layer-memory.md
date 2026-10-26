@@ -1,5 +1,8 @@
 # pen-layer-memory
 
+## 1.0.4
+- Support for reMarkable OS 3.29.
+
 ## 1.0.3
 - Support for reMarkable OS 3.28.
 

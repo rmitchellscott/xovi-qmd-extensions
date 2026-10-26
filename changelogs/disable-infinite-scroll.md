@@ -1,5 +1,8 @@
 # disable-infinite-scroll
 
+## 1.1.2
+- Support for reMarkable OS 3.29.
+
 ## 1.1.1
 - Support for reMarkable OS 3.28.
 
