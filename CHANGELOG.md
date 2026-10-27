@@ -129,6 +129,8 @@
 - add duplicateAnnotatedPages
 
 ## disableInfiniteScroll.qmd
+#### 2026-10-27T20:18:19Z
+- fix: limit selection to the full landscape page when portrait margins are off
 #### 2026-10-26T17:54:02Z
 - fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
