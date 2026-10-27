@@ -1,5 +1,8 @@
 # disable-infinite-scroll
 
+## 1.1.3
+- Limit selection to the full landscape page when portrait margins are off.
+
 ## 1.1.2
 - Support for reMarkable OS 3.29.
 
