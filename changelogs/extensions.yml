@@ -15,7 +15,7 @@ default-template:
   version: 1.0.0
 disable-infinite-scroll:
   file: disableInfiniteScroll
-  version: 1.1.2
+  version: 1.1.3
 disable-selection-autoscroll:
   file: disableSelectionAutoScroll
   version: 1.0.1
