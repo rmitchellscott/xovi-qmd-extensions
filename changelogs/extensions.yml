@@ -51,7 +51,7 @@ mini-light-sleep:
   version: 1.0.5
 pen-layer-memory:
   file: penLayerMemory
-  version: 1.0.4
+  version: 1.0.5
 prevent-notebook-zoomout:
   file: preventNotebookZoomOut
   version: 1.1.2
@@ -90,7 +90,7 @@ toc-from-selection:
   version: 1.1.0
 touch-lock:
   file: touchLock
-  version: 1.0.3
+  version: 1.0.4
 unlock-methods-content:
   file: unlockMethodsContent
   version: 1.0.2
