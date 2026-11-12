@@ -99,6 +99,8 @@
 - add hideHyperlinkBackButton
 
 ## penLayerMemory.qmd
+#### 2026-11-12T19:49:13Z
+- fix: place the Remember layers toggle in the same menu as stock toggles
 #### 2026-10-26T17:54:02Z
 - fix: support for reMarkable OS 3.29
 #### 2026-09-02T17:13:42Z
