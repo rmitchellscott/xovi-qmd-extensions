@@ -1,5 +1,8 @@
 # touch-lock
 
+## 1.0.4
+- Toolbar overflowing and hiding the More button when reopening notebooks.
+
 ## 1.0.3
 - Support for reMarkable OS 3.28.
 

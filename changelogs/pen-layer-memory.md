@@ -1,5 +1,8 @@
 # pen-layer-memory
 
+## 1.0.5
+- Place the Remember layers toggle in the same menu as stock toggles.
+
 ## 1.0.4
 - Support for reMarkable OS 3.29.
 
