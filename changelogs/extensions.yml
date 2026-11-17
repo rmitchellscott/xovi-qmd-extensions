@@ -22,6 +22,9 @@ disable-selection-autoscroll:
 duplicate-annotated-pages:
   file: duplicateAnnotatedPages
   version: 2.1.1
+ebook-font-size-picker:
+  file: ebook-font-size-picker
+  version: 1.0.0
 filter-annotated-pages:
   file: filterAnnotatedPages
   version: 1.1.1

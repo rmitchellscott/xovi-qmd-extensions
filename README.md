@@ -130,6 +130,13 @@ Requires:
 
 <img src="assets/duplicateAnnotations.png" height="400"/>
 
+### ebook-font-size-picker
+[![vellum](https://img.shields.io/badge/vellum-ebook--font--size--picker-purple)](https://vellum.delivery/#/package/ebook-font-size-picker/)
+
+Replaces the ebook font size buttons with a point size dropdown (8–24 pt).
+
+<img src="assets/ebook-font-size-picker.png" height="400"/>
+
 ### enableTypingOnDocuments.qmd
 [![vellum](https://img.shields.io/badge/vellum-enable--typing--on--documents-purple)](https://vellum.delivery/#/package/enable-typing-on-documents/)
 
