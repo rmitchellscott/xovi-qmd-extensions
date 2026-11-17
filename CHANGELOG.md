@@ -1,5 +1,9 @@
 # Changelog
 
+## ebook-font-size-picker.qmd
+#### 2026-11-17T20:46:22Z
+- feat: initial release
+
 ## link-touch-targets.qmd
 #### 2026-10-26T17:54:02Z
 - fix: support for reMarkable OS 3.29

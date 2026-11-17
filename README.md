@@ -32,6 +32,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **disableInfiniteScroll.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **disableSelectionAutoScroll.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **duplicateAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **ebook-font-size-picker.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **filterAnnotatedPages.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **fixBatteryIndicator.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **fixLightIndicatorGap.qmd** | ❌ | ❌ | ✅ | ✅ | ❌ |
