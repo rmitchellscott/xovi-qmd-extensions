@@ -52,6 +52,9 @@ link-touch-targets:
 mini-light-sleep:
   file: miniLightSleep
   version: 1.0.5
+nav-sidebar-scroller:
+  file: nav-sidebar-scroller
+  version: 1.0.0
 pen-layer-memory:
   file: penLayerMemory
   version: 1.0.5

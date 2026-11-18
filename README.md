@@ -195,6 +195,11 @@ Makes PDF and ebook hyperlinks easier to tap. A tap that just misses a link open
 
 Replaces the light sleep banner with text saying "Sleeping" at the top right of the screen.
 
+### nav-sidebar-scroller
+[![vellum](https://img.shields.io/badge/vellum-nav--sidebar--scroller-purple)](https://vellum.delivery/#/package/nav-sidebar-scroller/)
+
+Makes the main sidebar scrollable.
+
 ### penLayerMemory
 [![vellum](https://img.shields.io/badge/vellum-pen--layer--memory-purple)](https://vellum.delivery/#/package/pen-layer-memory/)
 
