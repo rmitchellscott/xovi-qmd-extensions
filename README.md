@@ -22,6 +22,9 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 
 ## Compatibility
 
+<details>
+<summary>Compatibility table</summary>
+
 <!-- compat:begin -->
 | File | reMarkable 1 | reMarkable 2 | Paper Pro | Paper Pro Move | Paper Pure |
 | ---- | :----------: | :----------: | :-------: | :------------: | :--------: |
@@ -60,6 +63,8 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **unlockMethodsContent.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **white-ebook-margins.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 <!-- compat:end -->
+
+</details>
 
 ## Extensions
 
