@@ -76,6 +76,9 @@ quicksheet-use-template:
 settings-rmsync-restart:
   file: settingsRmSyncRestart
   version: 1.0.0
+settings-sidebar-scroller:
+  file: settings-sidebar-scroller
+  version: 1.0.0
 share-button-to-menu:
   file: share-button-to-menu
   version: 1.0.0

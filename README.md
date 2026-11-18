@@ -261,6 +261,11 @@ Requires qt-command-executor.
 
 <img src="assets/settingsRmsyncRestart.png" height="200"/>
 
+### settings-sidebar-scroller
+[![vellum](https://img.shields.io/badge/vellum-settings--sidebar--scroller-purple)](https://vellum.delivery/#/package/settings-sidebar-scroller/)
+
+Makes the settings sidebar scrollable.
+
 ### share-button-to-menu
 [![vellum](https://img.shields.io/badge/vellum-share--button--to--menu-purple)](https://vellum.delivery/#/package/share-button-to-menu/)
 
