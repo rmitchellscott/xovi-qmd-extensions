@@ -1,5 +1,9 @@
 # Changelog
 
+## settings-sidebar-scroller.qmd
+#### 2026-11-18T19:04:05Z
+- feat: initial release
+
 ## nav-sidebar-scroller.qmd
 #### 2026-11-18T18:53:11Z
 - feat: initial release

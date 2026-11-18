@@ -52,6 +52,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **quickSettingsClockSerif.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsScreenshot.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **quicksheetUseTemplate.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **settings-sidebar-scroller.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **settingsRmSyncRestart.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **share-button-to-menu.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **sortTemplatesRecent.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
