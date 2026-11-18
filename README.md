@@ -42,6 +42,7 @@ Copy the `.qmd` files to `/home/root/xovi/exthome/qt-resource-rebuilder/` and re
 | **hideZoomIndicator.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **link-touch-targets.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **miniLightSleep.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **nav-sidebar-scroller.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **penLayerMemory.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **preventNotebookZoomOut.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **quickSettingsBluetooth.qmd** | ✅ | ✅ | ✅ | ✅ | ✅ |

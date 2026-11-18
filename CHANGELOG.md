@@ -1,5 +1,9 @@
 # Changelog
 
+## nav-sidebar-scroller.qmd
+#### 2026-11-18T18:53:11Z
+- feat: initial release
+
 ## ebook-font-size-picker.qmd
 #### 2026-11-17T20:46:22Z
 - feat: initial release
