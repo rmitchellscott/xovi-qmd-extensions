@@ -144,11 +144,6 @@ Replaces the ebook font size buttons with a point size dropdown (8–24 pt).
 
 <img src="assets/ebook-font-size-picker.png" height="400"/>
 
-### enableTypingOnDocuments.qmd
-[![vellum](https://img.shields.io/badge/vellum-enable--typing--on--documents-purple)](https://vellum.delivery/#/package/enable-typing-on-documents/)
-
-Enables the text typing feature on PDF and ePUB pages.
-
 ### filterAnnotatedPages
 [![vellum](https://img.shields.io/badge/vellum-filter--annotated--pages-purple)](https://vellum.delivery/#/package/filter-annotated-pages/)
 
@@ -315,6 +310,10 @@ Bypasses subscription check for using on-device Methods templates and documents.
 Removes the dithered margin overlays when reading ebooks, leaving plain white margins.
 
 ## Deprecated Extensions
+
+### enableTypingOnDocuments
+Enables the text typing feature on PDF and ePUB pages.  
+Broken in 3.27.
 
 ### extendListTitleWidth
 Removes extra right margin for titles in list view to fill more of the available space.  
